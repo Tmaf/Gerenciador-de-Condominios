@@ -8,6 +8,8 @@ package control.domain;
 import java.util.Iterator;
 import java.util.List;
 import model.dao.CrudDao;
+import model.domain.pessoas.Funcionario;
+import model.domain.pessoas.Morador;
 import model.domain.pessoas.Usuario;
 import model.service.ServiceLocator;
 
@@ -70,5 +72,34 @@ public class UsuarioControl {
        else
            return null;
     
+    }
+    
+    public Morador getMorador(Usuario user){
+    MoradorControl fc = MoradorControl.getMoradorControl();
+        
+        List<Morador> f = fc.pesquisarMorador("",user.getCpf(),"","","");
+        
+        if (f.size()==1){
+
+            return f.get(0);
+        }
+        else{
+        
+            return null;
+        }
+    }
+    
+    public Funcionario getFuncionario(Usuario user){
+        FuncionarioControl fc = FuncionarioControl.getFuncionarioControl();
+        
+        List<Funcionario> f = fc.pesquisarFuncionario(user.getNome(),
+                user.getCpf(),"","","", null, null);
+        
+        if (f.size()!=1){
+            return f.get(0);
+        }
+        else{
+            return null;
+        }
     }
 }

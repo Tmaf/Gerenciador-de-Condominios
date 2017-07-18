@@ -6,7 +6,7 @@
 package control.domain;
 
 import java.sql.Date;
-import java.util.Iterator;
+import java.util.List;
 import model.dao.CrudDao;
 import model.domain.pessoas.Funcionario;
 import model.service.ServiceLocator;
@@ -55,7 +55,7 @@ public class FuncionarioControl {
         dao.excluir(m);
     }
     
-    public Iterator pesquisarFuncionario(String nome,String cpf, String email, String numero,String setorServico, Date horarioEntrada, Date horarioSaida){
+    public List<Funcionario> pesquisarFuncionario(String nome,String cpf, String email, String numero,String setorServico, Date horarioEntrada, Date horarioSaida){
         Funcionario m= new Funcionario();
         m.setCpf(cpf);
         m.setEmail(email);
@@ -64,6 +64,6 @@ public class FuncionarioControl {
         m.setSetorDeServico(setorServico);
         m.setHorarioEntrada(horarioEntrada);
         m.setHorarioSaida(horarioSaida);
-        return dao.pesquisar(m).iterator();
+        return dao.pesquisar(m);
     }
 }

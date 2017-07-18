@@ -1,6 +1,6 @@
 package control.domain;
 
-import java.util.Iterator;
+import java.util.List;
 import model.dao.CrudDao;
 import model.domain.pessoas.Morador;
 import model.service.ServiceLocator;
@@ -51,14 +51,14 @@ public class MoradorControl {
         dao.excluir(m);
     }
     
-    public Iterator pesquisarMorador(String nome,String cpf, String email, String numero,String endereco){
+    public List<Morador> pesquisarMorador(String nome,String cpf, String email, String numero,String endereco){
         Morador m= new Morador();
         m.setCpf(cpf);
         m.setEmail(email);
         m.setTelefone(numero);
         m.setNome(nome);
         m.setEndereco(endereco);
-        return dao.pesquisar(m).iterator();
+        return dao.pesquisar(m);
     }
     
 }
