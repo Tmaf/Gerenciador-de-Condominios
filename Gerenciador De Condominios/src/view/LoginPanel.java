@@ -138,8 +138,12 @@ public class LoginPanel extends javax.swing.JPanel {
         UsuarioControl us= new UsuarioControl();
         String c = new String(senhaText.getPassword());
         Usuario usuario=us.login(usuarioText.getText(),c);            
-            Tela.end();
-            Tela.inicializaTela(usuario);
+            try{
+                Tela.inicializaTela(usuario);
+                Tela.end();
+            }catch(Exception e){
+            e.printStackTrace();
+            }
     }//GEN-LAST:event_loginButtonActionPerformed
 
 
