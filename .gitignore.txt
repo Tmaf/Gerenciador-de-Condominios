@@ -1,0 +1,2 @@
+.gitignore
+Gerenciador De Condominios/build/*
