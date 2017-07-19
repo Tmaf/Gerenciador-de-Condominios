@@ -7,6 +7,7 @@ package view;
 
 import control.View.Tela;
 import control.domain.UsuarioControl;
+import javafx.scene.control.Alert;
 import model.domain.pessoas.Usuario;
 
 /**
