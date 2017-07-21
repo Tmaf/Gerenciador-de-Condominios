@@ -5,6 +5,8 @@
  */
 package view.paineis;
 
+import control.domain.FinanceiroControl;
+
 /**
  *
  * @author Aline
@@ -16,6 +18,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
      */
     public IncluirFinanceiroView() {
         initComponents();
+        financeiroControl = FinanceiroControl.getFinanceiroControl();
         
         RecDesjComboBox.removeAllItems();
         RecDesjComboBox.addItem("Receita");
@@ -34,6 +37,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoLancjComboBox.addItem("Taxa de locação de área");
         TipoLancjComboBox.addItem("Pagamento à fornecedor");
         TipoLancjComboBox.addItem("Outro");
+        
     }
 
     /**
@@ -61,7 +65,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoPgtojComboBox = new javax.swing.JComboBox<>();
         TipoLancjLabel = new javax.swing.JLabel();
         TipoLancjComboBox = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        salvarjButton = new javax.swing.JButton();
 
         FornMorjLabel.setText("Fornecedor/Morador:");
 
@@ -100,7 +104,12 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Salvar");
+        salvarjButton.setText("Salvar");
+        salvarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvarjButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -144,7 +153,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                         .addComponent(TipoLancjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(salvarjButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -179,7 +188,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                     .addComponent(TipoLancjLabel)
                     .addComponent(TipoLancjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(salvarjButton)
                 .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -196,7 +205,15 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TipoLancjComboBoxActionPerformed
 
+    private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
+        financeiroControl.salvarFinanceiro(this.NroDocjTextField.getText(), this.FornMorjTextField.getText(),
+                (String) this.RecDesjComboBox.getSelectedItem(), (String) this.TipoPgtojComboBox.getSelectedItem(),
+                (String) this.TipoLancjComboBox.getSelectedItem(), new java.sql.Date(new java.util.Date().getTime()),
+                new java.sql.Date(new java.util.Date().getTime()),
+                new java.sql.Date(new java.util.Date().getTime()));
+    }//GEN-LAST:event_salvarjButtonActionPerformed
 
+FinanceiroControl financeiroControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFCNPJjLabel;
     private javax.swing.JTextField CPFCNPJjTextField;
@@ -214,6 +231,6 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     private javax.swing.JLabel TipoLancjLabel;
     private javax.swing.JComboBox<String> TipoPgtojComboBox;
     private javax.swing.JLabel TipoPgtojLabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton salvarjButton;
     // End of variables declaration//GEN-END:variables
 }

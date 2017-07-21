@@ -5,9 +5,9 @@
  */
 package control;
 
-import control.domain.VisitanteControl;
+import control.domain.FinanceiroControl;
 import java.util.Iterator;
-import model.domain.pessoas.Visitante;
+import model.domain.Financeiro;
 
 /**
  *
@@ -16,14 +16,14 @@ import model.domain.pessoas.Visitante;
 public class ControlTest {
     
     public static void main(String[] args) {
-        VisitanteControl mc = new VisitanteControl();
+        FinanceiroControl mc = new FinanceiroControl();
         
-        mc.salvarVisitante("nome","cpf", "telefone", false, new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
-        
-        Iterator it = mc.pesquisarVisitante("nome","cpf", "telefone", false, new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
+        mc.salvarFinanceiro("12345", "Fornecedor", "Receita","Boleto", "Taxa condominio", new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
+
+        Iterator it = mc.pesquisarFinanceiro("12345","Fornecedor","Receita","Boleto", "Taxa condominio", new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
         
         while(it.hasNext()){
-            System.out.println(((Visitante)it.next()).getNome());
+            System.out.println(((Financeiro)it.next()).getNroDocumento());
         }
     }
 }

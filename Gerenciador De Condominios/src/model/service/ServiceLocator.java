@@ -42,5 +42,9 @@ public class ServiceLocator<E> {
     public static VisitanteDao getVisitanteDao(){
         return new VisitanteDaoImpl();
     }
+    
+    public static FinanceiroDao getFinanceiroDao(){
+        return new FinanceiroDaoImpl();
+    }
    
 }

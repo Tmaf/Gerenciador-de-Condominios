@@ -36,7 +36,6 @@ public class FinanceiroMenuView extends javax.swing.JPanel {
 
         IncluirLancamentojButton = new javax.swing.JButton();
         ConsultarFinanceirojButton = new javax.swing.JButton();
-        BaixarLancamentojButton = new javax.swing.JButton();
 
         IncluirLancamentojButton.setText("Incluir Lançamento");
         IncluirLancamentojButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,25 +51,16 @@ public class FinanceiroMenuView extends javax.swing.JPanel {
             }
         });
 
-        BaixarLancamentojButton.setText("Baixar Lançamento");
-        BaixarLancamentojButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BaixarLancamentojButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(IncluirLancamentojButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BaixarLancamentojButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConsultarFinanceirojButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(IncluirLancamentojButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ConsultarFinanceirojButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +68,6 @@ public class FinanceiroMenuView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IncluirLancamentojButton)
-                    .addComponent(BaixarLancamentojButton)
                     .addComponent(ConsultarFinanceirojButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -92,13 +81,8 @@ public class FinanceiroMenuView extends javax.swing.JPanel {
          Tela.atualizaTela("ConsultarFinanceiro");
     }//GEN-LAST:event_ConsultarFinanceirojButtonActionPerformed
 
-    private void BaixarLancamentojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixarLancamentojButtonActionPerformed
-         Tela.atualizaTela("BaixarFinanceiro");
-    }//GEN-LAST:event_BaixarLancamentojButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BaixarLancamentojButton;
     private javax.swing.JButton ConsultarFinanceirojButton;
     private javax.swing.JButton IncluirLancamentojButton;
     // End of variables declaration//GEN-END:variables
