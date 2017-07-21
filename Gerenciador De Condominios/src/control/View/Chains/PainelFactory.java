@@ -18,7 +18,7 @@ public abstract class PainelFactory {
     
        switch (tela){
            
-           case "BaixarFinanceiro": return new BaixarFinanceiroView();
+           
            case "CadastroEncomenda": return new CadastroEncomendasView();
            case  "CadastroFuncionario":  return new CadastroFuncionarioView();
            
