@@ -5,9 +5,11 @@
  */
 package control.domain;
 
+import java.sql.Date;
 import java.util.Iterator;
 import model.dao.CrudDao;
 import model.domain.AreaComum;
+import model.domain.pessoas.Pessoa;
 import model.service.ServiceLocator;
 
 /**
@@ -31,27 +33,42 @@ public class AreaComumControl {
     
     }
     
-    public void salvarAreaComum(String nome,double valor,String endereco){
+    public void salvarAreaComum(Pessoa pessoa, String nome,
+            double valor,Date dataReserva,Date horaInicio,Date horaFim,boolean diaTodo){
         AreaComum m= new AreaComum();
+        m.setPessoa(pessoa);
         m.setNome(nome);
         m.setValor(valor);
-        m.setEndereco(endereco);
+        m.setDataReserva(dataReserva);
+        m.setHoraInicio(horaInicio);
+        m.setHoraFim(horaFim);
+        m.setDiaTodo(diaTodo);
         dao.salvar(m);
     }
     
-    public void excluirAreaComum(String nome,double valor,String endereco){
+    public void excluirAreaComum(Pessoa pessoa, String nome,
+            double valor,Date dataReserva,Date horaInicio,Date horaFim,boolean diaTodo){
         AreaComum m= new AreaComum();
+        m.setPessoa(pessoa);
         m.setNome(nome);
         m.setValor(valor);
-        m.setEndereco(endereco);
+        m.setDataReserva(dataReserva);
+        m.setHoraInicio(horaInicio);
+        m.setHoraFim(horaFim);
+        m.setDiaTodo(diaTodo);
         dao.excluir(m);
     }
     
-    public Iterator pesquisarAreaComum(String nome,double valor,String endereco){
+    public Iterator pesquisarAreaComum(Pessoa pessoa, String nome,
+            double valor,Date dataReserva,Date horaInicio,Date horaFim,boolean diaTodo){
         AreaComum m= new AreaComum();
+        m.setPessoa(pessoa);
         m.setNome(nome);
         m.setValor(valor);
-        m.setEndereco(endereco);
+        m.setDataReserva(dataReserva);
+        m.setHoraInicio(horaInicio);
+        m.setHoraFim(horaFim);
+        m.setDiaTodo(diaTodo);
         return dao.pesquisar(m).iterator();
     }
 }

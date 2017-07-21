@@ -5,7 +5,7 @@
  */
 package view.paineis;
 
-import control.domain.ReclamacaoControl;
+import control.domain.*;
 
 /**
  *
@@ -18,7 +18,7 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
      */
     public RegistrarReclamacaoView() {
         initComponents();
-        reclamacaoControl = ReclamacaoControl.getReclamacaoControl();
+        reclamacaoControl = ControlFactory.getReclamacaoControl();
     }
 
     /**
@@ -91,10 +91,10 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        reclamacaoControl.salvarReclamacao(this.assuntojTextField.getText(), this.reclamacaojTextArea.getText(), "");
+     //   reclamacaoControl.salvarReclamacao(this.assuntojTextField.getText(), this.reclamacaojTextArea.getText(), "");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-ReclamacaoControl reclamacaoControl;
+    private Control reclamacaoControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assuntojLabel;
     private javax.swing.JTextField assuntojTextField;

@@ -5,46 +5,60 @@
  */
 package model.service;
 
-import model.dao.crud.*;
+import java.util.HashMap;
+import java.util.Map;
+import model.dao.CrudDao;
 import model.dao.crud.impl.*;
+import model.domain.*;
+import model.domain.pessoas.*;
 
 /**
  *
- * @author aline.lima
+ * @author Tarcisio Almeida
  */
-public class ServiceLocator<E> {
+public class ServiceLocator implements ServiceInterface{
     
+    private  Map <Class,Class> map;  
+    private static ServiceLocator serviceLocator;
     
-    public static MoradorDao getMoradorDao(){
-        return new MoradorDaoImpl();
-    }
-    public static AreaComumDao getAreaComumDao(){
-        return new AreaComumDaoImpl();
-    }
-    public static EmpresaDao getEmpresaDao(){
-        return new EmpresaDaoImpl();
-    }
-    public static EncomendaDao getEncomendaDao(){
-        return new EncomendaDaoImpl();
-    }
-    public static FuncionarioDao getFuncionarioDao(){
-        return new FuncionarioDaoImpl();
-    }  
-    public static ReclamacaoDao getReclamacaoDao(){
-        return new ReclamacaoDaoImpl();
-    }
-    public static UsuarioDao getUsuarioDao(){
-        return new UsuarioDaoImpl();
-    }
-    public static VeiculoDao getVeiculoDao(){
-        return new VeiculoDaoImpl();
-    }
-    public static VisitanteDao getVisitanteDao(){
-        return new VisitanteDaoImpl();
+    private ServiceLocator(){
+     map= new HashMap<>();   
     }
     
-    public static FinanceiroDao getFinanceiroDao(){
-        return new FinanceiroDaoImpl();
+    public static ServiceInterface getServiceLocator(){
+        if(serviceLocator==null)
+            serviceLocator=new ServiceLocator();
+        return serviceLocator;
+    }
+    
+    @Override
+    public  CrudDao getService(Class dominio){
+        CrudDao crud;
+        try{
+            if(map.size()==0)
+                this.initAntigo();
+            System.out.println( "" + map.size() + "\n" + map.get(dominio));
+            
+            
+            crud= (CrudDao) (map.get(dominio).newInstance());
+        }catch(IllegalAccessException | InstantiationException e){
+            crud =null;
+        }
+        return crud;
+    }
+    public  void addService(Class dominio,Class cruddao){
+            map.put(dominio, cruddao);
+    }
+    private void initAntigo(){
+        map.put(Morador.class, MoradorDaoImpl.class);
+        map.put(AreaComum.class, AreaComumDaoImpl.class);
+        map.put(Empresa.class, EmpresaDaoImpl.class);
+        map.put(Encomenda.class, EncomendaDaoImpl.class);
+        map.put(Funcionario.class, FuncionarioDaoImpl.class);
+        map.put(Reclamacao.class, ReclamacaoDaoImpl.class);
+        map.put(Usuario.class, UsuarioDaoImpl.class);
+        map.put(Veiculo.class, VeiculoDaoImpl.class);
+        map.put(Visitante.class,VisitanteDaoImpl.class);
     }
    
 }

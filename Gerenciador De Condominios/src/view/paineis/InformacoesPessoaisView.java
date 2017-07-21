@@ -6,7 +6,7 @@
 package view.paineis;
 
 import control.View.Tela;
-import control.domain.UsuarioControl;
+import control.domain.*;
 import model.domain.pessoas.Funcionario;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Usuario;
@@ -22,10 +22,10 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
      */
     public InformacoesPessoaisView() {
         initComponents();
-        usuarioControl = UsuarioControl.getUsuarioControl();
+        usuarioControl = ControlFactory.getUsuarioControl();
         Usuario user = Tela.getUser();
         
-        this.nomejTextField.setText(user.getNome());
+        /*this.nomejTextField.setText(user.getNome());
         this.CPFjTextField.setText(user.getCpf());
         
         if("MoradorMestre".equals(user.getPermissao()) || 
@@ -49,8 +49,10 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
        }
      if("Porteiro".equals(user.getPermissao())){
         try{
-            Funcionario f ;
-            f= usuarioControl.getFuncionario(user);
+            Funcionario f= new Funcionario();
+            f.setCpf(user.getCpf());
+            Control<Funcionario>funcionarioControl= ControlFactory.getFuncionarioControl();
+            f= funcionarioControl.bucarPorChave(f);
             this.emailjTextField.setText(f.getEmail());
             this.telefonejTextField.setText(f.getTelefone());
             this.setorjTextField.setText(f.getSetorDeServico());
@@ -64,7 +66,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
         }catch(Exception e){
         e.printStackTrace();
         }
-        }
+        }*/
     }
 
     /**
@@ -243,7 +245,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
             Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
         }*/
                 
-        usuarioControl.salvarUsuario(this.CPFjTextField.getText(),
+        /*usuarioControl.salvarUsuario(this.CPFjTextField.getText(),
                 this.nomejTextField.getText(),String.copyValueOf(senha), "");
         
       /*  funcionarioControl.salvarFuncionario(this.nomejTextField.getText(), this.CPFjTextField.getText(),
@@ -255,7 +257,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomejTextFieldActionPerformed
 
-UsuarioControl usuarioControl;
+    private Control usuarioControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;
     private javax.swing.JTextField CPFjTextField;

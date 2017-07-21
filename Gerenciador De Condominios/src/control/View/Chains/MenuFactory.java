@@ -51,6 +51,10 @@ public abstract class MenuFactory {
             case "InformacaoPessoal":
            case "InformacoesPessoais": 
                 return new InformacoesPessoaisMenuView(permissao);
+           case "Veiculo":
+           case "CadastrarVeiculo":
+           case "ConsultarVeiculo":
+               return new VeiculosMenuView(permissao);
        } 
 
        return new JPanel();

@@ -5,7 +5,7 @@
  */
 package view.paineis;
 
-import control.domain.FinanceiroControl;
+import control.domain.*;
 
 /**
  *
@@ -18,7 +18,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
      */
     public IncluirFinanceiroView() {
         initComponents();
-        financeiroControl = FinanceiroControl.getFinanceiroControl();
+        financeiroControl = ControlFactory.getFinanceiroControl();
         
         RecDesjComboBox.removeAllItems();
         RecDesjComboBox.addItem("Receita");
@@ -206,14 +206,14 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     }//GEN-LAST:event_TipoLancjComboBoxActionPerformed
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
-        financeiroControl.salvarFinanceiro(this.NroDocjTextField.getText(), this.FornMorjTextField.getText(),
+        /*financeiroControl.salvarFinanceiro(this.NroDocjTextField.getText(), this.FornMorjTextField.getText(),
                 (String) this.RecDesjComboBox.getSelectedItem(), (String) this.TipoPgtojComboBox.getSelectedItem(),
                 (String) this.TipoLancjComboBox.getSelectedItem(), new java.sql.Date(new java.util.Date().getTime()),
                 new java.sql.Date(new java.util.Date().getTime()),
-                new java.sql.Date(new java.util.Date().getTime()));
+                new java.sql.Date(new java.util.Date().getTime()));*/
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
-FinanceiroControl financeiroControl;
+ private Control financeiroControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFCNPJjLabel;
     private javax.swing.JTextField CPFCNPJjTextField;

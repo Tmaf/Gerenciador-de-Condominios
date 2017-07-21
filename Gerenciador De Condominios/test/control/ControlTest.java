@@ -5,9 +5,9 @@
  */
 package control;
 
-import control.domain.FinanceiroControl;
-import java.util.Iterator;
-import model.domain.Financeiro;
+import control.domain.*;
+import model.domain.pessoas.Morador;
+
 
 /**
  *
@@ -16,15 +16,21 @@ import model.domain.Financeiro;
 public class ControlTest {
     
     public static void main(String[] args) {
-        FinanceiroControl mc = new FinanceiroControl();
+       Control<Morador> mc = ControlFactory.getMoradorControl();
+        Morador m1,m2,m3;
         
-        mc.salvarFinanceiro("12345", "Fornecedor", "Receita","Boleto", "Taxa condominio", new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
-
-        Iterator it = mc.pesquisarFinanceiro("12345","Fornecedor","Receita","Boleto", "Taxa condominio", new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()), new java.sql.Date(new java.util.Date().getTime()));
+        m1=new Morador();
+        m1.setCpf("Teste");
+        m1.setNome("TarcísioTeste");
+        m1.setEmail("Tarcisio@Teste");
+        m1.setTelefone("xxx-xxx-xx");
         
-        while(it.hasNext()){
-            System.out.println(((Financeiro)it.next()).getNroDocumento());
-        }
+       mc.salvar(m1);
+        m2= new Morador();
+        m2.setCpf("Teste");
+       m2=mc.bucarPorChave(m2);
+        
+       System.out.println(m2.getNome());
     }
 }
 

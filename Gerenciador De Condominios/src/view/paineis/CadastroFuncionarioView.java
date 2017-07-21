@@ -5,7 +5,7 @@
  */
 package view.paineis;
 
-import control.domain.FuncionarioControl;
+import control.domain.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
      */
     public CadastroFuncionarioView() {
         initComponents();
-        funcionarioControl = FuncionarioControl.getFuncionarioControl();
+        funcionarioControl = ControlFactory.getFuncionarioControl();
         setorjComboBox.removeAllItems();
         setorjComboBox.addItem("Portaria");
         setorjComboBox.addItem("Administrativo");
@@ -183,10 +183,10 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        /*
             funcionarioControl.salvarFuncionario(this.nomejTextField.getText(), this.CPFjTextField.getText(), 
                 this.emailjTextField.getText(), this.telefonejTextField.getText(), this.setorjComboBox.getName(),
-                dataEntrada, dataEntrada); 
+                dataEntrada, dataEntrada); */
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 
     private void setorjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorjComboBoxActionPerformed
@@ -196,7 +196,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     private void entradajFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entradajFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entradajFormattedTextFieldActionPerformed
-FuncionarioControl funcionarioControl;
+Control funcionarioControl;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;

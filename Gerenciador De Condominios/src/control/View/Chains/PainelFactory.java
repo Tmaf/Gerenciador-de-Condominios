@@ -36,6 +36,8 @@ public abstract class PainelFactory {
            case "ReservarArea":  return new ReservarAreaView();
            case "ResponderReclamacao":  return new ResponderReclamacaoView();
            case "VisualizarReclamacao":  return new VisualizarReclamacaoView();
+           case "CadastrarVeiculo": return new CadastrarVeiculosView();
+           case "ConsultarVeiculo": return new ConsultarVeiculosView();
        }
        return new JPanel();
     }

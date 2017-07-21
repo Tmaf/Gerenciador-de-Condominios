@@ -17,7 +17,7 @@ import model.service.ServiceLocator;
 public class TestCrudDao {
     
     public static void main(String[] args) {
-        CrudDao cd= ServiceLocator.getMoradorDao();
+        CrudDao cd= ServiceLocator;
         
         Morador m =new Morador();
         Morador m2 =new Morador();

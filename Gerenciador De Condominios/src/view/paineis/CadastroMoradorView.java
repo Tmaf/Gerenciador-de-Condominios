@@ -5,9 +5,10 @@
  */
 package view.paineis;
 
-import control.domain.MoradorControl;
-import control.domain.UsuarioControl;
+import control.domain.*;
 import java.util.Arrays;
+import model.domain.pessoas.Morador;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -20,8 +21,8 @@ public class CadastroMoradorView extends javax.swing.JPanel {
      */
     public CadastroMoradorView() {
         initComponents();
-        moradorControl = MoradorControl.getMoradorControl();
-        usuarioControl= UsuarioControl.getUsuarioControl();
+        moradorControl = ControlFactory.getMoradorControl();
+        usuarioControl= ControlFactory.getUsuarioControl();
     }
 
     /**
@@ -156,21 +157,29 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        String permissao;
+        Usuario user = new Usuario();
+        Morador morador= new Morador();
+        
+        
+        morador.setNome(this.nomejTextField.getText());
+        morador.setTelefone(this.telefonejTextField.getText());
+        morador.setCpf(this.CPFjTextField.getText());
+        morador.setEmail(this.emailjTextField.getText());
+        morador.setEndereco(this.enderecojTextField.getText());
+        
+        
+        user.setCpf(this.CPFjTextField.getText());
+        user.setNome(this.nomejTextField.getText());
+        user.setSenha(String.copyValueOf(this.senhajPasswordField.getPassword()));
         if(this.jCheckBox1.isSelected()){
-            permissao= "MoradorMestre";
+            user.setPermissao("MoradorMestre");
         }
         else
-            permissao="Morador";
+            user.setPermissao("Morador");
         
-
-        moradorControl.salvarMorador(this.nomejTextField.getText(),
-                this.CPFjTextField.getText(), this.emailjTextField.getText(),
-                this.telefonejTextField.getText(),
-                this.enderecojTextField.getText());
+        this.moradorControl.salvar(morador);
+        this.usuarioControl.salvar(user);
         
-        usuarioControl.salvarUsuario(this.CPFjTextField.getText(), this.nomejTextField.getText()
-                ,String.copyValueOf(this.senhajPasswordField.getPassword()),permissao);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -178,8 +187,8 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     
-    private UsuarioControl usuarioControl;
-    private MoradorControl moradorControl;
+    private Control<Usuario>usuarioControl;
+    private Control<Morador>moradorControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;
     private javax.swing.JTextField CPFjTextField;
