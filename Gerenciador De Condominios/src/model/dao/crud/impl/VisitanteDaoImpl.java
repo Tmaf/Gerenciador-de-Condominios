@@ -47,6 +47,10 @@ public class VisitanteDaoImpl extends CrudDaoImpl<Visitante,String> implements V
         if(modelo.isPrestadorDeServico() != false){
             sql.append(" and prestadorDeServico = :prestadorDeServico ");
         } 
+        if(modelo.getMorador().getCpf()!=null && !modelo.getMorador().getCpf().equals("")){
+            sql.append(" and morador = :morador ");
+        }
+        
         return sql.toString();
     }
 
@@ -73,6 +77,10 @@ public class VisitanteDaoImpl extends CrudDaoImpl<Visitante,String> implements V
         if(modelo.isPrestadorDeServico() != false){
             mapa.put("prestadorDeServico", modelo.isPrestadorDeServico());        
         }
+         if(modelo.getMorador().getCpf()!=null && !modelo.getMorador().getCpf().equals("")){
+            mapa.put("morador", modelo.getMorador().getCpf());
+        }
+        
 
         return mapa;
     }

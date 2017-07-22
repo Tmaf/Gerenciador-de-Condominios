@@ -39,6 +39,9 @@ public class ReservaDaoImpl extends CrudDaoImpl<Reserva,Integer> implements Rese
         if(modelo.getHorarioFim() != null){
             sql.append("and horarioFim like :horarioFim");
         }
+        if(modelo.isDiaTodo() != false){
+            sql.append(" and diaTodo = :prestadorDeServico ");
+        }
         return sql.toString();
    }
 
@@ -58,6 +61,9 @@ public class ReservaDaoImpl extends CrudDaoImpl<Reserva,Integer> implements Rese
         }
         if(modelo.getHorarioFim() != null){
             mapa.put("horarioFim", modelo.getHorarioFim());
+        }
+        if(modelo.isDiaTodo() != false){
+            mapa.put("diaTodo", modelo.isDiaTodo());
         }
         return mapa;
     }

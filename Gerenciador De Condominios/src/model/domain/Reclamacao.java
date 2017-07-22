@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import model.domain.pessoas.Morador;
 
 /**
  *
@@ -25,7 +28,19 @@ public class Reclamacao implements Serializable {
     private String assunto;
     private String texto;
     private String respostaSindico;
+    
+    @ManyToOne(optional=false)
+    @JoinColumn(name="cpf")
+    private Morador morador;
 
+    public Morador getMorador() {
+        return morador;
+    }
+
+    public void setMorador(Morador morador) {
+        this.morador = morador;
+    }
+     
     public int getCodigo() {
         return codigo;
     }

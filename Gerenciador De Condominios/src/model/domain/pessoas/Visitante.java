@@ -10,6 +10,8 @@ package model.domain.pessoas;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -28,7 +30,21 @@ public class Visitante extends Pessoa{
     private Date horaDeEntrada;
     @Column (name="horario_saida")
     private Date horaDeSaida;
+    
+    @ManyToOne(optional=false)
+    @JoinColumn(name="cpf")
+    private Morador morador;
 
+    public Morador getMorador() {
+        return morador;
+    }
+
+    public void setMorador(Morador morador) {
+        this.morador = morador;
+    }
+
+    
+    
     public boolean isPrestadorDeServico() {
         return prestadorDeServico;
     }
