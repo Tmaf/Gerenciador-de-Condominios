@@ -6,9 +6,9 @@
 package view;
 
 import control.View.Tela;
-import control.domain.Control;
+import control.domain.impl.ControlImpl;
 import control.domain.ControlFactory;
-import control.domain.impl.UsuarioControlImpl;
+import control.domain.UsuarioControl;
 import model.domain.pessoas.Usuario;
 
 /**
@@ -138,13 +138,13 @@ public class LoginPanel extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
        
-        Control<Usuario>control = ControlFactory.getUsuarioControl();
+        UsuarioControl control = ControlFactory.getUsuarioControl();
         Usuario user = new Usuario();
         
         String c = new String(senhaText.getPassword());
         user.setCpf(usuarioText.getText());
         user.setSenha(c);     
-        user= control.bucarPorChave(user);
+        user= control.login(user);
         
         if(user!=null){
         Tela.end();     

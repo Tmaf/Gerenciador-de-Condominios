@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.AreaComumControl;
 import model.domain.AreaComum;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class AreaComumControlImpl extends Control<AreaComum>{
+public class AreaComumControlImpl extends ControlImpl<AreaComum> implements AreaComumControl{
 
     @Override
     protected Class getClasse() {

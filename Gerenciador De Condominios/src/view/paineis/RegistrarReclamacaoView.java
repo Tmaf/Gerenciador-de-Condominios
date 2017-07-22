@@ -5,6 +5,7 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 
 /**
@@ -94,7 +95,7 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
      //   reclamacaoControl.salvarReclamacao(this.assuntojTextField.getText(), this.reclamacaojTextArea.getText(), "");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private Control reclamacaoControl;
+    private ControlImpl reclamacaoControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assuntojLabel;
     private javax.swing.JTextField assuntojTextField;

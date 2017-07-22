@@ -5,6 +5,9 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import model.domain.Veiculo;
 import model.domain.pessoas.Pessoa;
 
 /**
@@ -94,7 +97,13 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
-      //  veiculoControl.salvarVeiculo(this.placajTextField.getText(), this.modelojTextField.getText());
+        
+        Veiculo veiculo= new Veiculo();
+        Control control = ControlFactory.getVeiculoControl();
+        
+        veiculo.setModelo(this.modelojTextField.getText());
+        veiculo.setPlaca(this.placajTextField.getText());
+        control.salvar(veiculo);
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
 

@@ -6,6 +6,7 @@
 package view.paineis;
 
 import control.domain.*;
+import model.domain.Encomenda;
 
 /**
  *
@@ -18,7 +19,6 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
      */
     public CadastroEncomendasView() {
         initComponents();
-        encomendaControl = ControlFactory.getEncomendaControl();
     }
 
     /**
@@ -145,14 +145,21 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
     }//GEN-LAST:event_CodigoCorrespondenciajTextFieldActionPerformed
 
     private void SalvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarjButtonActionPerformed
-
+        Control control = ControlFactory.getEncomendaControl();
+        
+        Encomenda encomenda= new Encomenda();
+        encomenda.setCodigo(this.CodigoCorrespondenciajTextField.getText());
+        encomenda.setDestinatario(this.DestinatariojTextField.getText());
+        encomenda.setEndereco(this.EnderecojLabel.getText());
+        encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
+        control.salvar(encomenda);
+        
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 
     private void EntreguejCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntreguejCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EntreguejCheckBoxActionPerformed
 
-Control encomendaControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CodigoCorrespondenciajLabel;
     private javax.swing.JTextField CodigoCorrespondenciajTextField;

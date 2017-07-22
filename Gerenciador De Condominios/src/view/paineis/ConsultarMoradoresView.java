@@ -5,6 +5,7 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 
 /**
@@ -106,7 +107,7 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
           
     }//GEN-LAST:event_pesquisarjButtonActionPerformed
 
-    private Control moradorControl;
+    private ControlImpl moradorControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpfjTextField;
     private javax.swing.JButton jButton1;

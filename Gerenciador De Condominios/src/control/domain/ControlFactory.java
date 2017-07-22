@@ -14,38 +14,37 @@ import control.domain.impl.*;
 public abstract class ControlFactory {
         
     
-       public static Control getAreaComumControl(){
+       public static AreaComumControl getAreaComumControl(){
            return new AreaComumControlImpl();
        }
-       public static Control getEmpresaControl(){
+       public static EmpresaControl getEmpresaControl(){
            return new EmpresaControlImpl();
        }
-       public static Control getEncomendaControl(){
+       public static EncomendaControl getEncomendaControl(){
            return new EncomendaControlImpl();
        }
-       public static Control getFinanceiroControl(){
+       public static FinanceiroControl getFinanceiroControl(){
            return new FinanceiroControlImpl();
        }
-       public static Control getFuncionarioControl(){
+       public static FuncionarioControl getFuncionarioControl(){
            return new FuncionarioControlImpl();
        }
-       public static Control getMoradorControl(){
+       public static MoradorControl getMoradorControl(){
            return new MoradorControlImpl();
        }
-       public static Control getReclamacaoControl(){
+       public static ReclamacaoControl getReclamacaoControl(){
            return new ReclamacaoControlImpl();
        }
-       public static Control getUsuarioControl(){
+       public static UsuarioControl getUsuarioControl(){
            return new UsuarioControlImpl();
        }
-       public static Control getVeiculoControl(){
+       public static VeiculoControl getVeiculoControl(){
            return new VeiculoControlImpl();
        }
-       public static Control getVisitanteControl(){
+       public static VisitanteControl getVisitanteControl(){
            return new VisitanteControlImpl();
-       }
-       
-        public static Control getReservaControl(){
+       }  
+        public static ReservaControl getReservaControl(){
            return new ReservaControlImpl();
        }
 }

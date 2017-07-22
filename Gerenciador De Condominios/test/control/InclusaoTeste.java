@@ -5,10 +5,9 @@
  */
 package control;
 
-import model.dao.CrudDao;
+import control.domain.impl.ControlImpl;
+import control.domain.ControlFactory;
 import model.domain.pessoas.Usuario;
-import model.service.ServiceLocator;
-
 /**
  *
  * @author Tarcísio M. Almeida
@@ -19,27 +18,11 @@ public class InclusaoTeste {
         Usuario user = new Usuario();
         
         user.setCpf("12345");
-        user.setNome("Aline de Souza Lima");
+        user.setNome("Administrador");
         user.setPermissao("Sindico");
         user.setSenha("12345");
-        CrudDao usuarioDao = ServiceLocator.getUsuarioDao();
+        ControlImpl c = ControlFactory.getUsuarioControl();
         
-        usuarioDao.salvar(user);
-        /*
-        
-        user.setCpf("12345678");
-        user.setNome("Tarcisio Almeida");
-        user.setPermissao("Morador");
-        user.setSenha("12345678");
-        usuarioDao.salvar(user);
-        
-                
-        user.setCpf("123");
-        user.setNome("Gonzaga");
-        user.setPermissao("Porteiro");
-        user.setSenha("123");
-        usuarioDao.salvar(user);*/
-        
-    
+        c.salvar(user);
     }
 }

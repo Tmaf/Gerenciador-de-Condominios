@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="visitante")
-@PrimaryKeyJoinColumn(name="cpf")
+//@PrimaryKeyJoinColumn(name="cpf")
 public class Visitante extends Pessoa{
     
     @Column (name="prestadorDeServico")
@@ -32,7 +32,7 @@ public class Visitante extends Pessoa{
     private Date horaDeSaida;
     
     @ManyToOne(optional=false)
-    @JoinColumn(name="cpf")
+    @JoinColumn(name="morador")
     private Morador morador;
 
     public Morador getMorador() {

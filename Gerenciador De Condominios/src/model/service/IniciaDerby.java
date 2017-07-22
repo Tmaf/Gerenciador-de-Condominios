@@ -13,17 +13,16 @@ import java.sql.SQLException;
  *
  * @author Aline
  */
-public class IniciaDerby {
+public abstract class IniciaDerby {
     
-    private Connection con;
-    public IniciaDerby(){
+   
+    public static void iniciaDerby(){
+         Connection con;
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/Gerenciador", "root", "root");
             System.out.println("Banco de dados Conectado!");
-        } catch (ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }catch(SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
         }
     }

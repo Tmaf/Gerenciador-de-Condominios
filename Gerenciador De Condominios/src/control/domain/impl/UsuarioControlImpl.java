@@ -5,21 +5,22 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.UsuarioControl;
 import model.domain.pessoas.Usuario;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class UsuarioControlImpl  extends Control<Usuario>{
+public class UsuarioControlImpl  extends ControlImpl<Usuario> implements UsuarioControl{
 
     @Override
     protected Class getClasse() {
         return Usuario.class;
     }
     
-    public Usuario buscarPorChave(Usuario e){
+    @Override
+    public Usuario login(Usuario e){
         Usuario user=super.bucarPorChave(e);
         
         if(user!=null && user.getSenha().equals(e.getSenha()))

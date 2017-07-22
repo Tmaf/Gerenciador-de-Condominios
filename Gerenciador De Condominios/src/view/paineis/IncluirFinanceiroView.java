@@ -5,6 +5,7 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 
 /**
@@ -213,7 +214,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                 new java.sql.Date(new java.util.Date().getTime()));*/
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
- private Control financeiroControl;
+ private ControlImpl financeiroControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFCNPJjLabel;
     private javax.swing.JTextField CPFCNPJjTextField;

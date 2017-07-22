@@ -5,10 +5,9 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
-import java.awt.event.ActionEvent;
 import java.sql.Date;
-import java.time.Instant;
 import java.time.LocalDate;
 
 /**
@@ -23,7 +22,7 @@ public class CadastroVisitanteView extends javax.swing.JPanel {
     public CadastroVisitanteView() {
         initComponents();
         
-        visitanteControl = ControlFactory.getVisitanteControl();
+       
     }
 
     /**
@@ -161,25 +160,14 @@ public class CadastroVisitanteView extends javax.swing.JPanel {
     }//GEN-LAST:event_PrestadorServicojCheckBoxActionPerformed
 
     private void EntradajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradajButtonActionPerformed
-        Date date;
-        date= Date.valueOf(LocalDate.now());
-    /*    
-        visitanteControl.salvarVisitante(this.NomeMoradorjTextField.getText(), this.CPFjTextField.getText(),
-                this.TelefonejTextField.getText(), this.PrestadorServicojCheckBox.isSelected(),date ,null);
-        */
+
     }//GEN-LAST:event_EntradajButtonActionPerformed
 
     private void SaidajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaidajButtonActionPerformed
-        /*
-        Date date;
-        date= Date.valueOf(LocalDate.now());
+
         
-        visitanteControl.salvarVisitante(this.NomeMoradorjTextField.getText(), this.CPFjTextField.getText(),
-                this.TelefonejTextField.getText(), this.PrestadorServicojCheckBox.isSelected(),null ,date);
-        */
     }//GEN-LAST:event_SaidajButtonActionPerformed
 
-Control visitanteControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;
     private javax.swing.JTextField CPFjTextField;

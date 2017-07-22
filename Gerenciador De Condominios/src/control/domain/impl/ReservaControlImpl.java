@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.ReservaControl;
 import model.domain.Reserva;
 
 /**
  *
  * @author Aline
  */
-public class ReservaControlImpl extends Control<Reserva>{
+public class ReservaControlImpl extends ControlImpl<Reserva> implements ReservaControl{
 
     @Override
     protected Class getClasse() {

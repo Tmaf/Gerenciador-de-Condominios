@@ -5,19 +5,17 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.FuncionarioControl;
 import model.domain.pessoas.Funcionario;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class FuncionarioControlImpl extends Control<Funcionario>{
+public class FuncionarioControlImpl extends ControlImpl<Funcionario> implements FuncionarioControl{
 
     @Override
     protected Class getClasse() {
         return Funcionario.class;
     }
-    
-    
 }

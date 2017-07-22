@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.MoradorControl;
 import model.domain.pessoas.Morador;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class MoradorControlImpl  extends Control<Morador>{
+public class MoradorControlImpl  extends ControlImpl<Morador> implements MoradorControl{
 
     @Override
     protected Class getClasse() {

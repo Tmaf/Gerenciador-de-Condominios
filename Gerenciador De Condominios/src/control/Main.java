@@ -15,7 +15,7 @@ import Model.Service.IniciaDerby;
 public class Main {
    
     public static void main(String[] args) {
-        IniciaDerby iniciaDerby = new IniciaDerby();
+        IniciaDerby.iniciaDerby();
         Tela.start();
     }
      

@@ -5,15 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
-import model.dao.CrudDao;
+import control.domain.EmpresaControl;
 import model.domain.Empresa;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class EmpresaControlImpl extends Control<Empresa>{
+public class EmpresaControlImpl extends ControlImpl<Empresa> implements EmpresaControl{
 
     @Override
     protected Class getClasse() {

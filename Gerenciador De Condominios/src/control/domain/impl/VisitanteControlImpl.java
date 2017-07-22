@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.VisitanteControl;
 import model.domain.pessoas.Visitante;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class VisitanteControlImpl  extends Control<Visitante>{
+public class VisitanteControlImpl  extends ControlImpl<Visitante> implements VisitanteControl{
 
     @Override
     protected Class getClasse() {

@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.FinanceiroControl;
 import model.domain.Financeiro;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class FinanceiroControlImpl extends Control<Financeiro>{
+public class FinanceiroControlImpl extends ControlImpl<Financeiro> implements FinanceiroControl{
 
     @Override
     protected Class getClasse() {

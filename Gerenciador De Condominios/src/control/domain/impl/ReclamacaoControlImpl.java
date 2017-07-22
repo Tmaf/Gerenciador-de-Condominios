@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.ReclamacaoControl;
 import model.domain.Reclamacao;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class ReclamacaoControlImpl  extends Control<Reclamacao>{
+public class ReclamacaoControlImpl  extends ControlImpl<Reclamacao> implements ReclamacaoControl{
 
     @Override
     protected Class getClasse() {

@@ -5,14 +5,14 @@
  */
 package control.domain.impl;
 
-import control.domain.Control;
+import control.domain.EncomendaControl;
 import model.domain.Encomenda;
 
 /**
  *
  * @author Tarcísio M. Almeida
  */
-public class EncomendaControlImpl extends Control<Encomenda>{
+public class EncomendaControlImpl extends ControlImpl<Encomenda> implements EncomendaControl{
 
     @Override
     protected Class getClasse() {

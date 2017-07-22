@@ -5,6 +5,7 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.View.Tela;
 import control.domain.*;
 import model.domain.pessoas.Funcionario;
@@ -51,7 +52,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
         try{
             Funcionario f= new Funcionario();
             f.setCpf(user.getCpf());
-            Control<Funcionario>funcionarioControl= ControlFactory.getFuncionarioControl();
+            ControlImpl<Funcionario>funcionarioControl= ControlFactory.getFuncionarioControl();
             f= funcionarioControl.bucarPorChave(f);
             this.emailjTextField.setText(f.getEmail());
             this.telefonejTextField.setText(f.getTelefone());
@@ -257,7 +258,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomejTextFieldActionPerformed
 
-    private Control usuarioControl;
+    private ControlImpl usuarioControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;
     private javax.swing.JTextField CPFjTextField;

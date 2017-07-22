@@ -5,12 +5,14 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.domain.pessoas.Funcionario;
 
 /**
  *
@@ -23,12 +25,12 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
      */
     public CadastroFuncionarioView() {
         initComponents();
-        funcionarioControl = ControlFactory.getFuncionarioControl();
         setorjComboBox.removeAllItems();
         setorjComboBox.addItem("Portaria");
         setorjComboBox.addItem("Administrativo");
         setorjComboBox.addItem("Limpeza");
         setorjComboBox.addItem("Manutenção");
+        setorjComboBox.addItem("Segurança");
     }
 
     /**
@@ -168,25 +170,15 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarjButtonActionPerformed
-        DateFormat format = new SimpleDateFormat("hh:mm");
-        java.sql.Date dataEntrada = null;
-        try {
-            System.out.println("Teste");
-            dataEntrada = new java.sql.Date(format.parse(this.entradajFormattedTextField.getText()).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        java.sql.Date dataSaida = null;
-        try {
-            System.out.println("Teste");
-            dataSaida = new java.sql.Date(format.parse(this.saidajFormattedTextField.getText()).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        /*
-            funcionarioControl.salvarFuncionario(this.nomejTextField.getText(), this.CPFjTextField.getText(), 
-                this.emailjTextField.getText(), this.telefonejTextField.getText(), this.setorjComboBox.getName(),
-                dataEntrada, dataEntrada); */
+        Control control = ControlFactory.getFuncionarioControl();
+        Funcionario f= new Funcionario();
+        f.setCpf(this.CPFjTextField.getText());
+        f.setEmail(this.emailjTextField.getText());
+        f.setNome(this.nomejTextField.getText());
+        f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
+        f.setTelefone(this.telefonejTextField.getText());
+        control.salvar(f);
+        
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 
     private void setorjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorjComboBoxActionPerformed
@@ -196,7 +188,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     private void entradajFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entradajFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entradajFormattedTextFieldActionPerformed
-Control funcionarioControl;
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;

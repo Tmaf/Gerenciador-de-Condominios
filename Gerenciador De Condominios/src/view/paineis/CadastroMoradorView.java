@@ -5,6 +5,7 @@
  */
 package view.paineis;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 import java.util.Arrays;
 import model.domain.pessoas.Morador;
@@ -20,9 +21,11 @@ public class CadastroMoradorView extends javax.swing.JPanel {
      * Creates new form InformacoesPessoaisView
      */
     public CadastroMoradorView() {
+
+        
+        
         initComponents();
-        moradorControl = ControlFactory.getMoradorControl();
-        usuarioControl= ControlFactory.getUsuarioControl();
+
     }
 
     /**
@@ -157,6 +160,9 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        Control moradorControl = ControlFactory.getMoradorControl();
+        Control usuarioControl= ControlFactory.getUsuarioControl();
+        
         Usuario user = new Usuario();
         Morador morador= new Morador();
         
@@ -177,8 +183,8 @@ public class CadastroMoradorView extends javax.swing.JPanel {
         else
             user.setPermissao("Morador");
         
-        this.moradorControl.salvar(morador);
-        this.usuarioControl.salvar(user);
+       moradorControl.salvar(morador);
+       usuarioControl.salvar(user);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -187,8 +193,7 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     
-    private Control<Usuario>usuarioControl;
-    private Control<Morador>moradorControl;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFjLabel;
     private javax.swing.JTextField CPFjTextField;

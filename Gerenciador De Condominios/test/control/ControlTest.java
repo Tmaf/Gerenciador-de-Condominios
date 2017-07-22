@@ -5,6 +5,7 @@
  */
 package control;
 
+import control.domain.impl.ControlImpl;
 import control.domain.*;
 import model.domain.pessoas.Morador;
 
@@ -16,7 +17,7 @@ import model.domain.pessoas.Morador;
 public class ControlTest {
     
     public static void main(String[] args) {
-       Control<Morador> mc = ControlFactory.getMoradorControl();
+       ControlImpl<Morador> mc = ControlFactory.getMoradorControl();
         Morador m1,m2,m3;
         
         m1=new Morador();
