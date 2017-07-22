@@ -1,5 +1,6 @@
 package control.domain;
 
+import java.rmi.RemoteException;
 import java.util.List;
 import model.dao.CrudDao;
 import model.domain.pessoas.Morador;
@@ -20,18 +21,18 @@ public class MoradorControl {
     private static MoradorControl moradorControl;
     private final CrudDao dao;
     
-    private MoradorControl(){
+    private MoradorControl() throws  RemoteException{
     this.dao=ServiceLocator.getMoradorDao();
     }
     
-     public static MoradorControl getMoradorControl(){
+     public static MoradorControl getMoradorControl() throws RemoteException{
         if(moradorControl==null){
             moradorControl= new MoradorControl();
         }
         return moradorControl;
     }
     
-    public void salvarMorador(String nome,String cpf, String email, String numero,String endereco){
+    public void salvarMorador(String nome,String cpf, String email, String numero,String endereco) throws  RemoteException{
         Morador m= new Morador();
         m.setCpf(cpf);
         m.setEmail(email);
@@ -41,7 +42,7 @@ public class MoradorControl {
         dao.salvar(m);
     }
     
-    public void excluirMorador(String nome,String cpf, String email, String numero,String endereco){
+    public void excluirMorador(String nome,String cpf, String email, String numero,String endereco) throws  RemoteException{
         Morador m= new Morador();
         m.setCpf(cpf);
         m.setEmail(email);
@@ -51,7 +52,7 @@ public class MoradorControl {
         dao.excluir(m);
     }
     
-    public List<Morador> pesquisarMorador(String nome,String cpf, String email, String numero,String endereco){
+    public List<Morador> pesquisarMorador(String nome,String cpf, String email, String numero,String endereco) throws  RemoteException{
         Morador m= new Morador();
         m.setCpf(cpf);
         m.setEmail(email);

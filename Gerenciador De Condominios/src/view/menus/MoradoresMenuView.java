@@ -6,6 +6,8 @@
 package view.menus;
 
 import control.View.Tela;
+import java.rmi.RemoteException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +20,6 @@ public class MoradoresMenuView extends javax.swing.JPanel {
      */
     public MoradoresMenuView(String permissao) {
         initComponents();
-        
         if(permissao.equals("Porteiro") || permissao.equals("Morador")){
             this.CadastrarMoradorjButton.setVisible(false);
         }
