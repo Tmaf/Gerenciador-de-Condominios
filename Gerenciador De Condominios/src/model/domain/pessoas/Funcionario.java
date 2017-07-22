@@ -9,6 +9,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -24,11 +25,11 @@ public class Funcionario extends PessoaVinculada{
     private String setorDeServico;
    
     @Column (name="horario_entrada")
-  //  @Temporal(value=TemporalType.TIME)
+    @Type(type="timestamp")
     private Date horarioEntrada;
    
     @Column (name="horario_saida")
-  //  @Temporal(value=TemporalType.TIME)
+    @Type(type="timestamp")
     private Date horarioSaida;
     
 

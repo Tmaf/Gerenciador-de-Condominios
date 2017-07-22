@@ -44,4 +44,8 @@ public abstract class ControlFactory {
        public static Control getVisitanteControl(){
            return new VisitanteControlImpl();
        }
+       
+        public static Control getReservaControl(){
+           return new ReservaControlImpl();
+       }
 }
