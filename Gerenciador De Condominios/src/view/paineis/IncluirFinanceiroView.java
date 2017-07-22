@@ -6,6 +6,7 @@
 package view.paineis;
 
 import control.domain.*;
+import model.domain.Financeiro;
 
 /**
  *

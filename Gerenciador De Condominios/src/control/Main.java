@@ -6,6 +6,7 @@
 package control;
 
 import control.View.Tela;
+import model.service.IniciaDerby;
 
 /**
  *
@@ -14,6 +15,7 @@ import control.View.Tela;
 public class Main {
    
     public static void main(String[] args) {
+        IniciaDerby iniciaDerby = new IniciaDerby();
         Tela.start();
     }
      

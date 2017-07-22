@@ -59,6 +59,7 @@ public class ServiceLocator implements ServiceInterface{
         map.put(Usuario.class, UsuarioDaoImpl.class);
         map.put(Veiculo.class, VeiculoDaoImpl.class);
         map.put(Visitante.class,VisitanteDaoImpl.class);
+        map.put(Financeiro.class,FinanceiroDaoImpl.class);
     }
    
 }

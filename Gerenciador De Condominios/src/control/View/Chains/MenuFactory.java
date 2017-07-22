@@ -19,7 +19,7 @@ public abstract class MenuFactory {
               switch (tela){
            case "Financeiro":
            case "BaixarFinanceiro":
-           case  "IncluirFinanceiro":
+           case "IncluirFinanceiro":
            case "ConsultarFinanceiro":  
                return new FinanceiroMenuView(permissao);
            case "Encomenda":
