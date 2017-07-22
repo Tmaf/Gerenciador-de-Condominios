@@ -45,7 +45,18 @@ public class Reserva implements Serializable {
     @Column (name="horarioFim")
     @Type(type="timestamp")
     private Date horarioFim;
+    
+    @Column (name="diaTodo")
+    private boolean diaTodo;
 
+    public boolean isDiaTodo() {
+        return diaTodo;
+    }
+
+    public void setDiaTodo(boolean diaTodo) {
+        this.diaTodo = diaTodo;
+    }
+    
     public int getCod() {
         return cod;
     }
