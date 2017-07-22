@@ -5,7 +5,6 @@
  */
 package view.paineis;
 
-import control.domain.VeiculoControl;
 import model.domain.pessoas.Pessoa;
 
 /**
@@ -14,11 +13,10 @@ import model.domain.pessoas.Pessoa;
  */
 public class CadastrarVeiculosView extends javax.swing.JPanel {
 
-    VeiculoControl veiculoControl;
-    
+        
     public CadastrarVeiculosView() {
         initComponents();
-        veiculoControl = VeiculoControl.getVeiculoControl();
+      //  veiculoControl = VeiculoControl.getVeiculoControl();
     }
 
     /**
@@ -96,7 +94,7 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
-        veiculoControl.salvarVeiculo(this.placajTextField.getText(), this.modelojTextField.getText());
+      //  veiculoControl.salvarVeiculo(this.placajTextField.getText(), this.modelojTextField.getText());
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
 
