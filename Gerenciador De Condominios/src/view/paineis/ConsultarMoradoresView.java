@@ -19,7 +19,7 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
      */
     public ConsultarMoradoresView() {
         initComponents();
-        moradorControl = ControlFactory.getMoradorControl();
+      
     }
 
     /**

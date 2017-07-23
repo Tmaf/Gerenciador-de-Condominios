@@ -5,7 +5,7 @@
  */
 package control;
 
-import control.domain.impl.ControlImpl;
+import control.domain.Control;
 import control.domain.ControlFactory;
 import model.domain.pessoas.Usuario;
 /**
@@ -21,7 +21,7 @@ public class InclusaoTeste {
         user.setNome("Administrador");
         user.setPermissao("Sindico");
         user.setSenha("12345");
-        ControlImpl c = ControlFactory.getUsuarioControl();
+        Control c = ControlFactory.getUsuarioControl();
         
         c.salvar(user);
     }

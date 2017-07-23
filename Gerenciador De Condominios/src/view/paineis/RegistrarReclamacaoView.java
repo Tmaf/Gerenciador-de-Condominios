@@ -19,7 +19,7 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
      */
     public RegistrarReclamacaoView() {
         initComponents();
-        reclamacaoControl = ControlFactory.getReclamacaoControl();
+      //  reclamacaoControl = ControlFactory.getReclamacaoControl();
     }
 
     /**

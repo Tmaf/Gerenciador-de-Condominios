@@ -23,8 +23,7 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
      */
     public InformacoesPessoaisView() {
         initComponents();
-        usuarioControl = ControlFactory.getUsuarioControl();
-        Usuario user = Tela.getUser();
+      
         
         /*this.nomejTextField.setText(user.getNome());
         this.CPFjTextField.setText(user.getCpf());

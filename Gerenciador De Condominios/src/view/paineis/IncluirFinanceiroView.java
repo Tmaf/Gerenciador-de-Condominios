@@ -19,8 +19,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
      */
     public IncluirFinanceiroView() {
         initComponents();
-        financeiroControl = ControlFactory.getFinanceiroControl();
-        
+       
         RecDesjComboBox.removeAllItems();
         RecDesjComboBox.addItem("Receita");
         RecDesjComboBox.addItem("Despesa");
