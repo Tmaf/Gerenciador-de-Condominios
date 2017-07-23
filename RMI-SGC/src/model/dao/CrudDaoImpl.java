@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -21,6 +22,8 @@ import javax.persistence.Query;
  */
 public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRemoteObject implements CrudDao <E,I>{
 
+	private static final long serialVersionUID = 1L;
+	
 	public CrudDaoImpl() throws RemoteException{
 		// TODO Auto-generated constructor stub
 	}
@@ -32,7 +35,7 @@ public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRem
         em.getTransaction().begin();
         
         if(this.getChave(classeModelo)!=null){
-            classeModelo= em.merge(classeModelo);
+            classeModelo = em.merge(classeModelo);
         }
         em.persist(classeModelo);
         em.getTransaction().commit();
@@ -54,7 +57,7 @@ public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRem
     }
     
     @Override
-    public List pesquisar(E classeModelo){
+    public List<E> pesquisar(E classeModelo){
         EntityManager em = Conexao.getConexao();
         
         String sql=this.getConsultaSql(classeModelo);
@@ -63,13 +66,13 @@ public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRem
         
         Map<String,Object>parametros= getParametrosMapa(classeModelo);
         
-        for(String parametro: parametros.keySet()){
+        for(String chave: parametros.keySet()){
         
-            q.setParameter(parametro,parametros.get(parametro));
+            q.setParameter(chave,parametros.get(chave));
         }
         
        
-        List l= q.getResultList();
+        List<E> l= q.getResultList();
         
        em.close();
        return l;

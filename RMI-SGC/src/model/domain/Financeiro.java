@@ -1,98 +1,90 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import model.domain.pessoas.Pessoa;
-
-/**
- *
- * @author Aline
- */
 
 @Entity
-@Table(name="financeiro")
+@Table(name = "financeiro")
 public class Financeiro implements Serializable {
-    @Id
-    private String nroDocumento;
-    private String fornecedor;
-    private String tipoFinanceiro; //se é receita ou despesa
-    private String tipoPagamento;
-    private String tipoLancamento;
-    private Date emissao; //data que a fatura foi emitida ou lancada no sistema
-    private Date vencimento;
-    private Date baixa;  //data pagamento
-    
-    public String getNroDocumento() {
-        return nroDocumento;
-    }
-    public void setNroDocumento(String nroDocumento) {
-        this.nroDocumento = nroDocumento;
-    }
 
-    public String getFornecedor() {
-        return fornecedor;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
-    }
+	@Id
+	private String nroDocumento;
+	private String fornecedor;
+	private String tipoFinanceiro; // se é receita ou despesa
+	private String tipoPagamento;
+	private String tipoLancamento;
+	private Date emissao; // data que a fatura foi emitida ou lancada no sistema
+	private Date vencimento;
+	private Date baixa; // data pagamento
 
-    public String getTipoFinanceiro() {
-        return tipoFinanceiro;
-    }
+	public String getNroDocumento() {
+		return nroDocumento;
+	}
 
-    public void setTipoFinanceiro(String tipoFinanceiro) {
-        this.tipoFinanceiro = tipoFinanceiro;
-    }
+	public void setNroDocumento(String nroDocumento) {
+		this.nroDocumento = nroDocumento;
+	}
 
-    public String getTipoPagamento() {
-        return tipoPagamento;
-    }
+	public String getFornecedor() {
+		return fornecedor;
+	}
 
-    public void setTipoPagamento(String tipoPagamento) {
-        this.tipoPagamento = tipoPagamento;
-    }
+	public void setFornecedor(String fornecedor) {
+		this.fornecedor = fornecedor;
+	}
 
-    public String getTipoLancamento() {
-        return tipoLancamento;
-    }
+	public String getTipoFinanceiro() {
+		return tipoFinanceiro;
+	}
 
-    public void setTipoLancamento(String tipoLancamento) {
-        this.tipoLancamento = tipoLancamento;
-    }
+	public void setTipoFinanceiro(String tipoFinanceiro) {
+		this.tipoFinanceiro = tipoFinanceiro;
+	}
 
-    public Date getEmissao() {
-        return emissao;
-    }
+	public String getTipoPagamento() {
+		return tipoPagamento;
+	}
 
-    public void setEmissao(Date emissao) {
-        this.emissao = emissao;
-    }
+	public void setTipoPagamento(String tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
 
-    public Date getVencimento() {
-        return vencimento;
-    }
+	public String getTipoLancamento() {
+		return tipoLancamento;
+	}
 
-    public void setVencimento(Date vencimento) {
-        this.vencimento = vencimento;
-    }
+	public void setTipoLancamento(String tipoLancamento) {
+		this.tipoLancamento = tipoLancamento;
+	}
 
-    public Date getBaixa() {
-        return baixa;
-    }
+	public Date getEmissao() {
+		return emissao;
+	}
 
-    public void setBaixa(Date baixa) {
-        this.baixa = baixa;
-    }
-    
-    
+	public void setEmissao(Date emissao) {
+		this.emissao = emissao;
+	}
+
+	public Date getVencimento() {
+		return vencimento;
+	}
+
+	public void setVencimento(Date vencimento) {
+		this.vencimento = vencimento;
+	}
+
+	public Date getBaixa() {
+		return baixa;
+	}
+
+	public void setBaixa(Date baixa) {
+		this.baixa = baixa;
+	}
 
 }

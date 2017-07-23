@@ -10,8 +10,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import org.omg.CORBA.portable.RemarshalException;
-
 /**
  *
  * @author tarci
@@ -20,10 +18,8 @@ import org.omg.CORBA.portable.RemarshalException;
  */
 public interface CrudDao <E extends Serializable, I> extends Remote{
 	
-	
-
-    void excluir(E classeModelo) throws RemoteException;
-    List pesquisar(E classeModelo) throws RemoteException;
-    void salvar(E classeModelo) throws RemoteException;
+    public abstract void excluir(E classeModelo) throws RemoteException;
+    public abstract List<E> pesquisar(E classeModelo) throws RemoteException;
+    public abstract void salvar(E classeModelo) throws RemoteException;
     
 }

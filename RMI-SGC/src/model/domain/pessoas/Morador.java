@@ -1,28 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.domain.pessoas;
-    
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="Morador")
-public class Morador extends PessoaVinculada{
+@Table(name = "Morador")
+public class Morador extends PessoaVinculada implements Serializable {
 
-    @Column (name="endereco")
-    private String endereco;
+	private static final long serialVersionUID = 1L;
 
-    public String getEndereco() {
-        return endereco;
-    }
+	@Column(name = "endereco")
+	private String endereco;
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 }
