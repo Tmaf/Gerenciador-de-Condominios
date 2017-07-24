@@ -5,9 +5,11 @@
  */
 package view.paineis;
 
+import control.View.Tela;
+import control.domain.Control;
+import control.domain.ControlFactory;
 import control.domain.impl.ControlImpl;
-import control.domain.*;
-
+import model.domain.Reclamacao;
 /**
  *
  * @author Aline
@@ -17,7 +19,7 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
     /**
      * Creates new form RegistrarReclamacaoView
      */
-    public RegistrarReclamacaoView() {
+    public RegistrarReclamacaoView(String permissao) {
         initComponents();
       //  reclamacaoControl = ControlFactory.getReclamacaoControl();
     }
@@ -92,7 +94,13 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     //   reclamacaoControl.salvarReclamacao(this.assuntojTextField.getText(), this.reclamacaojTextArea.getText(), "");
+        Reclamacao reclamacao= new Reclamacao();
+        Control control= ControlFactory.getReclamacaoControl();
+        reclamacao.setAssunto(this.assuntojTextField.getText());
+        reclamacao.setTexto(this.reclamacaojTextArea.getText());
+        reclamacao.setUsuario(Tela.getUser());
+
+        control.salvar(reclamacao);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private ControlImpl reclamacaoControl;

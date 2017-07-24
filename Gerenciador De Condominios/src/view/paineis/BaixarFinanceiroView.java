@@ -14,7 +14,7 @@ public class BaixarFinanceiroView extends javax.swing.JPanel {
     /**
      * Creates new form BaixarLancamentoView
      */
-    public BaixarFinanceiroView() {
+    public BaixarFinanceiroView(String permissao) {
         initComponents();
     }
 

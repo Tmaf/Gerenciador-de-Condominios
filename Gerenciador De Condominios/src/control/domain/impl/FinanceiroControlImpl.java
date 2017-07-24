@@ -18,5 +18,10 @@ public class FinanceiroControlImpl extends ControlImpl<Financeiro> implements Fi
     protected Class getClasse() {
         return Financeiro.class;
     }
+
+    @Override
+    protected String converteString(Financeiro e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

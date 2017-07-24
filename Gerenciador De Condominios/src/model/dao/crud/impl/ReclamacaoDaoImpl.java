@@ -39,8 +39,8 @@ public class ReclamacaoDaoImpl  extends CrudDaoImpl<Reclamacao,Integer> implemen
         if(modelo.getCodigo()>=0){
             sql.append(" and codigo = :codigo ");
         }
-        if(modelo.getMorador().getCpf()!=null && !modelo.getMorador().getCpf().equals("")){
-            sql.append("and morador like :morador ");
+        if(modelo.getUsuario().getCpf()!=null && !modelo.getUsuario().getCpf().equals("")){
+            sql.append("and usuario like :usuario ");
         }
         return sql.toString();
    }
@@ -63,8 +63,8 @@ public class ReclamacaoDaoImpl  extends CrudDaoImpl<Reclamacao,Integer> implemen
         if(modelo.getCodigo()>=0){
                  mapa.put("codigo", modelo.getCodigo());
         }
-        if(modelo.getMorador().getCpf() != null && !modelo.getMorador().getCpf().equals("")){
-            mapa.put("morador", modelo.getMorador().getCpf());
+        if(modelo.getUsuario().getCpf() != null && !modelo.getUsuario().getCpf().equals("")){
+            mapa.put("usuario", modelo.getUsuario().getCpf());
         }
         
         return mapa;

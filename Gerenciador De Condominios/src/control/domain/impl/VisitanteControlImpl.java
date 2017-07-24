@@ -18,6 +18,11 @@ public class VisitanteControlImpl  extends ControlImpl<Visitante> implements Vis
     protected Class getClasse() {
         return Visitante.class;
     }
+
+    @Override
+    protected String converteString(Visitante e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

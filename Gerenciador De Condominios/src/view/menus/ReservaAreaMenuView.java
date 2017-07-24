@@ -18,6 +18,9 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
      */
     public ReservaAreaMenuView(String permissao) {
         initComponents();
+        if(permissao.equals("Sindico")){
+            inserirArea.setVisible(false);
+        }
     }
 
     /**
@@ -31,6 +34,7 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
 
         ReservarAreajButton = new javax.swing.JButton();
         ConsultarReservajButton = new javax.swing.JButton();
+        inserirArea = new javax.swing.JButton();
 
         ReservarAreajButton.setText("Reservar Área");
         ReservarAreajButton.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +50,13 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
             }
         });
 
+        inserirArea.setText("Inserir Área");
+        inserirArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserirAreaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,7 +66,9 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
                 .addComponent(ReservarAreajButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ConsultarReservajButton)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(inserirArea)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,7 +76,8 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReservarAreajButton)
-                    .addComponent(ConsultarReservajButton))
+                    .addComponent(ConsultarReservajButton)
+                    .addComponent(inserirArea))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -77,9 +91,14 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ConsultarReservajButtonActionPerformed
 
+    private void inserirAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserirAreaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsultarReservajButton;
     private javax.swing.JButton ReservarAreajButton;
+    private javax.swing.JButton inserirArea;
     // End of variables declaration//GEN-END:variables
 }

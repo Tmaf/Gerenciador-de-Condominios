@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import model.domain.pessoas.Morador;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -31,14 +32,14 @@ public class Reclamacao implements Serializable {
     
     @ManyToOne(optional=false)
     @JoinColumn(name="cpf")
-    private Morador morador;
+    private Usuario usuario;
 
-    public Morador getMorador() {
-        return morador;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setMorador(Morador morador) {
-        this.morador = morador;
+    public void setUsuario(Usuario Usuario) {
+        this.usuario = Usuario;
     }
      
     public int getCodigo() {

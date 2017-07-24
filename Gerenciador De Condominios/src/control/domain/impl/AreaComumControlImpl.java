@@ -18,6 +18,11 @@ public class AreaComumControlImpl extends ControlImpl<AreaComum> implements Area
     protected Class getClasse() {
         return AreaComum.class;
     }
+
+    @Override
+    protected String converteString( AreaComum e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

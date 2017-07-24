@@ -59,14 +59,16 @@ public abstract class ControlImpl <E extends Serializable> implements Control<E>
        
       for(int i=0;i<buffer.size();i++){
       
-          retorno[i]=buffer.get(i).toString();
+          retorno[i]=this.converteString(buffer.get(i));
       } 
         return retorno;
     }
     @Override
     public E getBufferIndex(int i){
+        System.out.println( this.converteString(buffer.get(i)));
         return buffer.get(i);
     }
-    protected abstract Class getClasse();
     
+    protected abstract Class getClasse();
+    protected abstract String converteString(E e);
 }

@@ -5,14 +5,9 @@
  */
 package view.paineis;
 
-import control.domain.impl.ControlImpl;
 import control.domain.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.domain.pessoas.Funcionario;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -23,7 +18,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     /**
      * Creates new form InformacoesPessoaisView
      */
-    public CadastroFuncionarioView() {
+    public CadastroFuncionarioView(String permissao) {
         initComponents();
         setorjComboBox.removeAllItems();
         setorjComboBox.addItem("Portaria");
@@ -31,6 +26,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         setorjComboBox.addItem("Limpeza");
         setorjComboBox.addItem("Manutenção");
         setorjComboBox.addItem("Segurança");
+      
     }
 
     /**
@@ -57,6 +53,8 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         entradajFormattedTextField = new javax.swing.JFormattedTextField();
         saidajFormattedTextField = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setPreferredSize(new java.awt.Dimension(400, 313));
 
@@ -78,6 +76,11 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         setorjLabel.setText("Setor:");
 
         setorjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        setorjComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                setorjComboBoxItemStateChanged(evt);
+            }
+        });
         setorjComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setorjComboBoxActionPerformed(evt);
@@ -97,6 +100,20 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
 
         saidajFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
+        jLabel3.setText("Senha:");
+
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordField1FocusGained(evt);
+            }
+        });
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,25 +132,33 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
                                 .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(setorjLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(setorjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(156, 156, 156))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saidajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saidajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPasswordField1))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nomejLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nomejTextField))
+                    .addComponent(SalvarjButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(CPFjLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CPFjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(setorjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(CPFjLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CPFjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(telefonejLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(telefonejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SalvarjButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(telefonejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,18 +177,20 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(setorjLabel)
-                    .addComponent(setorjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(setorjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(entradajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saidajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailjLabel)
                     .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(SalvarjButton)
                 .addGap(62, 62, 62))
         );
@@ -177,17 +204,47 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         f.setNome(this.nomejTextField.getText());
         f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
         f.setTelefone(this.telefonejTextField.getText());
-        control.salvar(f);
+     
+        
+        if(f.getSetorDeServico().equals("Portaria")){
+            Control usuarioControl = ControlFactory.getUsuarioControl();
+            Usuario user = new Usuario();
+            user.setNome(this.nomejTextField.getText());
+            user.setCpf(this.CPFjTextField.getText());
+            user.setPermissao("Porteiro");
+            user.setSenha(String.copyValueOf(this.jPasswordField1.getPassword()));
+            usuarioControl.salvar(user);
+        }
+           control.salvar(f);
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 
     private void setorjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorjComboBoxActionPerformed
-        // TODO add your handling code here:
+      if(this.setorjComboBox.getSelectedItem()==("Portaria")){
+          this.jPasswordField1.setVisible(true);
+          this.jLabel3.setVisible(true);
+      }
+      else{
+          this.jPasswordField1.setVisible(false);
+          this.jLabel3.setVisible(false);
+      }
     }//GEN-LAST:event_setorjComboBoxActionPerformed
 
     private void entradajFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entradajFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entradajFormattedTextFieldActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void setorjComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_setorjComboBoxItemStateChanged
+      
+    }//GEN-LAST:event_setorjComboBoxItemStateChanged
+
+    private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
+        this.jPasswordField1.setText("");
+    }//GEN-LAST:event_jPasswordField1FocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -199,6 +256,8 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField entradajFormattedTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel nomejLabel;
     private javax.swing.JTextField nomejTextField;
     private javax.swing.JFormattedTextField saidajFormattedTextField;

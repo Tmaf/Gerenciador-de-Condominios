@@ -18,6 +18,11 @@ public class MoradorControlImpl  extends ControlImpl<Morador> implements Morador
     protected Class getClasse() {
         return Morador.class;
     }
+
+    @Override
+    protected String converteString(Morador e) {
+        return e.getCpf() + ": " + e.getNome() +"  " +e.getTelefone();
+    }
     
     
 }

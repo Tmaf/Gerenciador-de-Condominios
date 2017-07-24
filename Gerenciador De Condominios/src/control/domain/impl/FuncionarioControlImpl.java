@@ -18,4 +18,9 @@ public class FuncionarioControlImpl extends ControlImpl<Funcionario> implements 
     protected Class getClasse() {
         return Funcionario.class;
     }
+
+    @Override
+    protected String converteString(Funcionario e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

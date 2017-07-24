@@ -35,8 +35,9 @@ public abstract class MenuFactory {
            case "CadastroMorador":
                 return new MoradoresMenuView(permissao);
           
-            case "Visitante":
+           case "Visitante":
            case "CadastroVisitante": 
+           case  "ListarVisitantes":
             return new EntradaSaidaMenuView(permissao);
            
            case "Area":

@@ -14,7 +14,7 @@ public class VisualizarReclamacaoView extends javax.swing.JPanel {
     /**
      * Creates new form VisualizarReclamacaoView
      */
-    public VisualizarReclamacaoView() {
+    public VisualizarReclamacaoView(String permissao) {
         initComponents();
     }
 

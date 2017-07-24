@@ -41,7 +41,7 @@ public class ViewPainelPrincipal implements ViewChain {
     JPanel panel = new JPanel();
      panel.setLayout(new BorderLayout());
 
-     panel.add(PainelFactory.createPainel(tela));
+     panel.add(PainelFactory.createPainel(tela,permissao));
      if(proximo!=null)
          panel.add(proximo.getPainel(tela));
      

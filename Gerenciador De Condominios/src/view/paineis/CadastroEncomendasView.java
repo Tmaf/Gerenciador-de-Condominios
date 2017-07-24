@@ -17,7 +17,7 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
     /**
      * Creates new form CadastroEncomendasView
      */
-    public CadastroEncomendasView() {
+    public CadastroEncomendasView(String permissao) {
         initComponents();
     }
 

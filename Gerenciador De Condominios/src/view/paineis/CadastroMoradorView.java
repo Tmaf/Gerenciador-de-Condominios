@@ -20,10 +20,8 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     /**
      * Creates new form InformacoesPessoaisView
      */
-    public CadastroMoradorView() {
+    public CadastroMoradorView(String permissao) {
 
-        
-        
         initComponents();
 
     }

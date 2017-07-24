@@ -14,7 +14,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
     /**
      * Creates new form ConsultarFinanceiroView
      */
-    public ConsultarFinanceiroView() {
+    public ConsultarFinanceiroView(String permissao) {
         initComponents();
     }
 

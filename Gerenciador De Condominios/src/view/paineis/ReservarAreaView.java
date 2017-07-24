@@ -14,7 +14,7 @@ public class ReservarAreaView extends javax.swing.JPanel {
     /**
      * Creates new form ReservarAreaView
      */
-    public ReservarAreaView() {
+    public ReservarAreaView(String permissao) {
         initComponents();
         
         areajComboBox.removeAllItems();

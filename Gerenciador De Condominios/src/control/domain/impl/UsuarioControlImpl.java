@@ -28,6 +28,11 @@ public class UsuarioControlImpl  extends ControlImpl<Usuario> implements Usuario
         else return null;
     
     }
+
+    @Override
+    protected String converteString(Usuario e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

@@ -14,7 +14,7 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
     /**
      * Creates new form ListarMoradoresView
      */
-    public ConsultarFuncionariosView() {
+    public ConsultarFuncionariosView(String permissao) {
         initComponents();
     }
 

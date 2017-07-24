@@ -14,7 +14,7 @@ public class ConsultarReservaView extends javax.swing.JPanel {
     /**
      * Creates new form ReservarAreaView
      */
-    public ConsultarReservaView() {
+    public ConsultarReservaView(String permissao) {
         initComponents();
     }
 

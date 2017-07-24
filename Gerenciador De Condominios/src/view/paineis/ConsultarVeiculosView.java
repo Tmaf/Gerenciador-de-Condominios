@@ -14,7 +14,7 @@ public class ConsultarVeiculosView extends javax.swing.JPanel {
     /**
      * Creates new form ConsultarVeiculosView
      */
-    public ConsultarVeiculosView() {
+    public ConsultarVeiculosView(String permissao){
         initComponents();
     }
 

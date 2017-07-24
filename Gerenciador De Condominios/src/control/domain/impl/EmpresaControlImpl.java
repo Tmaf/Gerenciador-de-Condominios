@@ -18,6 +18,11 @@ public class EmpresaControlImpl extends ControlImpl<Empresa> implements EmpresaC
     protected Class getClasse() {
        return Empresa.class;
     }
+
+    @Override
+    protected String converteString(Empresa e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

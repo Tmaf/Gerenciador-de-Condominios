@@ -21,7 +21,9 @@
               <Component id="ReservarAreajButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="ConsultarReservajButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="216" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="inserirArea" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="109" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -32,6 +34,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ReservarAreajButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ConsultarReservajButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="inserirArea" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -53,6 +56,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarReservajButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="inserirArea">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Inserir &#xc1;rea"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inserirAreaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

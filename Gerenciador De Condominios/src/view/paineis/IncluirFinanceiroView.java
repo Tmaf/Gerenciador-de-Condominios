@@ -6,7 +6,6 @@
 package view.paineis;
 
 import control.domain.impl.ControlImpl;
-import control.domain.*;
 
 /**
  *
@@ -17,7 +16,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     /**
      * Creates new form IncluirLancamentoView
      */
-    public IncluirFinanceiroView() {
+    public IncluirFinanceiroView(String permissao) {
         initComponents();
        
         RecDesjComboBox.removeAllItems();

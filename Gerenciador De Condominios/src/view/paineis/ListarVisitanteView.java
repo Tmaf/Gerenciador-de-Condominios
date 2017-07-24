@@ -14,7 +14,7 @@ public class ListarVisitanteView extends javax.swing.JPanel {
     /**
      * Creates new form ListarEncomendasView
      */
-    public ListarVisitanteView() {
+    public ListarVisitanteView(String permissao) {
         initComponents();
     }
 
@@ -34,6 +34,7 @@ public class ListarVisitanteView extends javax.swing.JPanel {
         jList1 = new javax.swing.JList<>();
         DestinatariojLabel1 = new javax.swing.JLabel();
         DestinatariojTextField1 = new javax.swing.JTextField();
+        SaidajButton = new javax.swing.JButton();
 
         DestinatariojLabel.setText("Nome Visitante:");
 
@@ -47,6 +48,13 @@ public class ListarVisitanteView extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         DestinatariojLabel1.setText("Nome Morador:");
+
+        SaidajButton.setText("Registrar Saída");
+        SaidajButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaidajButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,10 +71,13 @@ public class ListarVisitanteView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DestinatariojLabel1)
                         .addGap(9, 9, 9)
-                        .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(PesquisarjButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(PesquisarjButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(SaidajButton))
+                            .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -80,13 +91,19 @@ public class ListarVisitanteView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DestinatariojLabel1)
                     .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SaidajButton)
+                    .addComponent(PesquisarjButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PesquisarjButton)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SaidajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaidajButtonActionPerformed
+
+    }//GEN-LAST:event_SaidajButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -95,6 +112,7 @@ public class ListarVisitanteView extends javax.swing.JPanel {
     private javax.swing.JTextField DestinatariojTextField;
     private javax.swing.JTextField DestinatariojTextField1;
     private javax.swing.JButton PesquisarjButton;
+    private javax.swing.JButton SaidajButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

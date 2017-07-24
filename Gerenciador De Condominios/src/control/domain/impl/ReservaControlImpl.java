@@ -18,5 +18,10 @@ public class ReservaControlImpl extends ControlImpl<Reserva> implements ReservaC
     protected Class getClasse() {
         return Reserva.class;
     }
+
+    @Override
+    protected String converteString(Reserva e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

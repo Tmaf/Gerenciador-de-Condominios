@@ -18,6 +18,11 @@ public class ReclamacaoControlImpl  extends ControlImpl<Reclamacao> implements R
     protected Class getClasse() {
         return Reclamacao.class;
     }
+
+    @Override
+    protected String converteString(Reclamacao e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
