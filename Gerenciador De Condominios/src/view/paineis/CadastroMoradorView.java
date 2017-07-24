@@ -8,8 +8,10 @@ package view.paineis;
 import control.domain.impl.ControlImpl;
 import control.domain.*;
 import java.util.Arrays;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Usuario;
+import view.validacao.Validacoes;
 
 /**
  *
@@ -157,7 +159,7 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         Control moradorControl = ControlFactory.getMoradorControl();
         Control usuarioControl= ControlFactory.getUsuarioControl();
         
@@ -180,10 +182,18 @@ public class CadastroMoradorView extends javax.swing.JPanel {
         }
         else
             user.setPermissao("Morador");
-        
-       moradorControl.salvar(morador);
-       usuarioControl.salvar(user);
-        
+       
+        if(!Validacoes.isCPF(user.getCpf()))
+            showMessageDialog(null,"CPF inválido.");
+        else if(!Validacoes.isEmail(morador.getEmail()))
+            showMessageDialog(null,"Email inválido.");
+        else if(!Validacoes.isTelefone(morador.getTelefone()))
+            showMessageDialog(null,"Telefone inválido.");
+        else{
+           moradorControl.salvar(morador);
+           usuarioControl.salvar(user);
+           showMessageDialog(null,"O usuário foi criado com sucesso!");
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
