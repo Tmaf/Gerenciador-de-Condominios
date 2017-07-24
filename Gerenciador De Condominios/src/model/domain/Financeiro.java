@@ -10,7 +10,6 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import model.domain.pessoas.Pessoa;
 
 /**
  *
@@ -22,7 +21,8 @@ import model.domain.pessoas.Pessoa;
 public class Financeiro implements Serializable {
     @Id
     private String nroDocumento;
-    private String fornecedor;
+    private String nome;
+    private String cpf;
     private String tipoFinanceiro; //se é receita ou despesa
     private String tipoPagamento;
     private String tipoLancamento;
@@ -37,12 +37,20 @@ public class Financeiro implements Serializable {
         this.nroDocumento = nroDocumento;
     }
 
-    public String getFornecedor() {
-        return fornecedor;
+    public String getNome() {
+        return nome;
     }
 
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getTipoFinanceiro() {

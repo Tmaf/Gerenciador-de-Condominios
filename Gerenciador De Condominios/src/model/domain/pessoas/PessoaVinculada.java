@@ -20,9 +20,12 @@ import javax.persistence.Table;
 //@PrimaryKeyJoinColumn(name="cpf")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class PessoaVinculada extends Pessoa{
-          @Column (name="email")
-           private String email;
-        
+    @Column (name="email")
+    private String email;
+          
+    @Column (name="endereco")
+    private String endereco;
+
    //Gets and Sets
     public String getEmail() {
         return email;
@@ -30,5 +33,12 @@ public abstract class PessoaVinculada extends Pessoa{
     public void setEmail(String email) {
         this.email = email;
     }
- 
+    
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    } 
 }

@@ -6,6 +6,7 @@
 package view.paineis;
 
 import control.domain.impl.ControlImpl;
+import control.domain.*;
 
 /**
  *
@@ -48,10 +49,11 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        FornMorjLabel = new javax.swing.JLabel();
-        FornMorjTextField = new javax.swing.JTextField();
-        CPFCNPJjLabel = new javax.swing.JLabel();
-        CPFCNPJjTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        nomejLabel = new javax.swing.JLabel();
+        nomejTextField = new javax.swing.JTextField();
+        cpfjLabel = new javax.swing.JLabel();
+        cpfjTextField = new javax.swing.JTextField();
         DtEmissaojLabel = new javax.swing.JLabel();
         DtEmissaojTextField = new javax.swing.JTextField();
         DtVencimentojLabel = new javax.swing.JLabel();
@@ -66,9 +68,9 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoLancjComboBox = new javax.swing.JComboBox<>();
         salvarjButton = new javax.swing.JButton();
 
-        FornMorjLabel.setText("Fornecedor/Morador:");
+        nomejLabel.setText("Nome:");
 
-        CPFCNPJjLabel.setText("CPF/CNPJ:");
+        cpfjLabel.setText("CPF/CNPJ:");
 
         DtEmissaojLabel.setText("Data emissão:");
 
@@ -118,41 +120,43 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(FornMorjLabel)
+                        .addComponent(nomejLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FornMorjTextField))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(DtEmissaojLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DtEmissaojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DtVencimentojLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DtVencimentojTextField))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CPFCNPJjLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CPFCNPJjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NroDocjLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NroDocjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                        .addComponent(nomejTextField))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TipoPgtojLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TipoPgtojComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(RecDesjLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RecDesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TipoLancjLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TipoLancjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(salvarjButton)))
+                        .addComponent(salvarjButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(RecDesjLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RecDesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DtEmissaojLabel)
+                                .addGap(10, 10, 10)
+                                .addComponent(DtEmissaojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(cpfjLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cpfjTextField)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DtVencimentojLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NroDocjLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DtVencimentojTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NroDocjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -164,12 +168,12 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                     .addComponent(RecDesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FornMorjLabel)
-                    .addComponent(FornMorjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomejLabel)
+                    .addComponent(nomejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CPFCNPJjLabel)
-                    .addComponent(CPFCNPJjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfjLabel)
+                    .addComponent(cpfjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NroDocjLabel)
                     .addComponent(NroDocjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -214,14 +218,10 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
 
  private ControlImpl financeiroControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CPFCNPJjLabel;
-    private javax.swing.JTextField CPFCNPJjTextField;
     private javax.swing.JLabel DtEmissaojLabel;
     private javax.swing.JTextField DtEmissaojTextField;
     private javax.swing.JLabel DtVencimentojLabel;
     private javax.swing.JTextField DtVencimentojTextField;
-    private javax.swing.JLabel FornMorjLabel;
-    private javax.swing.JTextField FornMorjTextField;
     private javax.swing.JLabel NroDocjLabel;
     private javax.swing.JTextField NroDocjTextField;
     private javax.swing.JComboBox<String> RecDesjComboBox;
@@ -230,6 +230,11 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     private javax.swing.JLabel TipoLancjLabel;
     private javax.swing.JComboBox<String> TipoPgtojComboBox;
     private javax.swing.JLabel TipoPgtojLabel;
+    private javax.swing.JLabel cpfjLabel;
+    private javax.swing.JTextField cpfjTextField;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel nomejLabel;
+    private javax.swing.JTextField nomejTextField;
     private javax.swing.JButton salvarjButton;
     // End of variables declaration//GEN-END:variables
 }

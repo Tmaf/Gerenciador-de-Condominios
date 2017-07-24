@@ -5,6 +5,10 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import model.domain.pessoas.Funcionario;
+
 /**
  *
  * @author Aline
@@ -15,7 +19,10 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
      * Creates new form ListarMoradoresView
      */
     public ConsultarFuncionariosView(String permissao) {
-        initComponents();
+        initComponents();        
+        control= ControlFactory.getFuncionarioControl();
+        this.jList1.setListData(control.pesquisar(new Funcionario()));
+        
     }
 
     /**
@@ -41,6 +48,11 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
         jLabel1.setText("CPF:");
 
         pesquisarjButton.setText("Pesquisar");
+        pesquisarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesquisarjButtonActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -50,6 +62,11 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -94,7 +111,22 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void pesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarjButtonActionPerformed
+        Funcionario e; 
+        e= new Funcionario();
+        e.setNome(this.nomejTextField.getText());
+        e.setCpf(this.cpfjTextField.getText());
+        this.jList1.removeAll();
+        this.jList1.setListData(control.pesquisar(e));
+    }//GEN-LAST:event_pesquisarjButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         Funcionario e= control.getBufferIndex(this.jList1.getSelectedIndex());
+       // System.out.println(morador.getNome());
+         control.excluir(e);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private Control<Funcionario> control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpfjTextField;
     private javax.swing.JButton jButton1;

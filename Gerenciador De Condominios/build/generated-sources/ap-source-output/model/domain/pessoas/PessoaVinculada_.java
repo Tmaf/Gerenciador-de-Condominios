@@ -8,6 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(PessoaVinculada.class)
 public abstract class PessoaVinculada_ extends model.domain.pessoas.Pessoa_ {
 
+	public static volatile SingularAttribute<PessoaVinculada, String> endereco;
 	public static volatile SingularAttribute<PessoaVinculada, String> email;
 
 }

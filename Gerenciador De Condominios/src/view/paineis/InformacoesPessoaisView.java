@@ -24,15 +24,17 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
     public InformacoesPessoaisView(String permissao) {
         initComponents();
       
-        
-        /*this.nomejTextField.setText(user.getNome());
+        Usuario user = Tela.getUser();
+        this.nomejTextField.setText(user.getNome());
         this.CPFjTextField.setText(user.getCpf());
         
         if("MoradorMestre".equals(user.getPermissao()) || 
                 "Morador".equals(user.getPermissao()) ||
                 "Sindico".equals(user.getPermissao())){
         try{
-        Morador f=usuarioControl.getMorador(user);
+        Morador f= new Morador();
+       Control<Morador> funcionarioControl= ControlFactory.getMoradorControl();
+        f= funcionarioControl.bucarPorChave(f);
         this.emailjTextField.setText(f.getEmail());
         this.telefonejTextField.setText(f.getTelefone());
         this.enderecojTextField.setText(f.getEndereco());
@@ -47,26 +49,28 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
         }
                     
        }
-     if("Porteiro".equals(user.getPermissao())){
+        else if("Porteiro".equals(user.getPermissao())){
         try{
             Funcionario f= new Funcionario();
             f.setCpf(user.getCpf());
-            ControlImpl<Funcionario>funcionarioControl= ControlFactory.getFuncionarioControl();
+            Control<Funcionario> funcionarioControl= ControlFactory.getFuncionarioControl();
             f= funcionarioControl.bucarPorChave(f);
-            this.emailjTextField.setText(f.getEmail());
-            this.telefonejTextField.setText(f.getTelefone());
-            this.setorjTextField.setText(f.getSetorDeServico());
-            this.entradajFormattedTextField.setText("" + f.getHorarioEntrada().getTime());
-            this.saidajFormattedTextField.setText("" + f.getHorarioSaida().getTime());
             this.saidajFormattedTextField.setEditable(false);
             this.entradajFormattedTextField.setEditable(false);
-            this.enderecojLabel.setVisible(false);
-            this.enderecojTextField.setVisible(false);
+            this.setorjTextField.setEditable(false);
+            
+           
+            this.telefonejTextField.setText(f.getTelefone());
+            this.emailjTextField.setText(f.getEmail());
+            this.setorjTextField.setText(f.getSetorDeServico());
+            this.enderecojLabel.setText(f.getEndereco());
+            this.entradajFormattedTextField.setText("" + f.getHorarioEntrada().getTime());
+            this.saidajFormattedTextField.setText("" + f.getHorarioSaida().getTime());
         
         }catch(Exception e){
         e.printStackTrace();
         }
-        }*/
+        }
     }
 
     /**
@@ -230,27 +234,12 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
         char[] senha = this.senhajPasswordField.getPassword();
+        Usuario user= new Usuario();
         
-    /*    DateFormat format = new SimpleDateFormat("hh:mm");
-        java.sql.Date dataEntrada = null;
-        try {
-            dataEntrada = new java.sql.Date(format.parse(this.entradajFormattedTextField.getText()).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        java.sql.Date dataSaida = null;
-        try {
-            dataSaida = new java.sql.Date(format.parse(this.saidajFormattedTextField.getText()).getTime());
-        } catch (ParseException ex) {
-            Logger.getLogger(InformacoesPessoaisView.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-                
-        /*usuarioControl.salvarUsuario(this.CPFjTextField.getText(),
-                this.nomejTextField.getText(),String.copyValueOf(senha), "");
-        
-      /*  funcionarioControl.salvarFuncionario(this.nomejTextField.getText(), this.CPFjTextField.getText(),
-                this.emailjTextField.getText(), this.telefonejTextField.getText(),
-                this.setorjTextField.getText(), dataEntrada, dataSaida);*/
+        user.setCpf(this.CPFjTextField.getText());
+        user.setNome(this.nomejTextField.getText());
+        user.setSenha(String.copyValueOf(senha));
+    
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
     private void nomejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomejTextFieldActionPerformed

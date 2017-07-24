@@ -5,7 +5,6 @@
  */
 package view.paineis;
 
-import control.domain.impl.ControlImpl;
 import control.domain.*;
 import model.domain.pessoas.Morador;
 
@@ -20,7 +19,8 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
      */
     public ConsultarMoradoresView(String permissao) {
         initComponents();
-        this.jList1.removeAll();
+        control= ControlFactory.getMoradorControl();
+        this.jList1.setListData(control.pesquisar(new Morador()));
     }
 
     /**
@@ -110,9 +110,8 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarjButtonActionPerformed
-         Control control= ControlFactory.getMoradorControl();
-         Morador morador= new Morador();
-         
+        Morador morador; 
+        morador= new Morador();
          morador.setNome(this.nomejTextField.getText());
          morador.setCpf(this.cpfjTextField.getText());
         this.jList1.removeAll();
@@ -120,11 +119,13 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
     }//GEN-LAST:event_pesquisarjButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Control control= ControlFactory.getMoradorControl();
-         control.excluir(control.getBufferIndex(this.jList1.getSelectedIndex()));
+        //System.out.println(this.jList1.getSelectedIndex());
+        Morador morador= control.getBufferIndex(this.jList1.getSelectedIndex());
+       // System.out.println(morador.getNome());
+         control.excluir(morador);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private ControlImpl moradorControl;
+    private Control<Morador> control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpfjTextField;
     private javax.swing.JButton jButton1;
