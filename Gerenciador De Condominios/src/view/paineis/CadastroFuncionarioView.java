@@ -6,6 +6,11 @@
 package view.paineis;
 
 import control.domain.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.pessoas.Funcionario;
 import model.domain.pessoas.Usuario;
 
@@ -199,13 +204,33 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     private void SalvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarjButtonActionPerformed
         Control control = ControlFactory.getFuncionarioControl();
         Funcionario f= new Funcionario();
+        
+        String data = entradajFormattedTextField.getText();
+        SimpleDateFormat formato = new SimpleDateFormat("hh:mm");
+        Date date;
+        try {
+            date = formato.parse(data);
+            f.setHorarioEntrada(date); 
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        data = saidajFormattedTextField.getText();
+        formato = new SimpleDateFormat("hh:mm");
+        try {
+            date = formato.parse(data);
+            f.setHorarioSaida(date); 
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         f.setCpf(this.CPFjTextField.getText());
         f.setEmail(this.emailjTextField.getText());
         f.setNome(this.nomejTextField.getText());
         f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
         f.setTelefone(this.telefonejTextField.getText());
      
-        
         if(f.getSetorDeServico().equals("Portaria")){
             Control usuarioControl = ControlFactory.getUsuarioControl();
             Usuario user = new Usuario();

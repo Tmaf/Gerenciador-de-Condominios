@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
@@ -51,16 +51,16 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="DtEmissaojLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="DtEmissaojTextField" min="-2" pref="113" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="cpfjLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cpfjTextField" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="DtEmissaojLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="emissaojFormattedTextField" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -70,8 +70,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="DtVencimentojTextField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="NroDocjTextField" pref="96" max="32767" attributes="0"/>
+                          <Component id="NroDocjTextField" pref="110" max="32767" attributes="0"/>
+                          <Component id="vencimentojFormattedTextField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -102,9 +102,9 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DtEmissaojLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DtEmissaojTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DtVencimentojLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DtVencimentojTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emissaojFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vencimentojFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -143,14 +143,10 @@
         <Property name="text" type="java.lang.String" value="Data emiss&#xe3;o:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="DtEmissaojTextField">
-    </Component>
     <Component class="javax.swing.JLabel" name="DtVencimentojLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Data vencimento:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="DtVencimentojTextField">
     </Component>
     <Component class="javax.swing.JLabel" name="NroDocjLabel">
       <Properties>
@@ -234,6 +230,27 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarjButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="emissaojFormattedTextField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format subtype="0" type="1"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emissaojFormattedTextFieldFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="vencimentojFormattedTextField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format subtype="0" type="1"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="vencimentojFormattedTextFieldFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vencimentojFormattedTextFieldActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

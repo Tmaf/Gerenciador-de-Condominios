@@ -25,6 +25,8 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     public CadastroMoradorView(String permissao) {
 
         initComponents();
+        
+         telefonejTextField.setText("(xx)xxxx-xxxx");
 
     }
 
@@ -64,9 +66,35 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
         enderecojLabel.setText("Endereço:");
 
+        telefonejTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                telefonejTextFieldFocusGained(evt);
+            }
+        });
+        telefonejTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                telefonejTextFieldMouseClicked(evt);
+            }
+        });
+        telefonejTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefonejTextFieldActionPerformed(evt);
+            }
+        });
+
         senhajLabel.setText("Senha:");
 
         senhajPasswordField.setText("jPasswordField1");
+        senhajPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                senhajPasswordFieldFocusGained(evt);
+            }
+        });
+        senhajPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhajPasswordFieldActionPerformed(evt);
+            }
+        });
 
         jCheckBox1.setText("Morador Mestre");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +227,26 @@ public class CadastroMoradorView extends javax.swing.JPanel {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void telefonejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonejTextFieldActionPerformed
+      
+    }//GEN-LAST:event_telefonejTextFieldActionPerformed
+
+    private void telefonejTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telefonejTextFieldMouseClicked
+         
+    }//GEN-LAST:event_telefonejTextFieldMouseClicked
+
+    private void senhajPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhajPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhajPasswordFieldActionPerformed
+
+    private void senhajPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhajPasswordFieldFocusGained
+        senhajPasswordField.setText("");
+    }//GEN-LAST:event_senhajPasswordFieldFocusGained
+
+    private void telefonejTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefonejTextFieldFocusGained
+        telefonejTextField.setText("");
+    }//GEN-LAST:event_telefonejTextFieldFocusGained
 
     
 

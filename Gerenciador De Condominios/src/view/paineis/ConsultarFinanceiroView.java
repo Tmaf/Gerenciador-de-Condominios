@@ -5,6 +5,10 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import model.domain.Financeiro;
+
 /**
  *
  * @author Aline
@@ -14,8 +18,12 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
     /**
      * Creates new form ConsultarFinanceiroView
      */
+    private Control<Financeiro> control;
+    
     public ConsultarFinanceiroView(String permissao) {
         initComponents();
+        control = ControlFactory.getFinanceiroControl();
+        this.jList1.setListData(control.pesquisar(new Financeiro()));
     }
 
     /**
@@ -47,6 +55,11 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
         CPFCNPJjLabel.setText("CPF/CNPJ:");
 
         jButton1.setText("Pesquisar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Consultar Multas");
 
@@ -60,6 +73,11 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         ExcluirjButton.setText("Excluir");
+        ExcluirjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirjButtonActionPerformed(evt);
+            }
+        });
 
         BaixajButton.setText("Realizar Baixa");
 
@@ -125,13 +143,27 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BaixajButton)
                     .addComponent(EstornojButton)
-                    .addComponent(ExcluirjButton)))
+                    .addComponent(ExcluirjButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Financeiro financeiro = new Financeiro();
+        financeiro.setNome(this.FornMorjTextField.getText());
+        financeiro.setCpf(this.CPFCNPJjTextField.getText());
+        this.jList1.removeAll();
+        this.jList1.setListData(control.pesquisar(financeiro));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ExcluirjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirjButtonActionPerformed
+         Financeiro financeiro = control.getBufferIndex(this.jList1.getSelectedIndex());
+         control.excluir(financeiro);
+    }//GEN-LAST:event_ExcluirjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

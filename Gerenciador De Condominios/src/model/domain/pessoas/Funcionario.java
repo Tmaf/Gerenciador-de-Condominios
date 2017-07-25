@@ -5,11 +5,12 @@
  */
 package model.domain.pessoas;
 
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -23,17 +24,15 @@ public class Funcionario extends PessoaVinculada{
     
     @Column (name="setor_de_servico")
     private String setorDeServico;
-   
+
+    @Temporal(TemporalType.TIME)
     @Column (name="horario_entrada")
-    @Type(type="timestamp")
     private Date horarioEntrada;
    
+    @Temporal(TemporalType.TIME)
     @Column (name="horario_saida")
-    @Type(type="timestamp")
     private Date horarioSaida;
     
-
-   
    //Geters and Seters
     public String getSetorDeServico() {
         return setorDeServico;

@@ -7,6 +7,10 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import model.domain.Financeiro;
 
 /**
  *
@@ -38,6 +42,8 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoLancjComboBox.addItem("Pagamento à fornecedor");
         TipoLancjComboBox.addItem("Outro");
         
+        emissaojFormattedTextField.setText("dd/mm/aaaa");
+        vencimentojFormattedTextField.setText("dd/mm/aaaa");
     }
 
     /**
@@ -55,9 +61,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         cpfjLabel = new javax.swing.JLabel();
         cpfjTextField = new javax.swing.JTextField();
         DtEmissaojLabel = new javax.swing.JLabel();
-        DtEmissaojTextField = new javax.swing.JTextField();
         DtVencimentojLabel = new javax.swing.JLabel();
-        DtVencimentojTextField = new javax.swing.JTextField();
         NroDocjLabel = new javax.swing.JLabel();
         NroDocjTextField = new javax.swing.JTextField();
         RecDesjLabel = new javax.swing.JLabel();
@@ -67,6 +71,8 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoLancjLabel = new javax.swing.JLabel();
         TipoLancjComboBox = new javax.swing.JComboBox<>();
         salvarjButton = new javax.swing.JButton();
+        emissaojFormattedTextField = new javax.swing.JFormattedTextField();
+        vencimentojFormattedTextField = new javax.swing.JFormattedTextField();
 
         nomejLabel.setText("Nome:");
 
@@ -112,6 +118,25 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
             }
         });
 
+        emissaojFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        emissaojFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                emissaojFormattedTextFieldFocusGained(evt);
+            }
+        });
+
+        vencimentojFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        vencimentojFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                vencimentojFormattedTextFieldFocusGained(evt);
+            }
+        });
+        vencimentojFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vencimentojFormattedTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,23 +165,23 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                         .addComponent(RecDesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(DtEmissaojLabel)
-                                .addGap(10, 10, 10)
-                                .addComponent(DtEmissaojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(cpfjLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cpfjTextField)))
+                                .addComponent(cpfjTextField))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DtEmissaojLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(emissaojFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DtVencimentojLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(NroDocjLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DtVencimentojTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(NroDocjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))))
+                            .addComponent(NroDocjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(vencimentojFormattedTextField))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -179,9 +204,9 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DtEmissaojLabel)
-                    .addComponent(DtEmissaojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DtVencimentojLabel)
-                    .addComponent(DtVencimentojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emissaojFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vencimentojFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TipoPgtojLabel)
@@ -209,19 +234,45 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     }//GEN-LAST:event_TipoLancjComboBoxActionPerformed
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
-        /*financeiroControl.salvarFinanceiro(this.NroDocjTextField.getText(), this.FornMorjTextField.getText(),
-                (String) this.RecDesjComboBox.getSelectedItem(), (String) this.TipoPgtojComboBox.getSelectedItem(),
-                (String) this.TipoLancjComboBox.getSelectedItem(), new java.sql.Date(new java.util.Date().getTime()),
-                new java.sql.Date(new java.util.Date().getTime()),
-                new java.sql.Date(new java.util.Date().getTime()));*/
+        Control control = ControlFactory.getFinanceiroControl();
+        Financeiro financeiro = new Financeiro();
+        
+        String data = emissaojFormattedTextField.getText();
+        String[] parts = data.split("/");
+        financeiro.setEmissao((Date.valueOf(parts[2] //ano
+                +"-"+ parts[1] + //mes
+                "-"+ parts[0]))); // dia
+        
+        data = vencimentojFormattedTextField.getText();
+        parts = data.split("/");
+        financeiro.setVencimento((Date.valueOf(parts[2] //ano
+                +"-"+ parts[1] + //mes
+                "-"+ parts[0]))); // dia
+
+        financeiro.setTipoFinanceiro(this.RecDesjComboBox.getSelectedItem().toString());
+        financeiro.setNome(this.nomejTextField.getText());
+        financeiro.setCpf(this.cpfjTextField.getText());
+        financeiro.setNroDocumento(this.NroDocjTextField.getText());
+        financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
+        control.salvar(financeiro);
     }//GEN-LAST:event_salvarjButtonActionPerformed
+
+    private void vencimentojFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vencimentojFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vencimentojFormattedTextFieldActionPerformed
+
+    private void emissaojFormattedTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emissaojFormattedTextFieldFocusGained
+        emissaojFormattedTextField.setText("");
+    }//GEN-LAST:event_emissaojFormattedTextFieldFocusGained
+
+    private void vencimentojFormattedTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vencimentojFormattedTextFieldFocusGained
+        vencimentojFormattedTextField.setText("");
+    }//GEN-LAST:event_vencimentojFormattedTextFieldFocusGained
 
  private ControlImpl financeiroControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DtEmissaojLabel;
-    private javax.swing.JTextField DtEmissaojTextField;
     private javax.swing.JLabel DtVencimentojLabel;
-    private javax.swing.JTextField DtVencimentojTextField;
     private javax.swing.JLabel NroDocjLabel;
     private javax.swing.JTextField NroDocjTextField;
     private javax.swing.JComboBox<String> RecDesjComboBox;
@@ -232,9 +283,11 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     private javax.swing.JLabel TipoPgtojLabel;
     private javax.swing.JLabel cpfjLabel;
     private javax.swing.JTextField cpfjTextField;
+    private javax.swing.JFormattedTextField emissaojFormattedTextField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nomejLabel;
     private javax.swing.JTextField nomejTextField;
     private javax.swing.JButton salvarjButton;
+    private javax.swing.JFormattedTextField vencimentojFormattedTextField;
     // End of variables declaration//GEN-END:variables
 }

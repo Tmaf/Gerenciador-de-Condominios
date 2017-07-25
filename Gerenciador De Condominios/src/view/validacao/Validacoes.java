@@ -80,7 +80,7 @@ public class Validacoes{
     }
     
     public static boolean isTelefone(String telefone) {
-        if(telefone.length()>11){
+        if(telefone.length()>10){
             telefone=telefone.replace("-", "");
             telefone=telefone.replace("(", "");
             telefone=telefone.replace(")", "");

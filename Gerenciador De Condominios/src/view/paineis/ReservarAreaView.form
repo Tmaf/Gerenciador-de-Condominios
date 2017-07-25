@@ -115,6 +115,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="iniciojFormattedTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iniciojFormattedTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="valorjLabel">
       <Properties>

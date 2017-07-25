@@ -17,7 +17,6 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
         
     public CadastrarVeiculosView(String permissao) {
         initComponents();
-      //  veiculoControl = VeiculoControl.getVeiculoControl();
       
       tipoUsuariojComboBox.removeAllItems();
       tipoUsuariojComboBox.addItem("Morador");
@@ -123,7 +122,7 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
         
         Veiculo veiculo= new Veiculo();
         Control control = ControlFactory.getVeiculoControl();
-        
+
         veiculo.setModelo(this.modelojTextField.getText());
         veiculo.setPlaca(this.placajTextField.getText());
         control.salvar(veiculo);

@@ -10,6 +10,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -19,14 +20,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name="financeiro")
 public class Financeiro implements Serializable {
+    
     @Id
     private String nroDocumento;
+    
     private String nome;
     private String cpf;
     private String tipoFinanceiro; //se é receita ou despesa
     private String tipoPagamento;
     private String tipoLancamento;
+    
     private Date emissao; //data que a fatura foi emitida ou lancada no sistema
+    
     private Date vencimento;
     private Date baixa;  //data pagamento
     

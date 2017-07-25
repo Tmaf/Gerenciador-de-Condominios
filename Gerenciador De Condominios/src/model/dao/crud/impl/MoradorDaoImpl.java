@@ -34,7 +34,7 @@ public class MoradorDaoImpl extends CrudDaoImpl<Morador,String> implements Morad
         if(modelo.getNome()!=null && !modelo.getNome().equals("")){
             sql.append("and nome like :nome ");
         }
-        if(modelo.getEndereco()!=null && !modelo.getEndereco().equals("")){
+        if(modelo.getEndereco() != null && !modelo.getEndereco().equals("")){
             sql.append(" and endereco like :endereco ");
         }
         if(modelo.getEmail()!=null && !modelo.getEmail().equals("")){
@@ -47,28 +47,28 @@ public class MoradorDaoImpl extends CrudDaoImpl<Morador,String> implements Morad
     }
 
     @Override
-    protected Map<String, Object> getParametrosMapa(Morador morador) {
+    protected Map<String, Object> getParametrosMapa(Morador modelo) {
             
             Map<String,Object> mapa =  new HashMap<>();
          
-         if(morador.getCpf()!=null && !morador.getCpf().equals("")){
-            
-            mapa.put("cpf", morador.getCpf());
+         if(modelo.getCpf()!=null && !modelo.getCpf().equals("")){
+         
+            mapa.put("cpf", modelo.getCpf());
         }
-        if(morador.getNome()!=null && !morador.getNome().equals("")){
+        if(modelo.getNome()!=null && !modelo.getNome().equals("")){
  
-            mapa.put("nome", morador.getNome());
+            mapa.put("nome", modelo.getNome());
         }
-        if(morador.getEndereco()!=null && !morador.getEndereco().equals("")){
+        if(modelo.getEndereco()!=null && !modelo.getEndereco().equals("")){
             
-             mapa.put("endereco", morador.getEndereco());
+             mapa.put("endereco", modelo.getEndereco());
         }
-        if(morador.getEmail()!=null && !morador.getEmail().equals("")){
+        if(modelo.getEmail()!=null && !modelo.getEmail().equals("")){
             
-            mapa.put("email",  morador.getEmail());
+            mapa.put("email",  modelo.getEmail());
         }
-        if(morador.getTelefone()!=null && !morador.getTelefone().equals("")){
-           mapa.put("telefone",  morador.getTelefone());
+        if(modelo.getTelefone()!=null && !modelo.getTelefone().equals("")){
+           mapa.put("telefone",  modelo.getTelefone());
         }       
         
         return mapa;

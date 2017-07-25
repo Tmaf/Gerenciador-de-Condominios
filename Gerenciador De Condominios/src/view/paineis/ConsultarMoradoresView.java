@@ -123,6 +123,7 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
         Morador morador= control.getBufferIndex(this.jList1.getSelectedIndex());
        // System.out.println(morador.getNome());
          control.excluir(morador);
+         pesquisarjButtonActionPerformed(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Morador> control;

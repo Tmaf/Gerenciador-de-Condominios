@@ -61,6 +61,12 @@ public class ReservarAreaView extends javax.swing.JPanel {
 
         horariojLabel.setText("Início:");
 
+        iniciojFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciojFormattedTextFieldActionPerformed(evt);
+            }
+        });
+
         valorjLabel.setText("Valor da reserva:");
 
         valorjFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
@@ -175,6 +181,10 @@ public class ReservarAreaView extends javax.swing.JPanel {
             fimjFormattedTextField.setEnabled(true);
         }
     }//GEN-LAST:event_diaTodojCheckBoxActionPerformed
+
+    private void iniciojFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciojFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iniciojFormattedTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

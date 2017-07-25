@@ -18,7 +18,7 @@ import model.domain.pessoas.*;
  */
 public class ServiceLocator implements ServiceInterface{
     
-    private  Map <Class,Class> map;  
+    private final  Map <Class,Class> map;  
     private static ServiceLocator serviceLocator;
     
     private ServiceLocator(){
@@ -35,7 +35,7 @@ public class ServiceLocator implements ServiceInterface{
     public  CrudDao getService(Class dominio){
         CrudDao crud;
         try{
-            if(map.size()==0)
+            if(map.isEmpty())
                 this.initAntigo();
             System.out.println( "" + map.size() + "\n" + map.get(dominio));
             
@@ -60,6 +60,7 @@ public class ServiceLocator implements ServiceInterface{
         map.put(Veiculo.class, VeiculoDaoImpl.class);
         map.put(Visitante.class,VisitanteDaoImpl.class);
         map.put(Reserva.class,ReservaDaoImpl.class);
+        map.put(Financeiro.class, FinanceiroDaoImpl.class);
     }
    
 }
