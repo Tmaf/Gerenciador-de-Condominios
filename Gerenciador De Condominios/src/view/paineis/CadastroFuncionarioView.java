@@ -60,6 +60,8 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         saidajFormattedTextField = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        enderecojTextField = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(400, 313));
 
@@ -119,6 +121,8 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setText("Endereço:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,7 +167,11 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(telefonejLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(telefonejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(telefonejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enderecojTextField)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -193,9 +201,13 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
                     .addComponent(saidajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(enderecojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailjLabel)
                     .addComponent(emailjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SalvarjButton)
                 .addGap(62, 62, 62))
         );
@@ -205,20 +217,18 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         Control control = ControlFactory.getFuncionarioControl();
         Funcionario f= new Funcionario();
         
-        String data = entradajFormattedTextField.getText();
         SimpleDateFormat formato = new SimpleDateFormat("hh:mm");
         Date date;
         try {
-            date = formato.parse(data);
+            date = formato.parse(entradajFormattedTextField.getText());
             f.setHorarioEntrada(date); 
         } catch (ParseException ex) {
             Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        data = saidajFormattedTextField.getText();
         formato = new SimpleDateFormat("hh:mm");
         try {
-            date = formato.parse(data);
+            date = formato.parse(saidajFormattedTextField.getText());
             f.setHorarioSaida(date); 
         } catch (ParseException ex) {
             Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
@@ -230,6 +240,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         f.setNome(this.nomejTextField.getText());
         f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
         f.setTelefone(this.telefonejTextField.getText());
+        f.setEndereco(this.enderecojTextField.getText());
      
         if(f.getSetorDeServico().equals("Portaria")){
             Control usuarioControl = ControlFactory.getUsuarioControl();
@@ -278,10 +289,12 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     private javax.swing.JButton SalvarjButton;
     private javax.swing.JLabel emailjLabel;
     private javax.swing.JTextField emailjTextField;
+    private javax.swing.JTextField enderecojTextField;
     private javax.swing.JFormattedTextField entradajFormattedTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel nomejLabel;
     private javax.swing.JTextField nomejTextField;

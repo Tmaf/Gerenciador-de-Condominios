@@ -23,7 +23,7 @@ public class FinanceiroControlImpl extends ControlImpl<Financeiro> implements Fi
     protected String converteString(Financeiro e) {
         return e.getCpf() + ": " + e.getNome() +"  " +e.getNroDocumento() + " " + e.getTipoFinanceiro() +
                 " " + e.getTipoLancamento() + " " + e.getTipoPagamento() + " " + e.getEmissao() + " " +
-                e.hashCode() + " " + e.getBaixa();
+                e.getVencimento()+ " " + e.getBaixa() + " " + e.getValor();
     }
     
 }

@@ -63,9 +63,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="EntradajLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="entradajFormattedTextField" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="entradajFormattedTextField" min="-2" pref="139" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="SaidajLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="saidajFormattedTextField" max="32767" attributes="0"/>
@@ -183,6 +183,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="setorjTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setorjTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="EntradajLabel">
       <Properties>

@@ -21,6 +21,8 @@ public class FuncionarioControlImpl extends ControlImpl<Funcionario> implements 
 
     @Override
     protected String converteString(Funcionario e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return "CPF: " + e.getCpf() + " Nome: " + e.getNome() +" Telefone: " +e.getTelefone() +
+                 " Setor: " + e.getSetorDeServico() + " Hora Entrada: " + e.getHorarioEntrada() +
+                 " Hora Saída: " + e.getHorarioSaida();
     }
 }

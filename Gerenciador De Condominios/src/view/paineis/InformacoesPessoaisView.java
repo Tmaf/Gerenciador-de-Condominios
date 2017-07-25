@@ -63,9 +63,9 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
             this.telefonejTextField.setText(f.getTelefone());
             this.emailjTextField.setText(f.getEmail());
             this.setorjTextField.setText(f.getSetorDeServico());
-            this.enderecojLabel.setText(f.getEndereco());
-            this.entradajFormattedTextField.setText("" + f.getHorarioEntrada().getTime());
-            this.saidajFormattedTextField.setText("" + f.getHorarioSaida().getTime());
+            this.enderecojTextField.setText(f.getEndereco());
+            this.entradajFormattedTextField.setText("" + f.getHorarioEntrada());
+            this.saidajFormattedTextField.setText("" + f.getHorarioSaida());
         
         }catch(Exception e){
         e.printStackTrace();
@@ -126,6 +126,12 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
 
         senhajPasswordField.setText("jPasswordField1");
 
+        setorjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setorjTextFieldActionPerformed(evt);
+            }
+        });
+
         EntradajLabel.setText("Entrada");
 
         SaidajLabel.setText("Saída:");
@@ -182,9 +188,9 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
                                 .addComponent(senhajPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(EntradajLabel)
-                        .addGap(43, 43, 43)
-                        .addComponent(entradajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(entradajFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(SaidajLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(saidajFormattedTextField))
@@ -245,6 +251,10 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
     private void nomejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomejTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomejTextFieldActionPerformed
+
+    private void setorjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setorjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_setorjTextFieldActionPerformed
 
     private ControlImpl usuarioControl;
     // Variables declaration - do not modify//GEN-BEGIN:variables

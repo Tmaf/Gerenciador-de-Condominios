@@ -27,10 +27,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="BaixajButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="EstornojButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="ExcluirjButton" pref="98" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -40,20 +37,20 @@
                               <Component id="CPFCNPJjTextField" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                               <Component id="pesquisarjButton" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="consultaMultasjButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="consultaInadimplentesjButton" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" max="32767" attributes="0"/>
+                              <Component id="vencimentojTextField" min="-2" pref="86" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="ExcluirjButton" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -74,22 +71,18 @@
                   <Component id="CPFCNPJjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CPFCNPJjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vencimentojTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="consultaMultasjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="consultaInadimplentesjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pesquisarjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ExcluirjButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="162" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BaixajButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="EstornojButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ExcluirjButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="BaixajButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -124,14 +117,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultaMultasjButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="consultaInadimplentesjButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar Inadimplentes"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultaInadimplentesjButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -175,17 +160,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BaixajButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="EstornojButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Realizar Estorno"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vencimento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="vencimentojTextField">
     </Component>
   </SubComponents>
 </Form>

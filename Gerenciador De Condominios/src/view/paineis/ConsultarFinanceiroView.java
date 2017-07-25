@@ -23,7 +23,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
     /**
      * Creates new form ConsultarFinanceiroView
      */
-    private Control<Financeiro> control;
+    private final Control<Financeiro> control;
     
     public ConsultarFinanceiroView(String permissao) {
         initComponents();
@@ -46,14 +46,12 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
         CPFCNPJjTextField = new javax.swing.JTextField();
         pesquisarjButton = new javax.swing.JButton();
         consultaMultasjButton = new javax.swing.JButton();
-        consultaInadimplentesjButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         ExcluirjButton = new javax.swing.JButton();
         BaixajButton = new javax.swing.JButton();
-        EstornojButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        vencimentojTextField = new javax.swing.JTextField();
 
         FornMorjLabel.setText("Nome:");
 
@@ -70,13 +68,6 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
         consultaMultasjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultaMultasjButtonActionPerformed(evt);
-            }
-        });
-
-        consultaInadimplentesjButton.setText("Consultar Inadimplentes");
-        consultaInadimplentesjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultaInadimplentesjButtonActionPerformed(evt);
             }
         });
 
@@ -101,8 +92,6 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
             }
         });
 
-        EstornojButton.setText("Realizar Estorno");
-
         jLabel1.setText("Vencimento:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -119,10 +108,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
                         .addComponent(FornMorjTextField))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BaixajButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EstornojButton)
-                        .addGap(62, 62, 62)
-                        .addComponent(ExcluirjButton, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -130,17 +116,17 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CPFCNPJjTextField))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 6, Short.MAX_VALUE)
                                 .addComponent(pesquisarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(consultaMultasjButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(consultaInadimplentesjButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1)))))
+                                .addComponent(vencimentojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ExcluirjButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -155,19 +141,16 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
                     .addComponent(CPFCNPJjLabel)
                     .addComponent(CPFCNPJjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(vencimentojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(consultaMultasjButton)
-                    .addComponent(consultaInadimplentesjButton)
-                    .addComponent(pesquisarjButton))
+                    .addComponent(pesquisarjButton)
+                    .addComponent(ExcluirjButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BaixajButton)
-                    .addComponent(EstornojButton)
-                    .addComponent(ExcluirjButton))
+                .addComponent(BaixajButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -176,6 +159,16 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
         Financeiro financeiro = new Financeiro();
         financeiro.setNome(this.FornMorjTextField.getText());
         financeiro.setCpf(this.CPFCNPJjTextField.getText());
+        
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date date;
+        try {
+            date = formato.parse(vencimentojTextField.getText());
+            financeiro.setVencimento(date); 
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         this.jList1.removeAll();
         this.jList1.setListData(control.pesquisar(financeiro));
     }//GEN-LAST:event_pesquisarjButtonActionPerformed
@@ -192,10 +185,6 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
        this.jList1.removeAll();
        this.jList1.setListData(control.pesquisar(financeiro));
     }//GEN-LAST:event_consultaMultasjButtonActionPerformed
-
-    private void consultaInadimplentesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaInadimplentesjButtonActionPerformed
-
-    }//GEN-LAST:event_consultaInadimplentesjButtonActionPerformed
 
     private void BaixajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixajButtonActionPerformed
         Financeiro financeiro = control.getBufferIndex(this.jList1.getSelectedIndex());
@@ -223,16 +212,14 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
     private javax.swing.JButton BaixajButton;
     private javax.swing.JLabel CPFCNPJjLabel;
     private javax.swing.JTextField CPFCNPJjTextField;
-    private javax.swing.JButton EstornojButton;
     private javax.swing.JButton ExcluirjButton;
     private javax.swing.JLabel FornMorjLabel;
     private javax.swing.JTextField FornMorjTextField;
-    private javax.swing.JButton consultaInadimplentesjButton;
     private javax.swing.JButton consultaMultasjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton pesquisarjButton;
+    private javax.swing.JTextField vencimentojTextField;
     // End of variables declaration//GEN-END:variables
 }

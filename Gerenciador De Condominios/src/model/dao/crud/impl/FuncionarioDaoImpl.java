@@ -44,13 +44,12 @@ public class FuncionarioDaoImpl  extends CrudDaoImpl<Funcionario,String> impleme
         if(modelo.getTelefone()!=null && !modelo.getTelefone().equals("")){
             sql.append(" and telefone like :telefone ");
         }
-        /*  
         if(modelo.getHorarioEntrada()!=null){
             sql.append(" and horarioEntrada = :horarioEntrada ");
         } 
         if(modelo.getHorarioSaida()!=null){
             sql.append(" and horarioSaida = :horarioSaida ");
-        }  */
+        }
         
         return sql.toString();    
     }
@@ -78,13 +77,12 @@ public class FuncionarioDaoImpl  extends CrudDaoImpl<Funcionario,String> impleme
         if(modelo.getEndereco()!=null && !modelo.getEndereco().equals("")){
             mapa.put("endereco", modelo.getEndereco());
         }
-        /*
         if(modelo.getHorarioEntrada()!=null){
               mapa.put("horarioEntrada", modelo.getHorarioEntrada());
         }  
         if(modelo.getHorarioSaida()!=null){
               mapa.put("horarioSaida", modelo.getHorarioSaida());
-        } */ 
+        }
         return mapa;
     }
     

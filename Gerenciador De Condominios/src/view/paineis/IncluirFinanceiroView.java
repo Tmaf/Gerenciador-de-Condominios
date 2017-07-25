@@ -54,7 +54,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         NroDocjTextField.setText("");
         emissaojFormattedTextField.setText("dd/mm/aaaa");
         vencimentojFormattedTextField.setText("dd/mm/aaaa");
-        
+        valorjTextField.setText("");
     }
 
     /**
@@ -280,6 +280,7 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         financeiro.setNroDocumento(this.NroDocjTextField.getText());
         financeiro.setTipoPagamento(this.TipoPgtojComboBox.getSelectedItem().toString());
         financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
+        financeiro.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
         control.salvar(financeiro);
         limpaTela();
     }//GEN-LAST:event_salvarjButtonActionPerformed

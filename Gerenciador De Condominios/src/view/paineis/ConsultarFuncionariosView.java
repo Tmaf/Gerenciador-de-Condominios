@@ -124,6 +124,7 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
          Funcionario e= control.getBufferIndex(this.jList1.getSelectedIndex());
        // System.out.println(morador.getNome());
          control.excluir(e);
+         pesquisarjButtonActionPerformed(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Funcionario> control;
