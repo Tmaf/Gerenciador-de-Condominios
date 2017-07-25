@@ -41,7 +41,10 @@
                       <Component id="TipoLancjComboBox" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="valorjLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="valorjTextField" min="-2" pref="111" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="salvarjButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -117,7 +120,11 @@
                   <Component id="TipoLancjComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="salvarjButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="salvarjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="valorjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="valorjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -252,6 +259,13 @@
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="vencimentojFormattedTextFieldFocusGained"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vencimentojFormattedTextFieldActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="valorjLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="valorjTextField">
     </Component>
   </SubComponents>
 </Form>

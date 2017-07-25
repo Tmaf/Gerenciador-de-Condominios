@@ -42,8 +42,8 @@ public class MoradorDaoImpl extends CrudDaoImpl<Morador,String> implements Morad
         }
         if(modelo.getTelefone()!=null && !modelo.getTelefone().equals("")){
             sql.append(" and telefone like :telefone ");
-        }    
-        return sql.toString();
+        }   
+       return sql.toString();
     }
 
     @Override

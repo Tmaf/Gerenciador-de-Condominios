@@ -6,11 +6,12 @@
 package model.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,10 +30,15 @@ public class Financeiro implements Serializable {
     private String tipoFinanceiro; //se é receita ou despesa
     private String tipoPagamento;
     private String tipoLancamento;
+    private Double valor;
     
+    @Temporal(TemporalType.DATE)
     private Date emissao; //data que a fatura foi emitida ou lancada no sistema
-    
+
+    @Temporal(TemporalType.DATE)
     private Date vencimento;
+    
+    @Temporal(TemporalType.DATE)
     private Date baixa;  //data pagamento
     
     public String getNroDocumento() {
@@ -105,7 +111,13 @@ public class Financeiro implements Serializable {
     public void setBaixa(Date baixa) {
         this.baixa = baixa;
     }
-    
-    
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 
 }

@@ -43,6 +43,9 @@ public class FinanceiroDaoImpl extends CrudDaoImpl<Financeiro,String> implements
         if(modelo.getTipoLancamento()!=null && !modelo.getTipoLancamento().equals("")){
             sql.append(" and tipoLancamento like :tipoLancamento ");
         }
+        if(modelo.getValor()!=null && !modelo.getValor().equals("")){
+            sql.append(" and valor = :valor ");
+        }
         if(modelo.getEmissao()!=null){
             sql.append(" and emissao = :emissao ");
         } 
@@ -88,7 +91,9 @@ public class FinanceiroDaoImpl extends CrudDaoImpl<Financeiro,String> implements
         if(modelo.getBaixa()!=null){
               mapa.put("baixa", modelo.getBaixa());
         }
-         
+        if(modelo.getValor()!=null && !modelo.getValor().equals("")){
+              mapa.put("valor", modelo.getValor());
+        }
         return mapa;
     }
     

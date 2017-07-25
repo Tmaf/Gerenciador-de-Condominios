@@ -7,9 +7,11 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.Financeiro;
 
 /**
@@ -42,8 +44,17 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         TipoLancjComboBox.addItem("Pagamento à fornecedor");
         TipoLancjComboBox.addItem("Outro");
         
+        limpaTela();
+        
+    }
+    
+    private void limpaTela(){
+        nomejTextField.setText("");
+        cpfjTextField.setText("");
+        NroDocjTextField.setText("");
         emissaojFormattedTextField.setText("dd/mm/aaaa");
         vencimentojFormattedTextField.setText("dd/mm/aaaa");
+        
     }
 
     /**
@@ -73,6 +84,8 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         salvarjButton = new javax.swing.JButton();
         emissaojFormattedTextField = new javax.swing.JFormattedTextField();
         vencimentojFormattedTextField = new javax.swing.JFormattedTextField();
+        valorjLabel = new javax.swing.JLabel();
+        valorjTextField = new javax.swing.JTextField();
 
         nomejLabel.setText("Nome:");
 
@@ -137,6 +150,8 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
             }
         });
 
+        valorjLabel.setText("Valor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,7 +172,10 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TipoLancjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(valorjLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(valorjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(salvarjButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RecDesjLabel)
@@ -216,7 +234,10 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
                     .addComponent(TipoLancjLabel)
                     .addComponent(TipoLancjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(salvarjButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salvarjButton)
+                    .addComponent(valorjLabel)
+                    .addComponent(valorjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -237,24 +258,30 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         Control control = ControlFactory.getFinanceiroControl();
         Financeiro financeiro = new Financeiro();
         
-        String data = emissaojFormattedTextField.getText();
-        String[] parts = data.split("/");
-        financeiro.setEmissao((Date.valueOf(parts[2] //ano
-                +"-"+ parts[1] + //mes
-                "-"+ parts[0]))); // dia
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date;
+        try {
+            date = sdf.parse(emissaojFormattedTextField.getText());
+            financeiro.setEmissao(date); 
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        data = vencimentojFormattedTextField.getText();
-        parts = data.split("/");
-        financeiro.setVencimento((Date.valueOf(parts[2] //ano
-                +"-"+ parts[1] + //mes
-                "-"+ parts[0]))); // dia
+        try {
+            date = sdf.parse(vencimentojFormattedTextField.getText());
+            financeiro.setEmissao(date); 
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         financeiro.setTipoFinanceiro(this.RecDesjComboBox.getSelectedItem().toString());
         financeiro.setNome(this.nomejTextField.getText());
         financeiro.setCpf(this.cpfjTextField.getText());
         financeiro.setNroDocumento(this.NroDocjTextField.getText());
+        financeiro.setTipoPagamento(this.TipoPgtojComboBox.getSelectedItem().toString());
         financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
         control.salvar(financeiro);
+        limpaTela();
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
     private void vencimentojFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vencimentojFormattedTextFieldActionPerformed
@@ -288,6 +315,8 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
     private javax.swing.JLabel nomejLabel;
     private javax.swing.JTextField nomejTextField;
     private javax.swing.JButton salvarjButton;
+    private javax.swing.JLabel valorjLabel;
+    private javax.swing.JTextField valorjTextField;
     private javax.swing.JFormattedTextField vencimentojFormattedTextField;
     // End of variables declaration//GEN-END:variables
 }
