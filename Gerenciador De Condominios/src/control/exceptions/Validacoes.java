@@ -111,7 +111,7 @@ public class Validacoes{
         try{
             newData = formato.parse(data);
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, "A data informada não é válida.");
+            JOptionPane.showMessageDialog(null, "A data informada não é válida.");
         }
         
         if(newData==null) throw new DataInvalidaException("A data informada é inválida: "+data);
