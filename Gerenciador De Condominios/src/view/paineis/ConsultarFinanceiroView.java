@@ -7,11 +7,16 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import control.exceptions.CpfInvalidoException;
+import control.exceptions.DataInvalidaException;
+import control.exceptions.Validacoes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.Financeiro;
 
 /**
@@ -157,17 +162,17 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
 
     private void pesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarjButtonActionPerformed
         Financeiro financeiro = new Financeiro();
-        financeiro.setNome(this.FornMorjTextField.getText());
-        financeiro.setCpf(this.CPFCNPJjTextField.getText());
         
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date date;
+        
         try {
-            date = formato.parse(vencimentojTextField.getText());
-            financeiro.setVencimento(date); 
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            financeiro.setVencimento(Validacoes.isData(this.vencimentojTextField.getText())); 
+            financeiro.setNome(this.FornMorjTextField.getText());
+            financeiro.setCpf(Validacoes.isCPF(this.CPFCNPJjTextField.getText()));
+        } catch (DataInvalidaException | CpfInvalidoException ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+
+            
         
         this.jList1.removeAll();
         this.jList1.setListData(control.pesquisar(financeiro));
@@ -189,16 +194,15 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
     private void BaixajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BaixajButtonActionPerformed
         Financeiro financeiro = control.getBufferIndex(this.jList1.getSelectedIndex());
         
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String data = sdf.format(new Date());
-        System.out.println(data);
-        Date date;
+        
         try {
-            date = sdf.parse(data);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String data = sdf.format(new Date());
+            Date date = Validacoes.isData(data);
             financeiro.setBaixa(new Date()); 
             System.out.println(date);
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DataInvalidaException ex) {
+            showMessageDialog(null, ex.getMessage());
         }
         
         control.salvar(financeiro);

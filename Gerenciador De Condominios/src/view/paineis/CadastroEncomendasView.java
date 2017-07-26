@@ -6,6 +6,7 @@
 package view.paineis;
 
 import control.domain.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.Encomenda;
 
 /**
@@ -153,6 +154,7 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
         encomenda.setEndereco(this.EnderecojLabel.getText());
         encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
         control.salvar(encomenda);
+        showMessageDialog(null, "Encomenda cadastrada com sucesso!");
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 

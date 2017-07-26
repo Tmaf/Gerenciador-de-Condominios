@@ -9,6 +9,7 @@ import control.View.Tela;
 import control.domain.Control;
 import control.domain.ControlFactory;
 import control.domain.impl.ControlImpl;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.Reclamacao;
 /**
  *
@@ -101,6 +102,7 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
         reclamacao.setUsuario(Tela.getUser());
 
         control.salvar(reclamacao);
+        showMessageDialog(null, "Reclamação registrada!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private ControlImpl reclamacaoControl;

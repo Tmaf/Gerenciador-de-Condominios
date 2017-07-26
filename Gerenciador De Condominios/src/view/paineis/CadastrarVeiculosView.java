@@ -12,6 +12,7 @@ import control.exceptions.Validacoes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.Veiculo;
 /**
  *
@@ -135,6 +136,7 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
         }
         
         control.salvar(veiculo);
+        showMessageDialog(null, "Veículo cadastrado com sucesso!");
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
     private void tipoUsuariojComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoUsuariojComboBoxActionPerformed

@@ -7,6 +7,7 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.AreaComum;
 
 /**
@@ -98,6 +99,7 @@ public class InserirAreaView extends javax.swing.JPanel {
         area.setNomeArea(this.nomeAreajTextField.getText());
         area.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
         control.salvar(area);
+        showMessageDialog(null, "Área inserida com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

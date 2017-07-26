@@ -5,7 +5,13 @@
  */
 package control.exceptions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -99,4 +105,28 @@ public class Validacoes{
         else throw new PlacaInvalidaException("A placa é inválida: "+placa);
     }
      
+    public static Date isData(String data) throws DataInvalidaException{
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date newData=null;
+        try{
+            newData = formato.parse(data);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "A data informada não é válida.");
+        }
+        
+        if(newData==null) throw new DataInvalidaException("A data informada é inválida: "+data);
+        else return newData;
+    }
+    
+    public static Date isHora(String hora) throws HoraInvalidaException{
+        SimpleDateFormat formato = new SimpleDateFormat("hh:mm");
+        Date newHora = null;
+        try {
+            newHora = formato.parse(hora);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Hora inválida.");
+        }
+        if(newHora==null) throw new HoraInvalidaException("Hora inválida.");
+        else return newHora;
+    }
 }

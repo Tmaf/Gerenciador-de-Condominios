@@ -7,11 +7,15 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
+import control.exceptions.CpfInvalidoException;
+import control.exceptions.DataInvalidaException;
+import control.exceptions.Validacoes;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.domain.Financeiro;
 
 /**
@@ -268,19 +272,19 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         }
         
         try {
-            date = sdf.parse(vencimentojFormattedTextField.getText());
-            financeiro.setEmissao(date); 
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            financeiro.setEmissao(Validacoes.isData(vencimentojFormattedTextField.getText())); 
+            financeiro.setTipoFinanceiro(this.RecDesjComboBox.getSelectedItem().toString());
+            financeiro.setNome(this.nomejTextField.getText());
+            financeiro.setCpf(Validacoes.isCPF(this.cpfjTextField.getText()));
+            financeiro.setNroDocumento(this.NroDocjTextField.getText());
+            financeiro.setTipoPagamento(this.TipoPgtojComboBox.getSelectedItem().toString());
+            financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
+            financeiro.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
+        } catch (DataInvalidaException | CpfInvalidoException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 
-        financeiro.setTipoFinanceiro(this.RecDesjComboBox.getSelectedItem().toString());
-        financeiro.setNome(this.nomejTextField.getText());
-        financeiro.setCpf(this.cpfjTextField.getText());
-        financeiro.setNroDocumento(this.NroDocjTextField.getText());
-        financeiro.setTipoPagamento(this.TipoPgtojComboBox.getSelectedItem().toString());
-        financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
-        financeiro.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
+        
         control.salvar(financeiro);
         limpaTela();
     }//GEN-LAST:event_salvarjButtonActionPerformed

@@ -212,10 +212,6 @@ public class CadastroMoradorView extends javax.swing.JPanel {
         }
         
         
-        
-        
-        
-        
         if(this.jCheckBox1.isSelected()){
             user.setPermissao("MoradorMestre");
         }
@@ -224,7 +220,7 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
         moradorControl.salvar(morador);
         usuarioControl.salvar(user);
-        showMessageDialog(null,"O usuário foi criado com sucesso!");
+        showMessageDialog(null,"O morador foi cadastrado com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

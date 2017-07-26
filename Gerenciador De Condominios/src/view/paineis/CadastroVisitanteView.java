@@ -12,6 +12,7 @@ import control.exceptions.EmailInvalidoException;
 import control.exceptions.TelefoneInvalidoException;
 import control.exceptions.Validacoes;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Visitante;
 
@@ -172,6 +173,7 @@ public class CadastroVisitanteView extends javax.swing.JPanel {
         }
         
         control.salvar(visitante);
+        showMessageDialog(null, "Visitante cadastrado com sucesso!");
         
     }//GEN-LAST:event_EntradajButtonActionPerformed
 

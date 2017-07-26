@@ -6,7 +6,10 @@
 package view.paineis;
 
 import control.domain.*;
+import control.exceptions.CpfInvalidoException;
+import control.exceptions.DataInvalidaException;
 import control.exceptions.EmailInvalidoException;
+import control.exceptions.HoraInvalidaException;
 import control.exceptions.TelefoneInvalidoException;
 import control.exceptions.Validacoes;
 import java.text.ParseException;
@@ -222,45 +225,37 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
         Control control = ControlFactory.getFuncionarioControl();
         Funcionario f= new Funcionario();
         
-        SimpleDateFormat formato = new SimpleDateFormat("hh:mm");
-        Date date;
         try {
-            date = formato.parse(entradajFormattedTextField.getText());
-            f.setHorarioEntrada(date); 
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        formato = new SimpleDateFormat("hh:mm");
-        try {
-            date = formato.parse(saidajFormattedTextField.getText());
-            f.setHorarioSaida(date); 
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try{
+            f.setHorarioEntrada(Validacoes.isHora(entradajFormattedTextField.getText()));
+            f.setHorarioSaida(Validacoes.isHora(saidajFormattedTextField.getText()));
+            
             f.setCpf(this.CPFjTextField.getText());
             f.setEmail(Validacoes.isEmail(this.emailjTextField.getText()));
             f.setNome(this.nomejTextField.getText());
             f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
             f.setTelefone(Validacoes.isTelefone(this.telefonejTextField.getText()));
             f.setEndereco(this.enderecojTextField.getText());
-        } catch (EmailInvalidoException | TelefoneInvalidoException ex) {
+        } catch (HoraInvalidaException | EmailInvalidoException | TelefoneInvalidoException ex) {
             showMessageDialog(null, ex.getMessage());
         }
-        
+  
      
         if(f.getSetorDeServico().equals("Portaria")){
             Control usuarioControl = ControlFactory.getUsuarioControl();
             Usuario user = new Usuario();
-            user.setNome(this.nomejTextField.getText());
-            user.setCpf(this.CPFjTextField.getText());
-            user.setPermissao("Porteiro");
-            user.setSenha(String.copyValueOf(this.jPasswordField1.getPassword()));
+            try{
+                user.setNome(this.nomejTextField.getText());
+                user.setCpf(Validacoes.isCPF(this.CPFjTextField.getText()));
+                user.setPermissao("Porteiro");
+                user.setSenha(String.copyValueOf(this.jPasswordField1.getPassword()));
+            } catch (CpfInvalidoException ex) {
+                showMessageDialog(null, ex.getMessage());
+            }
+            
             usuarioControl.salvar(user);
         }
-           control.salvar(f);
+        control.salvar(f);
+        showMessageDialog(null, "Funcionario cadastrado com sucesso!");
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 
