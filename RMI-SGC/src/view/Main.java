@@ -3,18 +3,25 @@ package view;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-import model.dao.crud.MoradorDao;
-import model.dao.crud.impl.MoradorDaoImpl;
+import model.service.ServiceInterface;
+import model.service.ServiceLocator;
 
 public class Main {
 	public static void main(String[] args) {
 		try {
-			System.out.println("Subindo o servico");
 			LocateRegistry.createRegistry(1099);
-			Naming.rebind(MoradorDao.NOME_SERVICO, new MoradorDaoImpl());
-			System.out.println("Servico de pe");
+			
+			ServiceInterface obj = ServiceLocator.getServiceLocator();
+			
+			Naming.bind(ServiceInterface.URL_SERVICO, obj);
+			
+			System.out.println("Serviço inicializado");
+			
+			System.out.println("RMIServer.Main() thread : " + Thread.currentThread().getName() 
+	                + " " + Thread.currentThread().getId());
+			
 		} catch (Exception e) {
-			System.out.println("Erro " + e.getMessage());
+			System.out.println("Erro: " + e.getMessage());
 		}
 	}
 }
