@@ -236,7 +236,7 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
             f.setTelefone(Validacoes.isTelefone(this.telefonejTextField.getText()));
             f.setEndereco(this.enderecojTextField.getText());
         } catch (HoraInvalidaException | EmailInvalidoException | TelefoneInvalidoException ex) {
-            showMessageDialog(null, ex.getMessage());
+            showMessageDialog(this, ex.getMessage());
         }
   
      
@@ -249,13 +249,13 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
                 user.setPermissao("Porteiro");
                 user.setSenha(String.copyValueOf(this.jPasswordField1.getPassword()));
             } catch (CpfInvalidoException ex) {
-                showMessageDialog(null, ex.getMessage());
+                showMessageDialog(this, ex.getMessage());
             }
             
             usuarioControl.salvar(user);
         }
         control.salvar(f);
-        showMessageDialog(null, "Funcionario cadastrado com sucesso!");
+        showMessageDialog(this, "Funcionario cadastrado com sucesso!");
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 

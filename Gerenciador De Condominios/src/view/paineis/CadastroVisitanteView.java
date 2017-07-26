@@ -169,11 +169,11 @@ public class CadastroVisitanteView extends javax.swing.JPanel {
             morador.setEndereco(this.EnderecojTextField.getText());
             visitante.setMorador(moradorControl.bucarPorChave(morador));
         }catch(TelefoneInvalidoException | CpfInvalidoException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
         
         control.salvar(visitante);
-        showMessageDialog(null, "Visitante cadastrado com sucesso!");
+        showMessageDialog(this, "Visitante cadastrado com sucesso!");
         
     }//GEN-LAST:event_EntradajButtonActionPerformed
 

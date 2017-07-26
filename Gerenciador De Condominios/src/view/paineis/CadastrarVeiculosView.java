@@ -148,11 +148,11 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
             veiculo.setModelo(this.modelojTextField.getText());
             veiculo.setPlaca(Validacoes.isPlaca(this.placajTextField.getText()));
         } catch (PlacaInvalidaException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
         
         control.salvar(veiculo);
-        showMessageDialog(null, "Veículo cadastrado com sucesso!");
+        showMessageDialog(this, "Veículo cadastrado com sucesso!");
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
     private void tipoUsuariojComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoUsuariojComboBoxActionPerformed

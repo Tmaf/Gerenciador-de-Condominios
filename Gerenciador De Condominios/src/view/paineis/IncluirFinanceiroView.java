@@ -265,10 +265,10 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date date;
         try {
-            date = sdf.parse(emissaojFormattedTextField.getText());
+            date = Validacoes.isData(emissaojFormattedTextField.getText());
             financeiro.setEmissao(date); 
-        } catch (ParseException ex) {
-            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DataInvalidaException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
         
         try {
@@ -281,11 +281,12 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
             financeiro.setTipoLancamento(this.TipoLancjComboBox.getSelectedItem().toString());
             financeiro.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
         } catch (DataInvalidaException | CpfInvalidoException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
 
         
         control.salvar(financeiro);
+        JOptionPane.showMessageDialog(this, "Financeiro incluso!");
         limpaTela();
     }//GEN-LAST:event_salvarjButtonActionPerformed
 

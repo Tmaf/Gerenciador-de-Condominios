@@ -208,7 +208,7 @@ public class CadastroMoradorView extends javax.swing.JPanel {
             user.setNome(this.nomejTextField.getText());
             user.setSenha(String.copyValueOf(this.senhajPasswordField.getPassword()));
         }catch(TelefoneInvalidoException | CpfInvalidoException | EmailInvalidoException e1){
-            showMessageDialog(null, e1.getMessage());
+            showMessageDialog(this, e1.getMessage());
         }
         
         
@@ -220,7 +220,7 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
         moradorControl.salvar(morador);
         usuarioControl.salvar(user);
-        showMessageDialog(null,"O morador foi cadastrado com sucesso!");
+        showMessageDialog(this,"O morador foi cadastrado com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

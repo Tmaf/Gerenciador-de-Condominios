@@ -22,7 +22,6 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
      */
     public RegistrarReclamacaoView(String permissao) {
         initComponents();
-      //  reclamacaoControl = ControlFactory.getReclamacaoControl();
     }
 
     /**
@@ -100,9 +99,8 @@ public class RegistrarReclamacaoView extends javax.swing.JPanel {
         reclamacao.setAssunto(this.assuntojTextField.getText());
         reclamacao.setTexto(this.reclamacaojTextArea.getText());
         reclamacao.setUsuario(Tela.getUser());
-
         control.salvar(reclamacao);
-        showMessageDialog(null, "Reclamação registrada!");
+        showMessageDialog(this, "Reclamação registrada!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private ControlImpl reclamacaoControl;

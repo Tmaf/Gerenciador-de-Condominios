@@ -6,6 +6,7 @@
 package view.paineis;
 
 import control.domain.*;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Morador;
 
 /**
@@ -124,6 +125,7 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
        // System.out.println(morador.getNome());
          control.excluir(morador);
          pesquisarjButtonActionPerformed(evt);
+         showMessageDialog(this, "Excluido!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Morador> control;

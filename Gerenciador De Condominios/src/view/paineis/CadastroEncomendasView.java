@@ -154,7 +154,7 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
         encomenda.setEndereco(this.EnderecojLabel.getText());
         encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
         control.salvar(encomenda);
-        showMessageDialog(null, "Encomenda cadastrada com sucesso!");
+        showMessageDialog(this, "Encomenda cadastrada com sucesso!");
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 

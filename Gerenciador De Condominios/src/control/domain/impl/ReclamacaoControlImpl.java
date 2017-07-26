@@ -21,7 +21,7 @@ public class ReclamacaoControlImpl  extends ControlImpl<Reclamacao> implements R
 
     @Override
     protected String converteString(Reclamacao e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Usuario: " + e.getUsuario().getNome()+ "  Assunto: " + e.getAssunto();
     }
     
     
