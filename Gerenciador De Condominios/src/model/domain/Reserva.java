@@ -14,7 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import model.domain.pessoas.PessoaVinculada;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import model.domain.pessoas.Usuario;
 import org.hibernate.annotations.Type;
 
 /**
@@ -36,14 +38,14 @@ public class Reserva implements Serializable {
     
     @ManyToOne(optional=false)
     @JoinColumn(name="cpf")
-    private PessoaVinculada pessoa;
+    private Usuario usuario;
     
     @Column (name="horarioInicio")
-    @Type(type="timestamp")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horarioInicio;
     
     @Column (name="horarioFim")
-    @Type(type="timestamp")
+    @Temporal(TemporalType.TIME)
     private Date horarioFim;
     
     @Column (name="diaTodo")
@@ -73,12 +75,12 @@ public class Reserva implements Serializable {
         this.area = area;
     }
 
-    public PessoaVinculada getPessoa() {
-        return pessoa;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setPessoa(PessoaVinculada pessoa) {
-        this.pessoa = pessoa;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Date getHorarioInicio() {

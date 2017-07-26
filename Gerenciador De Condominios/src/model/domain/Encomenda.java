@@ -6,7 +6,6 @@
 package model.domain;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,17 +20,25 @@ import javax.persistence.Table;
 @Table(name="encomenda")
 public class Encomenda implements Serializable {
     @Id
-    private String codigo;
+    @GeneratedValue
+    private int codigo;
     private String endereco;
     private String destinatario;
     private boolean entregue;
-    
-    public String getCodigo() {
+    private String codCorreio;
+
+    public int getCodigo() {
         return codigo;
     }
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+
+    public String getCodCorreio() {
+        return codCorreio;
     }
+
+    public void setCodCorreio(String codCorreio) {
+        this.codCorreio = codCorreio;
+    }
+    
     public String getEndereco() {
         return endereco;
     }

@@ -25,8 +25,8 @@ public abstract class CrudDaoImpl <E extends Serializable, I> implements CrudDao
         EntityManager em = Conexao.getConexao();
         em.getTransaction().begin();
         
-        if(this.getChave(classeModelo)!=null && this.pesquisar(classeModelo).isEmpty()){
-            classeModelo= em.merge(classeModelo);
+        if(this.getChave(classeModelo)!=null){
+           classeModelo= em.merge(classeModelo);
         }
         em.persist(classeModelo);
         em.getTransaction().commit();

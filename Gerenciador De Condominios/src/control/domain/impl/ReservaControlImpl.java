@@ -21,7 +21,9 @@ public class ReservaControlImpl extends ControlImpl<Reserva> implements ReservaC
 
     @Override
     protected String converteString(Reserva e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Nome Área: " + e.getArea().getNomeArea() + " Valor: " + e.getArea().getValor() +
+                " Data e hora início: " + e.getHorarioInicio() + " hora fim: " + e.getHorarioFim() +
+                " Nome solicitante: " + e.getUsuario().getNome();
     }
     
 }

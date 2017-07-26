@@ -33,10 +33,12 @@ public abstract class PainelFactory {
            case "ListarEncomendas":  return new ListarEncomendasView(permissao);
            case "RegistrarReclamacao":  return new RegistrarReclamacaoView(permissao);
            case "ReservarArea":  return new ReservarAreaView(permissao);
+           case "InserirArea":  return new InserirAreaView(permissao);
            case "ResponderReclamacao":  return new ResponderReclamacaoView(permissao);
            case "VisualizarReclamacao":  return new VisualizarReclamacaoView(permissao);
            case "CadastrarVeiculo": return new CadastrarVeiculosView(permissao);
            case "ConsultarVeiculo": return new ConsultarVeiculosView(permissao);
+           case "ConsultarAreaCadastrada": return new ConsultarAreaCadastradaView(permissao);
        }
        return new JPanel();
     }

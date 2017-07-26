@@ -15,12 +15,12 @@ import model.domain.Encomenda;
  *
  * @author Tarcisio
  */
-public class EncomendaDaoImpl extends CrudDaoImpl<Encomenda,String> implements EncomendaDao {
+public class EncomendaDaoImpl extends CrudDaoImpl<Encomenda,Integer> implements EncomendaDao {
     
    
 
     @Override
-    protected String getChave(Encomenda modelo) {
+    protected Integer getChave(Encomenda modelo) {
             return modelo.getCodigo();
     }
 
@@ -35,8 +35,8 @@ public class EncomendaDaoImpl extends CrudDaoImpl<Encomenda,String> implements E
         if(modelo.getEndereco()!= null && !modelo.getEndereco().equals("")){
             sql.append("and endereco like :endereco ");
         }
-        if(modelo.getCodigo() != null && modelo.getCodigo().equals("")){
-            sql.append(" and codigo like :codigo ");
+        if(modelo.getCodCorreio()!= null && modelo.getCodCorreio().equals("")){
+            sql.append(" and codCorreio like :codCorreio ");
         }
         return sql.toString();    }
 
@@ -50,8 +50,8 @@ public class EncomendaDaoImpl extends CrudDaoImpl<Encomenda,String> implements E
         if(modelo.getEndereco()!= null && !modelo.getEndereco().equals("")){
             mapa.put("endereco", modelo.getEndereco());
         }
-        if(modelo.getCodigo() != null && modelo.getCodigo().equals("")){
-            mapa.put("codigo", modelo.getCodigo());
+        if(modelo.getCodCorreio() != null && modelo.getCodCorreio().equals("")){
+            mapa.put("codCorreio", modelo.getCodCorreio());
         }  
         
         return mapa;

@@ -15,11 +15,13 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
 
     /**
      * Creates new form ReservaAreaMenuView
+     * @param permissao
      */
     public ReservaAreaMenuView(String permissao) {
         initComponents();
-        if(permissao.equals("Sindico")){
-            inserirArea.setVisible(false);
+        if(permissao.equals("Morador") || permissao.equals("MoradorMestre") || permissao.equals("Porteiro")){
+            inserirAreajButton.setVisible(false);
+            consultarAreajButton.setVisible(false);
         }
     }
 
@@ -34,7 +36,8 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
 
         ReservarAreajButton = new javax.swing.JButton();
         ConsultarReservajButton = new javax.swing.JButton();
-        inserirArea = new javax.swing.JButton();
+        inserirAreajButton = new javax.swing.JButton();
+        consultarAreajButton = new javax.swing.JButton();
 
         ReservarAreajButton.setText("Reservar Área");
         ReservarAreajButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,10 +53,17 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
             }
         });
 
-        inserirArea.setText("Inserir Área");
-        inserirArea.addActionListener(new java.awt.event.ActionListener() {
+        inserirAreajButton.setText("Inserir Área");
+        inserirAreajButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inserirAreaActionPerformed(evt);
+                inserirAreajButtonActionPerformed(evt);
+            }
+        });
+
+        consultarAreajButton.setText("Consultar Área Cadastrada");
+        consultarAreajButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarAreajButtonActionPerformed(evt);
             }
         });
 
@@ -62,13 +72,15 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(ReservarAreajButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConsultarReservajButton)
-                .addGap(18, 18, 18)
-                .addComponent(inserirArea)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ReservarAreajButton, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                    .addComponent(inserirAreajButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(consultarAreajButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ConsultarReservajButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,8 +88,11 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReservarAreajButton)
-                    .addComponent(ConsultarReservajButton)
-                    .addComponent(inserirArea))
+                    .addComponent(ConsultarReservajButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inserirAreajButton)
+                    .addComponent(consultarAreajButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -91,14 +106,19 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ConsultarReservajButtonActionPerformed
 
-    private void inserirAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAreaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inserirAreaActionPerformed
+    private void inserirAreajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirAreajButtonActionPerformed
+        Tela.atualizaTela("InserirArea");
+    }//GEN-LAST:event_inserirAreajButtonActionPerformed
+
+    private void consultarAreajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarAreajButtonActionPerformed
+        Tela.atualizaTela("ConsultarAreaCadastrada");
+    }//GEN-LAST:event_consultarAreajButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsultarReservajButton;
     private javax.swing.JButton ReservarAreajButton;
-    private javax.swing.JButton inserirArea;
+    private javax.swing.JButton consultarAreajButton;
+    private javax.swing.JButton inserirAreajButton;
     // End of variables declaration//GEN-END:variables
 }

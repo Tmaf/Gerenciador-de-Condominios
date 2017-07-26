@@ -19,7 +19,7 @@ public class InserirAreaView extends javax.swing.JPanel {
     /**
      * Creates new form InserirAreaView
      */
-    public InserirAreaView() {
+    public InserirAreaView(String permissao) {
         initComponents();
     }
 

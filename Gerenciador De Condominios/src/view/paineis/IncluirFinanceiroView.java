@@ -262,7 +262,6 @@ public class IncluirFinanceiroView extends javax.swing.JPanel {
         Control control = ControlFactory.getFinanceiroControl();
         Financeiro financeiro = new Financeiro();
         
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date date;
         try {
             date = Validacoes.isData(emissaojFormattedTextField.getText());

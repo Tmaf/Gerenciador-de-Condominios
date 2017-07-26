@@ -41,8 +41,10 @@ public abstract class MenuFactory {
             return new EntradaSaidaMenuView(permissao);
            
            case "Area":
+           case "InserirArea":
            case "ConsultarReserva": 
            case "ReservarArea": 
+           case "ConsultarAreaCadastrada":
                   return new ReservaAreaMenuView(permissao);
             case "Reclamacao":       
            case "RegistrarReclamacao":  

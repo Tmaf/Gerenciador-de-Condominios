@@ -21,7 +21,7 @@ public class VeiculoControlImpl  extends ControlImpl<Veiculo> implements Veiculo
 
     @Override
     protected String converteString(Veiculo e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Placa: " + e.getPlaca() + " Modelo: " + e.getModelo() + " CPF proprietário: " + e.getPessoa().getCpf();
     }
     
     

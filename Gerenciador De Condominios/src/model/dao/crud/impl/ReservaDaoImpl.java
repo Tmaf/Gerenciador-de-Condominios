@@ -27,20 +27,20 @@ public class ReservaDaoImpl extends CrudDaoImpl<Reserva,Integer> implements Rese
         
         StringBuffer sql = new StringBuffer("from Reserva where "
                + "1=1");
-        if(modelo.getArea().getNomeArea()!=null && !modelo.getArea().getNomeArea().equals("")){
+        if(modelo.getArea()!=null){
             sql.append("and area like :area ");
         }
-        if(modelo.getPessoa().getCpf()!=null && !modelo.getPessoa().getCpf().equals("")){
-            sql.append("and pessoa like :pessoa ");
+        if(modelo.getUsuario()!=null){
+            sql.append("and usuario like :usuario ");
         }
         if(modelo.getHorarioInicio()!= null){
-            sql.append("and horarioInicio like :horarioInicio");
+            sql.append("and horarioInicio = :horarioInicio ");
         }
         if(modelo.getHorarioFim() != null){
-            sql.append("and horarioFim like :horarioFim");
+            sql.append("and horarioFim = :horarioFim");
         }
         if(modelo.isDiaTodo() != false){
-            sql.append(" and diaTodo = :prestadorDeServico ");
+            sql.append(" and diaTodo = :diaTodo ");
         }
         return sql.toString();
    }
@@ -50,11 +50,11 @@ public class ReservaDaoImpl extends CrudDaoImpl<Reserva,Integer> implements Rese
         
                     Map<String,Object> mapa =  new HashMap<>();
 
-        if(modelo.getArea().getNomeArea()!=null && !modelo.getArea().getNomeArea().equals("")){
-            mapa.put("area", modelo.getArea().getNomeArea());
+        if(modelo.getArea() !=null){
+            mapa.put("area", modelo.getArea());
         }
-        if(modelo.getPessoa().getCpf()!=null && !modelo.getPessoa().getCpf().equals("")){
-            mapa.put("pessoa", modelo.getPessoa().getNome());
+        if(modelo.getUsuario()!=null){
+            mapa.put("usuario", modelo.getUsuario());
         }
         if(modelo.getHorarioInicio()!= null){
             mapa.put("horarioInicio", modelo.getHorarioInicio());

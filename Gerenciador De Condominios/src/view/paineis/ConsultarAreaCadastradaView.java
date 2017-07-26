@@ -8,21 +8,22 @@ package view.paineis;
 import control.domain.Control;
 import control.domain.ControlFactory;
 import static javax.swing.JOptionPane.showMessageDialog;
+import model.domain.AreaComum;
 import model.domain.Veiculo;
 
 /**
  *
  * @author Aline
  */
-public class ConsultarVeiculosView extends javax.swing.JPanel {
+public class ConsultarAreaCadastradaView extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConsultarVeiculosView
+     * Creates new form ConsultarAreaCadastradaView
      */
-    public ConsultarVeiculosView(String permissao){
+    public ConsultarAreaCadastradaView(String permissao) {
         initComponents();
-         control= ControlFactory.getVeiculoControl();
-        this.jList1.setListData(control.pesquisar(new Veiculo()));
+        control= ControlFactory.getAreaComumControl();
+        this.jList1.setListData(control.pesquisar(new AreaComum()));
     }
 
     /**
@@ -34,14 +35,12 @@ public class ConsultarVeiculosView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        placajTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        nomeAreajTextField = new javax.swing.JTextField();
         pesquisarjButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-
-        jLabel1.setText("Placa:");
+        excluirjButton = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -50,6 +49,8 @@ public class ConsultarVeiculosView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jLabel1.setText("Nome área:");
+
         pesquisarjButton.setText("Pesquisar");
         pesquisarjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,10 +58,10 @@ public class ConsultarVeiculosView extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Excluir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        excluirjButton.setText("Excluir");
+        excluirjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                excluirjButtonActionPerformed(evt);
             }
         });
 
@@ -71,58 +72,57 @@ public class ConsultarVeiculosView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(placajTextField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pesquisarjButton))
+                        .addComponent(nomeAreajTextField))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(pesquisarjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(excluirjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 177, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(placajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisarjButton))
+                    .addComponent(nomeAreajTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pesquisarjButton)
+                    .addComponent(excluirjButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void pesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarjButtonActionPerformed
-        Veiculo e;
-        e= new Veiculo();
-        e.setPlaca(this.placajTextField.getText());
+        AreaComum e;
+        e= new AreaComum();
+        e.setNomeArea(this.nomeAreajTextField.getText());
         this.jList1.removeAll();
         this.jList1.setListData(control.pesquisar(e));
-        
     }//GEN-LAST:event_pesquisarjButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Veiculo veiculo = control.getBufferIndex(this.jList1.getSelectedIndex());
-       // System.out.println(morador.getNome());
-         control.excluir(veiculo);
+    private void excluirjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirjButtonActionPerformed
+        AreaComum areaComum = control.getBufferIndex(this.jList1.getSelectedIndex());
+        control.excluir(areaComum);
          pesquisarjButtonActionPerformed(evt);
          showMessageDialog(this, "Excluido!");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_excluirjButtonActionPerformed
 
-    private Control<Veiculo>control;
+    private Control<AreaComum>control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton excluirjButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nomeAreajTextField;
     private javax.swing.JButton pesquisarjButton;
-    private javax.swing.JTextField placajTextField;
     // End of variables declaration//GEN-END:variables
 }

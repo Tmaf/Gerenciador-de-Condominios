@@ -5,6 +5,11 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import static javax.swing.JOptionPane.showMessageDialog;
+import model.domain.Encomenda;
+
 /**
  *
  * @author Aline
@@ -14,8 +19,13 @@ public class ListarEncomendasView extends javax.swing.JPanel {
     /**
      * Creates new form ListarEncomendasView
      */
+    private Control<Encomenda>control;
+    
     public ListarEncomendasView(String permissao) {
         initComponents();
+        
+        control= ControlFactory.getEncomendaControl();
+        this.jList1.setListData(control.pesquisar(new Encomenda()));
     }
 
     /**
@@ -29,14 +39,21 @@ public class ListarEncomendasView extends javax.swing.JPanel {
 
         DestinatariojLabel = new javax.swing.JLabel();
         PesquisarjButton = new javax.swing.JButton();
-        DestinatariojTextField = new javax.swing.JTextField();
+        enderecojTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        destinatariojTextField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         DestinatariojLabel.setText("Endereço:");
 
         PesquisarjButton.setText("Pesquisar");
+        PesquisarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarjButtonActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -45,10 +62,12 @@ public class ListarEncomendasView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jCheckBox1.setText("Entregue");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Destinatário:");
+
+        jButton1.setText("Entregue");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -63,41 +82,69 @@ public class ListarEncomendasView extends javax.swing.JPanel {
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(destinatariojTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                        .addGap(116, 116, 116))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(DestinatariojLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DestinatariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(PesquisarjButton))
+                        .addComponent(enderecojTextField)
+                        .addGap(18, 18, 18)
+                        .addComponent(PesquisarjButton)
                         .addGap(19, 19, 19))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PesquisarjButton)
-                    .addComponent(DestinatariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DestinatariojLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DestinatariojLabel)
+                            .addComponent(enderecojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PesquisarjButton))
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(destinatariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void PesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarjButtonActionPerformed
+        Encomenda e;
+        e= new Encomenda();
+        e.setEndereco(this.enderecojTextField.getText());
+        e.setDestinatario(this.destinatariojTextField.getText());
+        this.jList1.removeAll();
+        this.jList1.setListData(control.pesquisar(e));
+    }//GEN-LAST:event_PesquisarjButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Encomenda encomenda = control.getBufferIndex(this.jList1.getSelectedIndex());
+        encomenda.setEntregue(true);
+        control.salvar(encomenda);
+        PesquisarjButtonActionPerformed(evt);
+        showMessageDialog(this, "Encomenda marcada como entregue!");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DestinatariojLabel;
-    private javax.swing.JTextField DestinatariojTextField;
     private javax.swing.JButton PesquisarjButton;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JTextField destinatariojTextField;
+    private javax.swing.JTextField enderecojTextField;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -261,7 +261,6 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
        }
         else if("Porteiro".equals(user.getPermissao()) ||
                 "Sindico".equals(user.getPermissao())){
-            System.out.println("OLAAAAAAAAA");
             Funcionario f= new Funcionario();
             f.setCpf(user.getCpf());
             Control<Funcionario> funcionarioControl= ControlFactory.getFuncionarioControl();

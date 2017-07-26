@@ -129,4 +129,17 @@ public class Validacoes{
         if(newHora==null) throw new HoraInvalidaException("Hora inválida.");
         else return newHora;
     }
+    
+    public static Date isDataCompleta(String data) throws DataInvalidaException{
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        Date newData=null;
+        try{
+            newData = formato.parse(data);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "A data informada não é válida.");
+        }
+        
+        if(newData==null) throw new DataInvalidaException("A data informada é inválida: "+data);
+        else return newData;
+    }
 }

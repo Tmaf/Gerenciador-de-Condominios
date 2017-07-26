@@ -149,10 +149,10 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
         Control control = ControlFactory.getEncomendaControl();
         
         Encomenda encomenda= new Encomenda();
-        encomenda.setCodigo(this.CodigoCorrespondenciajTextField.getText());
+        encomenda.setCodCorreio(this.CodigoCorrespondenciajTextField.getText());
         encomenda.setDestinatario(this.DestinatariojTextField.getText());
-        encomenda.setEndereco(this.EnderecojLabel.getText());
-        encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
+        encomenda.setEndereco(this.EnderecojTextField.getText());
+        encomenda.setEntregue(this.EntreguejCheckBox.isSelected());
         control.salvar(encomenda);
         showMessageDialog(this, "Encomenda cadastrada com sucesso!");
         

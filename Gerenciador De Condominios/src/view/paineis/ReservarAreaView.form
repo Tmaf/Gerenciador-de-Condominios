@@ -19,32 +19,33 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="valorjLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="valorjFormattedTextField" min="-2" pref="108" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="solicitarjButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="horariojLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="iniciojFormattedTextField" min="-2" pref="146" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="horariojLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="fimjFormattedTextField" min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="diaTodojCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="areajLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="areajLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="areajComboBox" max="32767" attributes="0"/>
-                          <Component id="cpfjTextField" max="32767" attributes="0"/>
+                      <Component id="areajComboBox" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="valorjLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="valorjFormattedTextField" min="-2" pref="108" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="salvarjButton" min="-2" pref="146" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="horariojLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="iniciojFormattedTextField" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="horariojLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="fimjFormattedTextField" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="diaTodojCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -55,19 +56,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cpfjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="areajLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="areajComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="diaTodojCheckBox" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="horariojLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="iniciojFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -78,9 +74,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="valorjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="valorjFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="solicitarjButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="salvarjButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="132" max="32767" attributes="0"/>
+              <EmptySpace pref="155" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,17 +146,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diaTodojCheckBoxActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="solicitarjButton">
+    <Component class="javax.swing.JButton" name="salvarjButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Solicitar"/>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CPF solicitante:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="cpfjTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarjButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
