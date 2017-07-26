@@ -7,6 +7,11 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import control.exceptions.PlacaInvalidaException;
+import control.exceptions.Validacoes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.domain.Veiculo;
 /**
  *
@@ -122,9 +127,13 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
         
         Veiculo veiculo= new Veiculo();
         Control control = ControlFactory.getVeiculoControl();
-
-        veiculo.setModelo(this.modelojTextField.getText());
-        veiculo.setPlaca(this.placajTextField.getText());
+        try{
+            veiculo.setModelo(this.modelojTextField.getText());
+            veiculo.setPlaca(Validacoes.isPlaca(this.placajTextField.getText()));
+        } catch (PlacaInvalidaException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
         control.salvar(veiculo);
     }//GEN-LAST:event_salvarjButtonActionPerformed
 

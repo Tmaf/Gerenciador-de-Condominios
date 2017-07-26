@@ -7,6 +7,11 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import control.exceptions.CpfInvalidoException;
+import control.exceptions.EmailInvalidoException;
+import control.exceptions.TelefoneInvalidoException;
+import control.exceptions.Validacoes;
+import javax.swing.JOptionPane;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Visitante;
 
@@ -154,13 +159,18 @@ public class CadastroVisitanteView extends javax.swing.JPanel {
         Control<Morador> moradorControl = ControlFactory.getMoradorControl();
         Visitante visitante= new Visitante();
         Morador morador=new Morador();
-        visitante.setPrestadorDeServico(this.PrestadorServicojCheckBox.isSelected());
-        visitante.setNome(this.NomejTextField.getText());
-        visitante.setCpf(this.CPFjTextField.getText());
-        visitante.setTelefone(this.TelefonejTextField.getText());
-        morador.setNome(this.NomeMoradorjTextField.getText());
-        morador.setEndereco(this.EnderecojTextField.getText());
-        visitante.setMorador(moradorControl.bucarPorChave(morador));
+        try{
+            visitante.setPrestadorDeServico(this.PrestadorServicojCheckBox.isSelected());
+            visitante.setNome(this.NomejTextField.getText());
+            visitante.setCpf(Validacoes.isCPF(this.CPFjTextField.getText()));
+            visitante.setTelefone(Validacoes.isTelefone(this.TelefonejTextField.getText()));
+            morador.setNome(this.NomeMoradorjTextField.getText());
+            morador.setEndereco(this.EnderecojTextField.getText());
+            visitante.setMorador(moradorControl.bucarPorChave(morador));
+        }catch(TelefoneInvalidoException | CpfInvalidoException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
         control.salvar(visitante);
         
     }//GEN-LAST:event_EntradajButtonActionPerformed

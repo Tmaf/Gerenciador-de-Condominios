@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.validacao;
+package control.exceptions;
 
 import java.util.InputMismatchException;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 
 /**
  *
  * @author Daniel Marques
  */
 public class Validacoes{
-    public static boolean isCPF(String CPF) {
+    public static String isCPF(String CPF) throws CpfInvalidoException {
         
-        if(CPF.length()<11) return false;
+        if(CPF.length()<11) throw new CpfInvalidoException("O CPF é inválido: "+CPF);
         
         CPF = CPF.replace(".", "");
         CPF = CPF.replace("-", "");
@@ -56,39 +55,48 @@ public class Validacoes{
 
     // Verifica se os digitos calculados conferem com os digitos informados.
           if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
-             return(true);
-          else return(false);
+             return CPF;
+          else throw new CpfInvalidoException("O CPF é inválido: "+CPF);
         } catch (InputMismatchException erro) {
-            return(false);
+            throw new CpfInvalidoException("O CPF é inválido: "+CPF);
         }
     }
  
         //Método que valida o Cep
-    public static boolean isCep(String cep)
+    public static String isCep(String cep) throws CepInvalidoException
     {
         if (cep.length() == 8)
         {
             cep = cep.substring(0, 5) + "-" + cep.substring(5, 3);
             //txt.Text = cep;
         }
-        return cep.matches("[0-9]{5}-[0-9]{3}");
+        if (cep.matches("[0-9]{5}-[0-9]{3}")) return cep;
+        else throw new CepInvalidoException("O cep é inválido:" + cep);
     }
 
     //Método que valida o Email
-    public static boolean isEmail(String email){
-        return email.matches("(?<user>[^@]+)@(?<host>.+)");
+    public static String isEmail(String email) throws EmailInvalidoException{
+        if (email.matches("(?<user>[^@]+)@(?<host>.+)"))
+                return email ;
+        else throw new EmailInvalidoException("O email é inválido: "+email);
     }
     
-    public static boolean isTelefone(String telefone) {
-        if(telefone.length()>10){
+    public static String isTelefone(String telefone) throws TelefoneInvalidoException {
+        if(telefone.length()>11){
             telefone=telefone.replace("-", "");
             telefone=telefone.replace("(", "");
             telefone=telefone.replace(")", "");
         }
-        return telefone.matches("^[1-9]{2}[2-9][0-9]{7,8}$");
+        if (telefone.matches("^[1-9]{2}[2-9][0-9]{7,8}$"))
+            return telefone;
+        else throw new TelefoneInvalidoException("O telefone é inválido: "+telefone);
     }
     
-    
- 
- 
+    public static String isPlaca(String placa) throws PlacaInvalidaException{
+        placa = placa.replace("-", "");
+        if (placa.matches("[A-Z]{3}[0-9]{4}"))
+            return placa;
+        else throw new PlacaInvalidaException("A placa é inválida: "+placa);
+    }
+     
 }

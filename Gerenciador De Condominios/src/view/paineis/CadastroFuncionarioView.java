@@ -6,11 +6,16 @@
 package view.paineis;
 
 import control.domain.*;
+import control.exceptions.EmailInvalidoException;
+import control.exceptions.TelefoneInvalidoException;
+import control.exceptions.Validacoes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Funcionario;
 import model.domain.pessoas.Usuario;
 
@@ -234,13 +239,17 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
             Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        try{
+            f.setCpf(this.CPFjTextField.getText());
+            f.setEmail(Validacoes.isEmail(this.emailjTextField.getText()));
+            f.setNome(this.nomejTextField.getText());
+            f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
+            f.setTelefone(Validacoes.isTelefone(this.telefonejTextField.getText()));
+            f.setEndereco(this.enderecojTextField.getText());
+        } catch (EmailInvalidoException | TelefoneInvalidoException ex) {
+            showMessageDialog(null, ex.getMessage());
+        }
         
-        f.setCpf(this.CPFjTextField.getText());
-        f.setEmail(this.emailjTextField.getText());
-        f.setNome(this.nomejTextField.getText());
-        f.setSetorDeServico(this.setorjComboBox.getItemAt(this.setorjComboBox.getSelectedIndex()));
-        f.setTelefone(this.telefonejTextField.getText());
-        f.setEndereco(this.enderecojTextField.getText());
      
         if(f.getSetorDeServico().equals("Portaria")){
             Control usuarioControl = ControlFactory.getUsuarioControl();

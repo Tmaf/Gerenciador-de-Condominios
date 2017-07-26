@@ -7,11 +7,14 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
+import control.exceptions.CpfInvalidoException;
+import control.exceptions.EmailInvalidoException;
+import control.exceptions.TelefoneInvalidoException;
+import control.exceptions.Validacoes;
 import java.util.Arrays;
 import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Usuario;
-import view.validacao.Validacoes;
 
 /**
  *
@@ -194,34 +197,34 @@ public class CadastroMoradorView extends javax.swing.JPanel {
         Usuario user = new Usuario();
         Morador morador= new Morador();
         
+        try{
+            morador.setNome(this.nomejTextField.getText());
+            morador.setTelefone(Validacoes.isTelefone(this.telefonejTextField.getText()));
+            morador.setCpf(Validacoes.isCPF(this.CPFjTextField.getText()));
+            morador.setEmail(Validacoes.isEmail(this.emailjTextField.getText()));
+            morador.setEndereco(this.enderecojTextField.getText());
+            
+            user.setCpf(this.CPFjTextField.getText());
+            user.setNome(this.nomejTextField.getText());
+            user.setSenha(String.copyValueOf(this.senhajPasswordField.getPassword()));
+        }catch(TelefoneInvalidoException | CpfInvalidoException | EmailInvalidoException e1){
+            showMessageDialog(null, e1.getMessage());
+        }
         
-        morador.setNome(this.nomejTextField.getText());
-        morador.setTelefone(this.telefonejTextField.getText());
-        morador.setCpf(this.CPFjTextField.getText());
-        morador.setEmail(this.emailjTextField.getText());
-        morador.setEndereco(this.enderecojTextField.getText());
         
         
-        user.setCpf(this.CPFjTextField.getText());
-        user.setNome(this.nomejTextField.getText());
-        user.setSenha(String.copyValueOf(this.senhajPasswordField.getPassword()));
+        
+        
+        
         if(this.jCheckBox1.isSelected()){
             user.setPermissao("MoradorMestre");
         }
         else
             user.setPermissao("Morador");
-       
-        if(!Validacoes.isCPF(user.getCpf()))
-            showMessageDialog(null,"CPF inválido.");
-        else if(!Validacoes.isEmail(morador.getEmail()))
-            showMessageDialog(null,"Email inválido.");
-        else if(!Validacoes.isTelefone(morador.getTelefone()))
-            showMessageDialog(null,"Telefone inválido.");
-        else{
-           moradorControl.salvar(morador);
-           usuarioControl.salvar(user);
-           showMessageDialog(null,"O usuário foi criado com sucesso!");
-       }
+
+        moradorControl.salvar(morador);
+        usuarioControl.salvar(user);
+        showMessageDialog(null,"O usuário foi criado com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
