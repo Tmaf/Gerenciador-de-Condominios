@@ -52,7 +52,6 @@ public class ServiceLocator implements ServiceInterface{
     private void initAntigo(){
         map.put(Morador.class, MoradorDaoImpl.class);
         map.put(AreaComum.class, AreaComumDaoImpl.class);
-        map.put(Empresa.class, EmpresaDaoImpl.class);
         map.put(Encomenda.class, EncomendaDaoImpl.class);
         map.put(Funcionario.class, FuncionarioDaoImpl.class);
         map.put(Reclamacao.class, ReclamacaoDaoImpl.class);

@@ -17,9 +17,6 @@ public abstract class ControlFactory {
        public static AreaComumControl getAreaComumControl(){
            return new AreaComumControlImpl();
        }
-       public static EmpresaControl getEmpresaControl(){
-           return new EmpresaControlImpl();
-       }
        public static EncomendaControl getEncomendaControl(){
            return new EncomendaControlImpl();
        }

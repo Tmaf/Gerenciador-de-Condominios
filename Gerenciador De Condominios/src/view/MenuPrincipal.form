@@ -20,17 +20,15 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="veiculosMenuButton" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="moradoresMenuButton" max="32767" attributes="0"/>
-                      <Component id="funcionarioMenuButton" max="32767" attributes="0"/>
-                      <Component id="financeiroMenuButton" max="32767" attributes="0"/>
-                      <Component id="entradaSaidaMenuButton" max="32767" attributes="0"/>
-                      <Component id="encomendasMenuButton" max="32767" attributes="0"/>
-                      <Component id="reservasMenuButton" max="32767" attributes="0"/>
-                      <Component id="infoPessoaisMenuButton" max="32767" attributes="0"/>
-                      <Component id="reclamacoesMenuButton" max="32767" attributes="0"/>
-                      <Component id="logoutMenuButton" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="moradoresMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="funcionarioMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="financeiroMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="entradaSaidaMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="encomendasMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="reservasMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="infoPessoaisMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="reclamacoesMenuButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="logoutMenuButton" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>

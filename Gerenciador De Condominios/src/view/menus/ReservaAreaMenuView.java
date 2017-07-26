@@ -68,7 +68,7 @@ public class ReservaAreaMenuView extends javax.swing.JPanel {
                 .addComponent(ConsultarReservajButton)
                 .addGap(18, 18, 18)
                 .addComponent(inserirArea)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

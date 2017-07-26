@@ -9,11 +9,13 @@ import control.domain.Control;
 import control.domain.ControlFactory;
 import control.exceptions.PlacaInvalidaException;
 import control.exceptions.Validacoes;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.Veiculo;
+import model.domain.pessoas.Funcionario;
+import model.domain.pessoas.Morador;
+import model.domain.pessoas.Pessoa;
+import model.domain.pessoas.Visitante;
 /**
  *
  * @author Aline
@@ -129,6 +131,20 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
         Veiculo veiculo= new Veiculo();
         Control control = ControlFactory.getVeiculoControl();
         try{
+            Control pessoaControl;
+            Pessoa pessoa=null;
+            if(tipoUsuariojComboBox.getSelectedItem() == "Visitante"){
+                 pessoa = new Visitante();
+                pessoaControl = ControlFactory.getVisitanteControl();           
+            }else if(tipoUsuariojComboBox.getSelectedItem() == "Morador"){
+                pessoa = new Morador();
+                pessoaControl = ControlFactory.getMoradorControl();
+            }else{
+                pessoa = new Funcionario();
+                pessoaControl = ControlFactory.getFuncionarioControl();
+            }
+            pessoa.setCpf(this.cpfjTextField.getText());
+            veiculo.setPessoa((Pessoa)pessoaControl.bucarPorChave(pessoa));
             veiculo.setModelo(this.modelojTextField.getText());
             veiculo.setPlaca(Validacoes.isPlaca(this.placajTextField.getText()));
         } catch (PlacaInvalidaException ex) {

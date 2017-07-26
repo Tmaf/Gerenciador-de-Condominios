@@ -32,7 +32,7 @@ public class VeiculoDaoImpl extends CrudDaoImpl<Veiculo,String> implements Veicu
         if(modelo.getModelo()!=null && !modelo.getModelo().equals("")){
             sql.append("and modelo like :modelo ");
         }
-        if(modelo.getPessoa().getCpf() != null && !modelo.getPessoa().getCpf().equals("")){
+        if(modelo.getPessoa() != null){
             sql.append("and pessoa like :pessoa ");
         }
         
@@ -50,8 +50,8 @@ public class VeiculoDaoImpl extends CrudDaoImpl<Veiculo,String> implements Veicu
         if(modelo.getModelo()!=null && !modelo.getModelo().equals("")){
               mapa.put("modelo", modelo.getModelo());
         }
-        if(modelo.getPessoa().getCpf() != null && !modelo.getPessoa().getCpf().equals("")){
-            mapa.put("pessoa", modelo.getPessoa().getCpf());
+        if(modelo.getPessoa() != null){
+            mapa.put("pessoa", modelo.getPessoa());
         }
         
         return mapa;

@@ -240,12 +240,40 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
         char[] senha = this.senhajPasswordField.getPassword();
-        Usuario user= new Usuario();
+        Usuario user= Tela.getUser();
         
         user.setCpf(this.CPFjTextField.getText());
         user.setNome(this.nomejTextField.getText());
         user.setSenha(String.copyValueOf(senha));
-    
+        
+        
+        if("MoradorMestre".equals(user.getPermissao()) || 
+                "Morador".equals(user.getPermissao())){
+        Morador f= new Morador();
+        Control<Morador> moradorControl= ControlFactory.getMoradorControl();
+        f= moradorControl.bucarPorChave(f);
+        f.setCpf(this.CPFjTextField.getText());
+        f.setNome(this.nomejTextField.getText());
+        f.setEmail(this.emailjTextField.getText());
+        f.setEndereco(this.enderecojTextField.getText());
+        f.setTelefone(this.telefonejTextField.getText());   
+        moradorControl.salvar(f);
+       }
+        else if("Porteiro".equals(user.getPermissao()) ||
+                "Sindico".equals(user.getPermissao())){
+            System.out.println("OLAAAAAAAAA");
+            Funcionario f= new Funcionario();
+            f.setCpf(user.getCpf());
+            Control<Funcionario> funcionarioControl= ControlFactory.getFuncionarioControl();
+            f= funcionarioControl.bucarPorChave(f);
+            System.out.println(f.getNome());
+            f.setCpf(this.CPFjTextField.getText());
+            f.setNome(this.nomejTextField.getText());
+            f.setEmail(this.emailjTextField.getText());
+            f.setEndereco(this.enderecojTextField.getText());
+            f.setTelefone(this.telefonejTextField.getText());
+            funcionarioControl.salvar(f);
+        }
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
     private void nomejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomejTextFieldActionPerformed
