@@ -126,7 +126,7 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
        // System.out.println(morador.getNome());
          control.excluir(e);
          pesquisarjButtonActionPerformed(evt);
-         showMessageDialog(null, "Excluido!");
+         showMessageDialog(this, "Excluido!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Funcionario> control;

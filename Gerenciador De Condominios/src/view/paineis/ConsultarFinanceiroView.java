@@ -169,7 +169,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
             financeiro.setNome(this.FornMorjTextField.getText());
             financeiro.setCpf(Validacoes.isCPF(this.CPFCNPJjTextField.getText()));
         } catch (DataInvalidaException | CpfInvalidoException ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         } 
 
             
@@ -182,7 +182,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
          Financeiro financeiro = control.getBufferIndex(this.jList1.getSelectedIndex());
          control.excluir(financeiro);
          pesquisarjButtonActionPerformed(evt);
-         showMessageDialog(null, "Excluido!");
+         showMessageDialog(this, "Excluido!");
     }//GEN-LAST:event_ExcluirjButtonActionPerformed
 
     private void consultaMultasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMultasjButtonActionPerformed
@@ -203,7 +203,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
             financeiro.setBaixa(new Date()); 
             System.out.println(date);
         } catch (DataInvalidaException ex) {
-            showMessageDialog(null, ex.getMessage());
+            showMessageDialog(this, ex.getMessage());
         }
         
         control.salvar(financeiro);

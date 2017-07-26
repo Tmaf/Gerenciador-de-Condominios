@@ -99,7 +99,7 @@ public class InserirAreaView extends javax.swing.JPanel {
         area.setNomeArea(this.nomeAreajTextField.getText());
         area.setValor(Double.parseDouble(this.valorjTextField.getText().replace(",", ".")));
         control.salvar(area);
-        showMessageDialog(null, "Área inserida com sucesso!");
+        showMessageDialog(this, "Área inserida com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

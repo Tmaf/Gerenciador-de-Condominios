@@ -125,7 +125,7 @@ public class ConsultarMoradoresView extends javax.swing.JPanel {
        // System.out.println(morador.getNome());
          control.excluir(morador);
          pesquisarjButtonActionPerformed(evt);
-         showMessageDialog(null, "Excluido!");
+         showMessageDialog(this, "Excluido!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Morador> control;

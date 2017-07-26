@@ -5,6 +5,10 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import model.domain.Reclamacao;
+
 /**
  *
  * @author Aline
@@ -16,6 +20,10 @@ public class ResponderReclamacaoView extends javax.swing.JPanel {
      */
     public ResponderReclamacaoView(String permissao) {
         initComponents();
+        Control control = ControlFactory.getReclamacaoControl();
+        this.jList1.removeAll();
+        System.out.println(control.pesquisar(new Reclamacao()).length);
+        this.jList1.setListData(control.pesquisar(new Reclamacao()));
     }
 
     /**

@@ -110,7 +110,7 @@ public class ListarVisitanteView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaidajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaidajButtonActionPerformed
-        JOptionPane.showMessageDialog(null, "Saída registrada!");
+        JOptionPane.showMessageDialog(this, "Saída registrada!");
     }//GEN-LAST:event_SaidajButtonActionPerformed
 
 
