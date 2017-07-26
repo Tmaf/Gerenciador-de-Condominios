@@ -68,6 +68,11 @@ public class ConsultarReservaView extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         areajComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        areajComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                areajComboBoxActionPerformed(evt);
+            }
+        });
 
         buscarjButton.setText("Buscar");
         buscarjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,10 @@ public class ConsultarReservaView extends javax.swing.JPanel {
         buscarjButtonActionPerformed(evt);
         showMessageDialog(this, "Excluido!");
     }//GEN-LAST:event_cancelarReservajButtonActionPerformed
+
+    private void areajComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areajComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_areajComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

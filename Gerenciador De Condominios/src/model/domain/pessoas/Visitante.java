@@ -7,13 +7,14 @@ package model.domain.pessoas;
  */
 
 
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -27,8 +28,10 @@ public class Visitante extends Pessoa{
     @Column (name="prestadorDeServico")
     private boolean prestadorDeServico;
     @Column (name="horario_entrada")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaDeEntrada;
     @Column (name="horario_saida")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaDeSaida;
     
     @ManyToOne(optional=false)

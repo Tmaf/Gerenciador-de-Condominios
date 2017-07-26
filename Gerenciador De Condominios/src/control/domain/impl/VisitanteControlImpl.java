@@ -21,7 +21,10 @@ public class VisitanteControlImpl  extends ControlImpl<Visitante> implements Vis
 
     @Override
     protected String converteString(Visitante e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Nome visitante: " + e.getNome() + " CPF: " + e.getCpf() +
+                " Hora de entrada: " + e.getHoraDeEntrada() + " Hora saída: " +
+                e.getHoraDeSaida() + " Morador responsável: " + e.getMorador().getNome() + 
+                " Endereço morador resp.:" + e.getMorador().getEndereco();
     }
     
     

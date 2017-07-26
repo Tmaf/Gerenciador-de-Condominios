@@ -1,6 +1,6 @@
 package model.domain.pessoas;
 
-import java.sql.Date;
+import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

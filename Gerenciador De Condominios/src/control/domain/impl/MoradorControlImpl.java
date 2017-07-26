@@ -21,7 +21,8 @@ public class MoradorControlImpl  extends ControlImpl<Morador> implements Morador
 
     @Override
     protected String converteString(Morador e) {
-        return "CPF: " + e.getCpf() + "<br> Nome: " + e.getNome() +" Telefone: " +e.getTelefone();
+        return "CPF: " + e.getCpf() + " Nome: " + e.getNome() + " Endereço: " 
+                + e.getEndereco() +  " Telefone: " +e.getTelefone();
     }
     
     

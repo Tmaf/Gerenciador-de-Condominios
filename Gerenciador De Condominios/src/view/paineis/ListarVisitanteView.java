@@ -5,7 +5,15 @@
  */
 package view.paineis;
 
+import control.domain.Control;
+import control.domain.ControlFactory;
+import control.exceptions.DataInvalidaException;
+import control.exceptions.Validacoes;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import model.domain.pessoas.Morador;
+import model.domain.pessoas.Visitante;
 
 /**
  *
@@ -14,10 +22,25 @@ import javax.swing.JOptionPane;
 public class ListarVisitanteView extends javax.swing.JPanel {
 
     /**
-     * Creates new form ListarEncomendasView
+     * Creates new form ListarVisitantesView
      */
+    private Control<Visitante> controlVisitante;
+    private Control control;
     public ListarVisitanteView(String permissao) {
+        
         initComponents();
+        
+        controlVisitante = ControlFactory.getVisitanteControl();
+        this.jList1.setListData(controlVisitante.pesquisar(new Visitante()));
+        
+        
+        this.nomeMoradorjComboBox.removeAllItems();
+        this.nomeMoradorjComboBox.addItem("");
+        control = ControlFactory.getMoradorControl();
+        String array[]= control.pesquisar(new Morador());
+        for(String a : array){
+            this.nomeMoradorjComboBox.addItem(a);
+        }
     }
 
     /**
@@ -31,16 +54,21 @@ public class ListarVisitanteView extends javax.swing.JPanel {
 
         DestinatariojLabel = new javax.swing.JLabel();
         PesquisarjButton = new javax.swing.JButton();
-        DestinatariojTextField = new javax.swing.JTextField();
+        visitantejTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         DestinatariojLabel1 = new javax.swing.JLabel();
-        DestinatariojTextField1 = new javax.swing.JTextField();
         SaidajButton = new javax.swing.JButton();
+        nomeMoradorjComboBox = new javax.swing.JComboBox<>();
 
         DestinatariojLabel.setText("Nome Visitante:");
 
         PesquisarjButton.setText("Pesquisar");
+        PesquisarjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarjButtonActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -58,6 +86,13 @@ public class ListarVisitanteView extends javax.swing.JPanel {
             }
         });
 
+        nomeMoradorjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        nomeMoradorjComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeMoradorjComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,23 +100,20 @@ public class ListarVisitanteView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SaidajButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DestinatariojLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DestinatariojTextField))
+                        .addComponent(visitantejTextField))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DestinatariojLabel1)
-                        .addGap(9, 9, 9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nomeMoradorjComboBox, 0, 302, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(PesquisarjButton)
-                                .addGap(115, 115, 115))
-                            .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))))
+                            .addComponent(PesquisarjButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SaidajButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -90,38 +122,67 @@ public class ListarVisitanteView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DestinatariojLabel)
-                    .addComponent(DestinatariojTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(visitantejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DestinatariojLabel1)
-                    .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(nomeMoradorjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addComponent(PesquisarjButton)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SaidajButton)
-                        .addGap(103, 103, 103))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SaidajButton)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaidajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaidajButtonActionPerformed
+        Visitante visitante = controlVisitante.getBufferIndex(this.jList1.getSelectedIndex());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        String data = sdf.format(new Date());
+        Date date;
+        try {
+            date = Validacoes.isDataCompleta(data);
+            visitante.setHoraDeSaida(date);
+        } catch (DataInvalidaException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        controlVisitante.salvar(visitante);
+        PesquisarjButtonActionPerformed(evt);
         JOptionPane.showMessageDialog(this, "Saída registrada!");
     }//GEN-LAST:event_SaidajButtonActionPerformed
+
+    private void PesquisarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarjButtonActionPerformed
+        Visitante visitante = new Visitante();
+        
+        if(this.nomeMoradorjComboBox.getItemAt(this.nomeMoradorjComboBox.getSelectedIndex()) != ""){
+            Morador morador = new Morador();
+            Control<Morador> moradorControl = ControlFactory.getMoradorControl();
+            String[] partes = (this.nomeMoradorjComboBox.getItemAt(this.nomeMoradorjComboBox.getSelectedIndex())).split(":");
+            morador.setCpf(partes[1].replaceAll("[^0-9]", ""));
+            morador = moradorControl.bucarPorChave(morador);
+            visitante.setMorador(morador);
+        }
+        
+        visitante.setNome(this.visitantejTextField.getText());
+        this.jList1.removeAll();
+        this.jList1.setListData(controlVisitante.pesquisar(visitante));
+    }//GEN-LAST:event_PesquisarjButtonActionPerformed
+
+    private void nomeMoradorjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeMoradorjComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeMoradorjComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DestinatariojLabel;
     private javax.swing.JLabel DestinatariojLabel1;
-    private javax.swing.JTextField DestinatariojTextField;
-    private javax.swing.JTextField DestinatariojTextField1;
     private javax.swing.JButton PesquisarjButton;
     private javax.swing.JButton SaidajButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> nomeMoradorjComboBox;
+    private javax.swing.JTextField visitantejTextField;
     // End of variables declaration//GEN-END:variables
 }
