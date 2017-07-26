@@ -7,6 +7,7 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.pessoas.Funcionario;
 
 /**
@@ -125,6 +126,7 @@ public class ConsultarFuncionariosView extends javax.swing.JPanel {
        // System.out.println(morador.getNome());
          control.excluir(e);
          pesquisarjButtonActionPerformed(evt);
+         showMessageDialog(null, "Excluido!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Control<Funcionario> control;

@@ -5,6 +5,8 @@
  */
 package view.paineis;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aline
@@ -63,7 +65,10 @@ public class ListarVisitanteView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(SaidajButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(DestinatariojLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -75,8 +80,7 @@ public class ListarVisitanteView extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(PesquisarjButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(SaidajButton))
+                                .addGap(115, 115, 115))
                             .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -92,17 +96,21 @@ public class ListarVisitanteView extends javax.swing.JPanel {
                     .addComponent(DestinatariojLabel1)
                     .addComponent(DestinatariojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SaidajButton)
-                    .addComponent(PesquisarjButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PesquisarjButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SaidajButton)
+                        .addGap(103, 103, 103))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaidajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaidajButtonActionPerformed
-
+        JOptionPane.showMessageDialog(null, "Saída registrada!");
     }//GEN-LAST:event_SaidajButtonActionPerformed
 
 

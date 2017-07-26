@@ -182,6 +182,7 @@ public class ConsultarFinanceiroView extends javax.swing.JPanel {
          Financeiro financeiro = control.getBufferIndex(this.jList1.getSelectedIndex());
          control.excluir(financeiro);
          pesquisarjButtonActionPerformed(evt);
+         showMessageDialog(null, "Excluido!");
     }//GEN-LAST:event_ExcluirjButtonActionPerformed
 
     private void consultaMultasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMultasjButtonActionPerformed
