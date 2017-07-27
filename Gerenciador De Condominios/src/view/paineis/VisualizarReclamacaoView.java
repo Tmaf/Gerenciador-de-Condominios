@@ -8,6 +8,7 @@ package view.paineis;
 import control.domain.Control;
 import control.domain.ControlFactory;
 import model.domain.Reclamacao;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -18,11 +19,12 @@ public class VisualizarReclamacaoView extends javax.swing.JPanel {
     /**
      * Creates new form VisualizarReclamacaoView
      */
+    Control<Reclamacao> control;
+    
     public VisualizarReclamacaoView(String permissao) {
         initComponents();
-        Control control = ControlFactory.getReclamacaoControl();
+        control = ControlFactory.getReclamacaoControl();
         this.jList1.removeAll();
-        System.out.println(control.pesquisar(new Reclamacao()).length);
         this.jList1.setListData(control.pesquisar(new Reclamacao()));
     }
 
@@ -36,18 +38,30 @@ public class VisualizarReclamacaoView extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textoReclamacaojTextArea = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textoReclamacaojTextArea.setColumns(20);
+        textoReclamacaojTextArea.setRows(5);
+        textoReclamacaojTextArea.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                textoReclamacaojTextAreaInputMethodTextChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(textoReclamacaojTextArea);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
         });
         jScrollPane2.setViewportView(jList1);
 
@@ -73,11 +87,24 @@ public class VisualizarReclamacaoView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void textoReclamacaojTextAreaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_textoReclamacaojTextAreaInputMethodTextChanged
+        
+    }//GEN-LAST:event_textoReclamacaojTextAreaInputMethodTextChanged
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        try{
+            Reclamacao reclamacao = control.getBufferIndex(this.jList1.getSelectedIndex());
+            this.textoReclamacaojTextArea.setText(reclamacao.getTexto());
+        }catch(Exception e){
+            this.textoReclamacaojTextArea.setText("");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea textoReclamacaojTextArea;
     // End of variables declaration//GEN-END:variables
 }
