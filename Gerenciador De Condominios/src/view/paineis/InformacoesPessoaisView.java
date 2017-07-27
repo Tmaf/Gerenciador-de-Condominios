@@ -33,8 +33,9 @@ public class InformacoesPessoaisView extends javax.swing.JPanel {
                 "Sindico".equals(user.getPermissao())){
         try{
         Morador f= new Morador();
-       Control<Morador> funcionarioControl= ControlFactory.getMoradorControl();
-        f= funcionarioControl.bucarPorChave(f);
+        f.setCpf(user.getCpf());
+        Control<Morador> moradorControl= ControlFactory.getMoradorControl();
+        f= moradorControl.bucarPorChave(f);
         this.emailjTextField.setText(f.getEmail());
         this.telefonejTextField.setText(f.getTelefone());
         this.enderecojTextField.setText(f.getEndereco());

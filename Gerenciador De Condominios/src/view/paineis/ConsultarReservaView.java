@@ -5,12 +5,14 @@
  */
 package view.paineis;
 
+import control.View.Tela;
 import control.domain.Control;
 import control.domain.ControlFactory;
 import static javax.swing.JOptionPane.showMessageDialog;
 import model.domain.AreaComum;
 import model.domain.Reserva;
 import model.domain.Veiculo;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -26,6 +28,8 @@ public class ConsultarReservaView extends javax.swing.JPanel {
     
     public ConsultarReservaView(String permissao) {
         initComponents();
+        Usuario user = Tela.getUser();
+        
         controlReserva = ControlFactory.getReservaControl();
         
         this.areajComboBox.removeAllItems();
@@ -35,7 +39,7 @@ public class ConsultarReservaView extends javax.swing.JPanel {
         for(String a : array){
             this.areajComboBox.addItem(a);
         }
-        
+
         controlReserva = ControlFactory.getReservaControl();
         this.jList1.setListData(controlReserva.pesquisar(new Reserva()));
     }
