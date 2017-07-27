@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/view/paineis/InformacoesPessoaisView.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/model/dao/Conexao.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/model/service/IniciaDerby.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/model/dao/CrudDaoImpl.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/control/domain/impl/ControlImpl.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/model/dao/crud/impl/AreaComumDaoImpl.java</file>
+            <file>file:/A:/Documents/Ciência%20da%20Computação/5º%20semestre/POO2/ProjetoFinal/Gerenciador-de-Condominios/Gerenciador%20De%20Condominios/src/model/service/ServiceLocator.java</file>
         </group>
     </open-files>
 </project-private>

@@ -27,7 +27,7 @@ public abstract class ControlImpl <E extends Serializable> implements Control<E>
     public ControlImpl(){
         buffer= new ArrayList<>();
         ServiceInterface service;
-        service =ServiceLocator.getServiceLocator();
+        service = ServiceLocator.getServiceLocator();
         Class c=this.getClasse();
         System.out.println(c);
         dao =service.getService(c);

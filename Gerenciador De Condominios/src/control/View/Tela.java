@@ -15,10 +15,10 @@ import view.LoginPanel;
  */
 public abstract class Tela {
     
-        private static Usuario user;
-       private static JFrame frame;
-       private static ViewChain viewChain;
-      private static  JFrame jf;
+     private static Usuario user;
+     private static JFrame frame;
+     private static ViewChain viewChain;
+     private static  JFrame jf;
         
     public static void inicializaTela(Usuario user){
         

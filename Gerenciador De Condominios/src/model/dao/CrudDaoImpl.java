@@ -17,6 +17,8 @@ import javax.persistence.Query;
  * @param <E>
  * @param <I>
  */
+
+//Template Method
 public abstract class CrudDaoImpl <E extends Serializable, I> implements CrudDao <E,I>{
 
     @Override
@@ -69,7 +71,7 @@ public abstract class CrudDaoImpl <E extends Serializable, I> implements CrudDao
        return l;
     }
 
-    //Template Method
+    
     protected abstract I getChave(E modelo);
     protected abstract String getConsultaSql(E modelo); 
     protected abstract Map<String, Object> getParametrosMapa(E classeModelo);
