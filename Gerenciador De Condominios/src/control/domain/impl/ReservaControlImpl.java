@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.ReservaControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.Reserva;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.Reserva;
  */
 public class ReservaControlImpl extends ControlImpl<Reserva> implements ReservaControl{
 
+    public ReservaControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Reserva.class;

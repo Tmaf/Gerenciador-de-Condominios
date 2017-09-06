@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.UsuarioControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.pessoas.Usuario;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.pessoas.Usuario;
  */
 public class UsuarioControlImpl  extends ControlImpl<Usuario> implements UsuarioControl{
 
+    public UsuarioControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Usuario.class;

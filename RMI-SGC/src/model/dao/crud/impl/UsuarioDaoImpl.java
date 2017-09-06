@@ -16,12 +16,14 @@ public class UsuarioDaoImpl extends CrudDaoImpl<Usuario, String> implements Usua
 	}
 
 	@Override
-	protected String getChave(Usuario modelo) {
-		return modelo.getCpf();
+	public String getChave(Usuario modelo) {
+            System.out.println("TESTAAAAAA");
+            return modelo.getCpf();
+                
 	}
 
 	@Override
-	protected String getConsultaSql(Usuario modelo) {
+	public String getConsultaSql(Usuario modelo) {
 
 		StringBuffer sql = new StringBuffer("from Usuario where " + "1=1");
 		if (modelo.getCpf() != null && !modelo.getCpf().equals("")) {
@@ -41,7 +43,7 @@ public class UsuarioDaoImpl extends CrudDaoImpl<Usuario, String> implements Usua
 	}
 
 	@Override
-	protected Map<String, Object> getParametrosMapa(Usuario modelo) {
+	public Map<String, Object> getParametrosMapa(Usuario modelo) {
 
 		Map<String, Object> mapa = new HashMap<>();
 

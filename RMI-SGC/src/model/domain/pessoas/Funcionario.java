@@ -1,5 +1,6 @@
 package model.domain.pessoas;
 
+import java.rmi.RemoteException;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -11,42 +12,45 @@ import javax.persistence.Table;
 
 public class Funcionario extends PessoaVinculada {
 
-	private static final long serialVersionUID = 1L;
+    public Funcionario() throws RemoteException {
+    }
 
-	@Column(name = "setor_de_servico")
-	private String setorDeServico;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "horario_entrada")
-	// @Temporal(value=TemporalType.TIME)
-	private Date horarioEntrada;
+    @Column(name = "setor_de_servico")
+    private String setorDeServico;
 
-	@Column(name = "horario_saida")
-	// @Temporal(value=TemporalType.TIME)
-	private Date horarioSaida;
+    @Column(name = "horario_entrada")
+    // @Temporal(value=TemporalType.TIME)
+    private Date horarioEntrada;
 
-	// Geters and Seters
-	public String getSetorDeServico() {
-		return setorDeServico;
-	}
+    @Column(name = "horario_saida")
+    // @Temporal(value=TemporalType.TIME)
+    private Date horarioSaida;
 
-	public void setSetorDeServico(String setorDeServico) {
-		this.setorDeServico = setorDeServico;
-	}
+    // Geters and Seters
+    public String getSetorDeServico() {
+        return setorDeServico;
+    }
 
-	public Date getHorarioEntrada() {
-		return horarioEntrada;
-	}
+    public void setSetorDeServico(String setorDeServico) {
+        this.setorDeServico = setorDeServico;
+    }
 
-	public void setHorarioEntrada(Date horarioEntrada) {
-		this.horarioEntrada = horarioEntrada;
-	}
+    public Date getHorarioEntrada() {
+        return horarioEntrada;
+    }
 
-	public Date getHorarioSaida() {
-		return horarioSaida;
-	}
+    public void setHorarioEntrada(Date horarioEntrada) {
+        this.horarioEntrada = horarioEntrada;
+    }
 
-	public void setHorarioSaida(Date horarioSaida) {
-		this.horarioSaida = horarioSaida;
-	}
+    public Date getHorarioSaida() {
+        return horarioSaida;
+    }
+
+    public void setHorarioSaida(Date horarioSaida) {
+        this.horarioSaida = horarioSaida;
+    }
 
 }

@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.ReclamacaoControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.Reclamacao;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.Reclamacao;
  */
 public class ReclamacaoControlImpl  extends ControlImpl<Reclamacao> implements ReclamacaoControl{
 
+    public ReclamacaoControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Reclamacao.class;

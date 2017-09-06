@@ -1,6 +1,8 @@
 package model.domain.pessoas;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,9 +10,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable {
+public class Usuario extends UnicastRemoteObject implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    public Usuario () throws RemoteException{}
+    
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	private String cpf;

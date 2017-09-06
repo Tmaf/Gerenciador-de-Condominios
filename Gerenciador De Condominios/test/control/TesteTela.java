@@ -6,6 +6,7 @@
 package control;
 
 import control.View.Tela;
+import java.rmi.RemoteException;
 import model.domain.pessoas.Usuario;
 /**
  *
@@ -13,7 +14,7 @@ import model.domain.pessoas.Usuario;
  */
 public class TesteTela {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException {
         
         Usuario user= new Usuario();
         user.setPermissao("Sindico");

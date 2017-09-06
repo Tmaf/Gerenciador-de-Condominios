@@ -41,9 +41,10 @@ public abstract class ControlImpl<E extends Serializable> implements Control<E> 
     @Override
     public void salvar(E e) {
         try {
+            System.out.println("Tentando salvar...");
             dao.salvar(e);
         } catch (RemoteException ex) {
-            Logger.getLogger(ControlImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 

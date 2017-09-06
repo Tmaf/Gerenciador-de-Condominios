@@ -1,5 +1,6 @@
 package model.domain.pessoas;
 
+import java.rmi.RemoteException;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -12,37 +13,40 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "cpf")
 public class Visitante extends Pessoa {
 
-	private static final long serialVersionUID = 1L;
+    public Visitante() throws RemoteException {
+    }
 
-	@Column(name = "prestadorDeServico")
-	private boolean prestadorDeServico;
-	@Column(name = "horario_entrada")
-	private Date horaDeEntrada;
-	@Column(name = "horario_saida")
-	private Date horaDeSaida;
+    private static final long serialVersionUID = 1L;
 
-	public boolean isPrestadorDeServico() {
-		return prestadorDeServico;
-	}
+    @Column(name = "prestadorDeServico")
+    private boolean prestadorDeServico;
+    @Column(name = "horario_entrada")
+    private Date horaDeEntrada;
+    @Column(name = "horario_saida")
+    private Date horaDeSaida;
 
-	public void setPrestadorDeServico(boolean prestadorDeServico) {
-		this.prestadorDeServico = prestadorDeServico;
-	}
+    public boolean isPrestadorDeServico() {
+        return prestadorDeServico;
+    }
 
-	public Date getHoraDeEntrada() {
-		return horaDeEntrada;
-	}
+    public void setPrestadorDeServico(boolean prestadorDeServico) {
+        this.prestadorDeServico = prestadorDeServico;
+    }
 
-	public void setHoraDeEntrada(Date horaDeEntrada) {
-		this.horaDeEntrada = horaDeEntrada;
-	}
+    public Date getHoraDeEntrada() {
+        return horaDeEntrada;
+    }
 
-	public Date getHoraDeSaida() {
-		return horaDeSaida;
-	}
+    public void setHoraDeEntrada(Date horaDeEntrada) {
+        this.horaDeEntrada = horaDeEntrada;
+    }
 
-	public void setHoraDeSaida(Date horaDeSaida) {
-		this.horaDeSaida = horaDeSaida;
-	}
+    public Date getHoraDeSaida() {
+        return horaDeSaida;
+    }
+
+    public void setHoraDeSaida(Date horaDeSaida) {
+        this.horaDeSaida = horaDeSaida;
+    }
 
 }

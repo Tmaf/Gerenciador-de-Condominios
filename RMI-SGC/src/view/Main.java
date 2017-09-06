@@ -13,9 +13,9 @@ public class Main {
 			
 			ServiceInterface obj = ServiceLocator.getServiceLocator();
 			
-			Naming.bind(ServiceInterface.URL_SERVICO, obj);
+			Naming.rebind(ServiceInterface.URL_SERVICO, obj);
 			
-			System.out.println("Serviço inicializado");
+			System.out.println("Servico inicializado");
 			
 			System.out.println("RMIServer.Main() thread : " + Thread.currentThread().getName() 
 	                + " " + Thread.currentThread().getId());

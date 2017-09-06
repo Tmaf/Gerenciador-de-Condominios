@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.VisitanteControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.pessoas.Visitante;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.pessoas.Visitante;
  */
 public class VisitanteControlImpl  extends ControlImpl<Visitante> implements VisitanteControl{
 
+    public VisitanteControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Visitante.class;

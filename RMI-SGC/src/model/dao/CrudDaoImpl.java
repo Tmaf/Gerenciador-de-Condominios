@@ -13,6 +13,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import model.domain.pessoas.Usuario;
 
 /**
  *
@@ -25,7 +26,6 @@ public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRem
 	private static final long serialVersionUID = 1L;
 	
 	public CrudDaoImpl() throws RemoteException{
-		// TODO Auto-generated constructor stub
 	}
 	
     @Override
@@ -33,8 +33,7 @@ public abstract class CrudDaoImpl <E extends Serializable, I> extends UnicastRem
     
         EntityManager em = Conexao.getConexao();
         em.getTransaction().begin();
-        
-        if(this.getChave(classeModelo)!=null){
+        if(this.getChave((E)(Usuario)classeModelo)!=null){
             classeModelo = em.merge(classeModelo);
         }
         em.persist(classeModelo);

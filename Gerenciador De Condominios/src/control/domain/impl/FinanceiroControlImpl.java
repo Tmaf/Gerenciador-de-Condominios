@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.FinanceiroControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.Financeiro;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.Financeiro;
  */
 public class FinanceiroControlImpl extends ControlImpl<Financeiro> implements FinanceiroControl{
 
+    public FinanceiroControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Financeiro.class;

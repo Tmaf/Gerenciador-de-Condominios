@@ -3,19 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control.domain.impl;
+package model.domain;
 
-import java.rmi.RemoteException;
+import java.rmi.Remote;
 
-/**
- *
- * @author Vinicius
- */
-public class NewClass {
-
-    public NewClass() throws RemoteException{
-    }
-    
-    
+public interface DomainInterface extends Remote{
     
 }

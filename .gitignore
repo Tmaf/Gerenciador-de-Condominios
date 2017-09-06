@@ -1,3 +1,7 @@
 /Gerenciador De Condominios/dist/*
 /Gerenciador De Condominios/build/*
 /Gerenciador De Condominios/nbproject/private/*
+/.metadata/
+/RMI-SGC/nbproject/private/
+/RMI-SGC/build/
+/RMI-SGC/dist/

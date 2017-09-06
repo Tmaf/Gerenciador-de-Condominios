@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.VeiculoControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.Veiculo;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.Veiculo;
  */
 public class VeiculoControlImpl  extends ControlImpl<Veiculo> implements VeiculoControl{
 
+    public VeiculoControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Veiculo.class;

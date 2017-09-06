@@ -6,6 +6,11 @@
 package view.paineis;
 
 import control.domain.*;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.Encomenda;
 
 /**
@@ -145,14 +150,22 @@ public class CadastroEncomendasView extends javax.swing.JPanel {
     }//GEN-LAST:event_CodigoCorrespondenciajTextFieldActionPerformed
 
     private void SalvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarjButtonActionPerformed
-        Control control = ControlFactory.getEncomendaControl();
-        
-        Encomenda encomenda= new Encomenda();
-        encomenda.setCodigo(this.CodigoCorrespondenciajTextField.getText());
-        encomenda.setDestinatario(this.DestinatariojTextField.getText());
-        encomenda.setEndereco(this.EnderecojLabel.getText());
-        encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
-        control.salvar(encomenda);
+        try {
+            Control control = ControlFactory.getEncomendaControl();
+            
+            Encomenda encomenda= new Encomenda();
+            encomenda.setCodigo(this.CodigoCorrespondenciajTextField.getText());
+            encomenda.setDestinatario(this.DestinatariojTextField.getText());
+            encomenda.setEndereco(this.EnderecojLabel.getText());
+            encomenda.setEntregue(this.EntreguejCheckBox.isEnabled());
+            control.salvar(encomenda);
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroEncomendasView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CadastroEncomendasView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CadastroEncomendasView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_SalvarjButtonActionPerformed
 

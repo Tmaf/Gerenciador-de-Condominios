@@ -1,6 +1,8 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -17,8 +19,13 @@ import model.domain.pessoas.PessoaVinculada;
 
 @Entity
 @Table(name="reserva")
-public class Reserva implements Serializable {
+public class Reserva extends UnicastRemoteObject implements Serializable, DomainInterface {
     
+	public Reserva() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

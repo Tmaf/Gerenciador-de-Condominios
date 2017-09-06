@@ -1,6 +1,8 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -14,7 +16,11 @@ import model.domain.pessoas.Pessoa;
 
 @Entity
 @Table(name = "area_comum")
-public class AreaComum implements Serializable {
+public class AreaComum extends UnicastRemoteObject implements Serializable, DomainInterface {
+	
+	public AreaComum() throws RemoteException{
+		// TODO Auto-generated constructor stub
+	}
 
 	private static final long serialVersionUID = 1L;
 

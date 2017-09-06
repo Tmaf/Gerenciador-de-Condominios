@@ -7,6 +7,11 @@ package view.paineis;
 
 import control.domain.Control;
 import control.domain.ControlFactory;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.Veiculo;
 import model.domain.pessoas.Pessoa;
 
@@ -98,12 +103,21 @@ public class CadastrarVeiculosView extends javax.swing.JPanel {
 
     private void salvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarjButtonActionPerformed
         
-        Veiculo veiculo= new Veiculo();
-        Control control = ControlFactory.getVeiculoControl();
-        
-        veiculo.setModelo(this.modelojTextField.getText());
-        veiculo.setPlaca(this.placajTextField.getText());
-        control.salvar(veiculo);
+        try {
+            Veiculo veiculo;
+            veiculo = new Veiculo();
+            Control control = ControlFactory.getVeiculoControl();
+            
+            veiculo.setModelo(this.modelojTextField.getText());
+            veiculo.setPlaca(this.placajTextField.getText());
+            control.salvar(veiculo);
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastrarVeiculosView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CadastrarVeiculosView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CadastrarVeiculosView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_salvarjButtonActionPerformed
 
 

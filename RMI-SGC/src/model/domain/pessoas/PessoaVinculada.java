@@ -1,5 +1,6 @@
 package model.domain.pessoas;
 
+import java.rmi.RemoteException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -12,6 +13,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "cpf")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class PessoaVinculada extends Pessoa {
+    
+    public PessoaVinculada () throws RemoteException{}
 
 	private static final long serialVersionUID = 1L;
 	@Column(name = "email")

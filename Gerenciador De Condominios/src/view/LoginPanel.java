@@ -6,9 +6,13 @@
 package view;
 
 import control.View.Tela;
-import control.domain.impl.ControlImpl;
 import control.domain.ControlFactory;
 import control.domain.UsuarioControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.pessoas.Usuario;
 
 /**
@@ -138,17 +142,25 @@ public class LoginPanel extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
        
-        UsuarioControl control = ControlFactory.getUsuarioControl();
-        Usuario user = new Usuario();
-        
-        String c = new String(senhaText.getPassword());
-        user.setCpf(usuarioText.getText());
-        user.setSenha(c);     
-        user= control.login(user);
-        
-        if(user!=null){
-        Tela.end();     
-        Tela.inicializaTela(user);
+        try {
+            UsuarioControl control = ControlFactory.getUsuarioControl();
+            Usuario user = new Usuario();
+            
+            String c = new String(senhaText.getPassword());
+            user.setCpf(usuarioText.getText());
+            user.setSenha(c);
+            user= control.login(user);
+            
+            if(user!=null){
+                Tela.end();
+                Tela.inicializaTela(user);
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

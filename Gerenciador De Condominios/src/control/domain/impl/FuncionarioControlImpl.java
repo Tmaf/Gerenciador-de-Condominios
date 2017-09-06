@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.FuncionarioControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.pessoas.Funcionario;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.pessoas.Funcionario;
  */
 public class FuncionarioControlImpl extends ControlImpl<Funcionario> implements FuncionarioControl{
 
+    public FuncionarioControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Funcionario.class;

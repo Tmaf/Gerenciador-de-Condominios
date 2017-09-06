@@ -1,6 +1,8 @@
 package model.domain;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -9,7 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "financeiro")
-public class Financeiro implements Serializable {
+public class Financeiro extends UnicastRemoteObject implements Serializable, DomainInterface {
+
+	public Financeiro() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	private static final long serialVersionUID = 1L;
 

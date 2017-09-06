@@ -7,6 +7,9 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -170,8 +173,22 @@ public class CadastroFuncionarioView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SalvarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarjButtonActionPerformed
-        Control control = ControlFactory.getFuncionarioControl();
-        Funcionario f= new Funcionario();
+        Control control=null;
+        try {
+            control = ControlFactory.getFuncionarioControl();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Funcionario f = null;
+        try {
+            f = new Funcionario();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroFuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         f.setCpf(this.CPFjTextField.getText());
         f.setEmail(this.emailjTextField.getText());
         f.setNome(this.nomejTextField.getText());

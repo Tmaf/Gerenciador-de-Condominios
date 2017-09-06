@@ -6,6 +6,9 @@
 package control.domain.impl;
 
 import control.domain.MoradorControl;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import model.domain.pessoas.Morador;
 
 /**
@@ -14,6 +17,10 @@ import model.domain.pessoas.Morador;
  */
 public class MoradorControlImpl  extends ControlImpl<Morador> implements MoradorControl{
 
+    public MoradorControlImpl() throws RemoteException, NotBoundException, MalformedURLException {
+    }
+
+    
     @Override
     protected Class getClasse() {
         return Morador.class;

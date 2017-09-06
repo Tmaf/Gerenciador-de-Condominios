@@ -7,7 +7,12 @@ package view.paineis;
 
 import control.domain.impl.ControlImpl;
 import control.domain.*;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.pessoas.Morador;
 import model.domain.pessoas.Usuario;
 
@@ -160,11 +165,39 @@ public class CadastroMoradorView extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Control moradorControl = ControlFactory.getMoradorControl();
-        Control usuarioControl= ControlFactory.getUsuarioControl();
+        Control moradorControl = null;
+        try {
+            moradorControl = ControlFactory.getMoradorControl();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Control usuarioControl = null;
+        try {
+            usuarioControl = ControlFactory.getUsuarioControl();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        Usuario user = new Usuario();
-        Morador morador= new Morador();
+        Usuario user = null;
+        try {
+            user = new Usuario();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Morador morador = null;
+        try {
+            morador = new Morador();
+        } catch (RemoteException ex) {
+            Logger.getLogger(CadastroMoradorView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         morador.setNome(this.nomejTextField.getText());
